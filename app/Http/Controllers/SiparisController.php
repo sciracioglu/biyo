@@ -34,6 +34,7 @@ class SiparisController extends Controller
             'ihale' => 'required',
             'evrak_no' => 'required',
             'depokod' => 'required',
+            'serino' => 'required',
             ]);
 
         $this->evrakBaslikKaydet($data);
