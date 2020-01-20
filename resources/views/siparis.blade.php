@@ -61,7 +61,9 @@
                 </thead>
                 <tbody>
                     <tr v-for='urun in urunler'>
-                        <td></td>
+                        <td>
+                            <input type="radio" name='urun' @click='urunSec(urun)' />
+                        </td>
                         <td>@{{ urun.SERINO }}</td>
                         <td>@{{ urun.STKKRT_MALAD }}</td>
                         <td>@{{ urun.KULLANILABILIR }} @{{ urun.BIRIM }}</td>
@@ -154,21 +156,23 @@ var vue=new Vue({
         evrak_no:'{{ $evrak_no }}',
         evrak_baslik:{!! session()->has('evrak_baslik') ? session('evrak_baslik') : "null" !!},
         form : new Form({
-                satisci:null,
+            ihale:null,
+            satis_temsilci:null,
+            hasta:null,
+            protokol:null,
+            aciklama:null,
+            depokod:null,
+            malkod:null,
+            malad:null,
+            evrak_no:'{{ $evrak_no }}',
                 takip:null,
-		        ihale:null,
-                aciklama:null,
                 doktor:null,
-                hasta:null,
                 kimlikno:null,
-                protokol:null,
                 serino:null,
                 serino2:null,
                 skt:null,
                 ubb:null,
                 tarihi:null,
-                depokod:null,
-                evrak_no:'{{ $evrak_no }}',
             }),
     },
     methods:{
@@ -182,11 +186,15 @@ var vue=new Vue({
                     self.form.ubb=null;
                     self.form.skt = null;
                     self.form.depokod = null;
-                    self.form.mal_kodu = null;
-                    self.form.mal_adi = null;
+                    self.form.malkod = null;
+                    self.form.malad = null;
                     self.liste();
                     self.isLoading=false;
                 })
+        },
+        urunSec(urun){
+            this.form.depokod = urun.DEPOKOD;
+            this.form.malkod = urun.MALKOD;
         },
         liste(){
             this.isLoading=true;

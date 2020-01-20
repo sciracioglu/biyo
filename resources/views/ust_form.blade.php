@@ -36,11 +36,6 @@
         <small class="form-text text-danger" v-if="form.errors.has('hasta')">Bu alan bos birakilamaz</small>
     </div>
     <div class='col-4 col-md-4'>
-         <div class="form-group">
-            <input type="text" class="form-control" id="doktor" v-model='form.protokol' placeholder="Protokol No" />
-        </div>
-    </div>
-    <div class='col-4 col-md-4'>
         <div class="form-group">
             <input type='text' class='form-control' id='protokolno' placeholder="Hasta Protokol No" v-model='form.protokol' />
         </div>
