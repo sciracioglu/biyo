@@ -33,7 +33,8 @@ class SiparisController extends Controller
             'hasta' => 'required',
             'ihale' => 'required',
             'evrak_no' => 'required',
-        ]);
+            'depokod' => 'required',
+            ]);
 
         $this->evrakBaslikKaydet($data);
         $this->kalemKaydet($data);
@@ -46,30 +47,28 @@ class SiparisController extends Controller
 
     private function evrakBaslikKaydet($data)
     {
-        DB::insert('EXEC [dbo].[ARG_WEB_EVRBAS_INS] ?, ?, ?, ?, ?, ?, ?, ? ', [
-            session('musteri.hesapkod'),
-            $data['protokol'],
-            $data['takip'],
-            $data['hasta'],
-            $data['ihale'],
-            request('aciklama'),
-            session('username'),
-            $data['evrak_no']
-        ]);
+        if(session()->has('musteri.hesapkod') && session('musteri.hesapkod') !== null){
+            DB::insert('EXEC [dbo].[ARG_WEB_EVRBAS_INS] ?, ?, ?, ?, ?, ?, ?, ? ', [
+                session('musteri.hesapkod'),
+                $data['protokol'],
+                $data['takip'],
+                $data['hasta'],
+                $data['ihale'],
+                request('aciklama'),
+                session('username'),
+                $data['evrak_no']
+                ]);
+        }
     }
 
     private function kalemKaydet($data)
     {
         DB::connection('sqlsrv')->statement('SET ANSI_NULLS, QUOTED_IDENTIFIER, CONCAT_NULL_YIELDS_NULL, ANSI_WARNINGS, ANSI_PADDING ON');
-        DB::connection('sqlsrv')->insert('EXEC [dbo].[spArgSipInsStkHar] ?, ?, ?, ?, ?, ?, ?, ?', [
+        DB::connection('sqlsrv')->insert('EXEC [dbo].[ARG_WEB_STKHAR_INS] ?, ?, ?', [
             $data['evrak_no'],
             $data['serino'],
             session('username'),
-            request('serino2'),
-            request('skt'),
-            request('ubb'),
-            request('tarihi'),
-            request('depokod')
+            $data['depokod']
         ]);
     }
 

@@ -161,8 +161,6 @@ var vue=new Vue({
             protokol:null,
             aciklama:null,
             depokod:null,
-            malkod:null,
-            malad:null,
             evrak_no:'{{ $evrak_no }}',
             takip:null,
             serino:null,
@@ -179,21 +177,15 @@ var vue=new Vue({
                     self.form.protokol=null;
                     self.form.aciklama=null;
                     self.form.depokod=null;
-                    self.form.malkod=null;
-                    self.form.malad=null;
                     self.form.evrak_no=self.evrak_no;
                     self.form.takip=null;
-                    self.form.kimlikno=null;
                     self.form.serino=null;
-                    
                     self.liste();
                     self.isLoading=false;
                 })
         },
         urunSec(index){
             this.form.depokod = this.urunler[index].DEPOKOD;
-            this.form.malkod = this.urunler[index].MALKOD;
-            this.form.malad = this.urunler[index].STKKRT_MALAD;
         },
         liste(){
             this.isLoading=true;
