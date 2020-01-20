@@ -61,7 +61,7 @@
                 <tbody>
                     <tr v-for='urun in urunler'>
                         <td>@{{ urun.SERINO }}</td>
-                        <td>@{{ urun.STKKRT.MALAD }}</td>
+                        <td>@{{ urun.STKKRT_MALAD }}</td>
                         <td>@{{ urun.KULLANILABILIR }} @{{ urun.BIRIM }}</td>
                         <td></td>
                     </tr>
