@@ -25,7 +25,7 @@ class SiparisController extends Controller
         return view('siparis', $data);
     }
 
-    public function store(Request $request)
+    public function store()
     {
         $data = request()->validate([
             'protokol' => 'required',
