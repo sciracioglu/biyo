@@ -60,9 +60,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for='urun in urunler'>
+                    <tr v-for='(urun,index) in urunler'>
                         <td>
-                            <input type="radio" name='urun' @click='urunSec(urun)' />
+                            <input type="radio" name='urun' @click='urunSec(index)' />
                         </td>
                         <td>@{{ urun.SERINO }}</td>
                         <td>@{{ urun.STKKRT_MALAD }}</td>
@@ -192,9 +192,9 @@ var vue=new Vue({
                     self.isLoading=false;
                 })
         },
-        urunSec(urun){
-            this.form.depokod = urun.DEPOKOD;
-            this.form.malkod = urun.MALKOD;
+        urunSec(index){
+            this.form.depokod = urunler[index].DEPOKOD;
+            this.form.malkod = urunler[index].MALKOD;
         },
         liste(){
             this.isLoading=true;
