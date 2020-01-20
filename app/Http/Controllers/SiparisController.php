@@ -28,11 +28,12 @@ class SiparisController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
-            'satis_sekli'   => 'required',
-            'hastane'       => 'required',
-            'hasta'         => 'required',
-            'serino'        => 'required',
-            'evrak_no'      => 'required'
+            'protokol' => 'required',
+            'takip' => 'required',
+            'hasta' => 'required',
+            'ihale' => 'required',
+            'aciklama' => 'required',
+            'evrak_no' => 'required',
         ]);
 
         $this->evrakBaslikKaydet($data);
@@ -46,17 +47,9 @@ class SiparisController extends Controller
 
     private function evrakBaslikKaydet($data)
     {
-        DB::insert('EXEC [dbo].[SpArgSipInsEvrBas] ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ', [
+        DB::insert('EXEC [dbo].[ARG_WEB_EVRBAS_INS] ?, ?, ?, ?, ?, ?, ?, ? ', [
             session('musteri.hesapkod'),
-            $data['satis_sekli'],
-            $data['hastane'],
-            (request()->has('doktor') && request('doktor') != null) ? request('doktor') : '',
-            $data['hasta'],
-            (request()->has('kimlikno') && request('kimlikno') != null) ? request('kimlikno') : '',
-            (request()->has('protokol') && request('protokol') != null) ? request('protokol') : '',
-            (request()->has('aciklama') && request('aciklama') != null) ? request('aciklama') : '',
-            session('username'),
-            $data['evrak_no']
+            $data
         ]);
     }
 

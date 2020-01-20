@@ -1,14 +1,4 @@
 <div class='row'>
-    <div class='col-sm-12 col-md-4'>
-        <div class="form-group">
-            <label for="satis_temsilci">Satış Temsilcisi</label>
-            <select class="form-control" id="satis_temsilci" v-model='form.satis_temsilci' >
-                    <option v-for='satisci in satiscilar' :value='satisci.TEMSILCINO'>@{{ satisci.ACIKLAMA1 }}</option>
-                    
-            </select>
-            <small id="satisci" class="form-text text-danger" v-if="form.errors.has('satis_temsilci')">Bu alan bos birakilamaz</small>
-        </div>
-    </div>
     <div class='col-6 col-md-4'>
         <div class="form-group">
             <label for="hastane">Takip Tipi</label>

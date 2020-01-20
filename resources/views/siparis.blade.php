@@ -157,7 +157,6 @@ var vue=new Vue({
         evrak_baslik:{!! session()->has('evrak_baslik') ? session('evrak_baslik') : "null" !!},
         form : new Form({
             ihale:null,
-            satis_temsilci:null,
             hasta:null,
             protokol:null,
             aciklama:null,
@@ -165,14 +164,9 @@ var vue=new Vue({
             malkod:null,
             malad:null,
             evrak_no:'{{ $evrak_no }}',
-                takip:null,
-                doktor:null,
-                kimlikno:null,
-                serino:null,
-                serino2:null,
-                skt:null,
-                ubb:null,
-                tarihi:null,
+            takip:null,
+            kimlikno:null,
+            serino:null,
             }),
     },
     methods:{
@@ -181,20 +175,23 @@ var vue=new Vue({
             isLoading=true;
             this.form.post('/siparis')
                 .then(function(){
+                    self.form.ihale=null;
+                    self.form.hasta=null;
+                    self.form.protokol=null;
+                    self.form.aciklama=null;
+                    self.form.depokod=null;
+                    self.form.malkod=null;
+                    self.form.malad=null;
+                    self.form.evrak_no=self.evrak_no;
+                    self.form.takip=null;
+                    self.form.kimlikno=null;
                     self.form.serino=null;
-                    self.form.serino2=null;
-                    self.form.ubb=null;
-                    self.form.skt = null;
-                    self.form.depokod = null;
-                    self.form.malkod = null;
-                    self.form.malad = null;
+                    
                     self.liste();
                     self.isLoading=false;
                 })
         },
         urunSec(index){
-            console.log(index);
-            console.log(this.urunler[index].DEPOKOD);
             this.form.depokod = this.urunler[index].DEPOKOD;
             this.form.malkod = this.urunler[index].MALKOD;
             this.form.malad = this.urunler[index].STKKRT_MALAD;
