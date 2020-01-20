@@ -128,12 +128,13 @@ var vue=new Vue({
         skt:null,
         lot_no:null,
         durum:null,
+        urunler:null,
         evrak_no:'{{ $evrak_no }}',
         evrak_baslik:{!! session()->has('evrak_baslik') ? session('evrak_baslik') : "null" !!},
         form : new Form({
                 satisci:null,
                 takip:null,
-		ihale:null,
+		        ihale:null,
                 aciklama:null,
                 doktor:null,
                 hasta:null,
@@ -180,22 +181,7 @@ var vue=new Vue({
                 this.isLoading=true;
                 axios.get('/siparis?serino='+this.form.serino)
                     .then(function(response){
-                        if(response.data[0].DURUM==1){
-                            self.form.fiyat = response.data[0].FIYAT;
-                            self.form.ubb = response.data[0].BARKOD1;
-                            self.form.skt = response.data[0].SKT;
-                            self.form.serino2 = response.data[0].LOTNO;
-                            self.form.mal_kodu = response.data[0].MALKOD;
-                            self.form.mal_adi = response.data[0].MALAD;
-                            self.form.tarihi = response.data[0].TARIHI;
-                            self.form.depokod = response.data[0].DEPOKOD;
-                        } else if(response.data[0].DURUM==0){
-                            self.form.serino = null;
-                            alert('Seri no bulunamadı!');
-                        } else if(response.data[0].DURUM==2){
-                            self.form.serino = null;
-                            alert('Seri daha önce kullanılmış!');
-                        }
+                        self.urunler = response.data;
                         self.isLoading=false;
                     });
             }
