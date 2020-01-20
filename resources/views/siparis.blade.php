@@ -48,6 +48,26 @@
                 <small id="serino" class="form-text text-danger" v-if="form.errors.has('serino')">Bu alan bos birakilamaz</small>
             </div>
         </div>
+        <div v-if='urunler.length>0'>
+            <table class="table table-condenced table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Seri No</th>
+                        <th>Mal Adı</th>
+                        <th>Stok Miktar</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for='urun in urunler'>
+                        <td>@{{ urun.SERINO }}</td>
+                        <td>@{{ urun.STKKRT.MALAD }}</td>
+                        <td>@{{ urun.KULLANILABILIR }} @{{ urun.BIRIM }}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
     <div class="row" v-if='form.mal_kodu'>
