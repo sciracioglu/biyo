@@ -165,7 +165,6 @@ var vue=new Vue({
             malad:null,
             evrak_no:'{{ $evrak_no }}',
             takip:null,
-            kimlikno:null,
             serino:null,
             }),
     },

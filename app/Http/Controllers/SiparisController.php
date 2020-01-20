@@ -32,7 +32,6 @@ class SiparisController extends Controller
             'takip' => 'required',
             'hasta' => 'required',
             'ihale' => 'required',
-            'aciklama' => 'required',
             'evrak_no' => 'required',
         ]);
 
@@ -49,7 +48,13 @@ class SiparisController extends Controller
     {
         DB::insert('EXEC [dbo].[ARG_WEB_EVRBAS_INS] ?, ?, ?, ?, ?, ?, ?, ? ', [
             session('musteri.hesapkod'),
-            $data
+            $data['protokol'],
+            $data['takip'],
+            $data['hasta'],
+            $data['ihale'],
+            request('aciklama'),
+            session('username'),
+            $data['evrak_no']
         ]);
     }
 
