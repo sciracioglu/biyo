@@ -65,7 +65,7 @@ class SiparisController extends Controller
     private function kalemKaydet($data)
     {
         DB::connection('sqlsrv')->statement('SET ANSI_NULLS, QUOTED_IDENTIFIER, CONCAT_NULL_YIELDS_NULL, ANSI_WARNINGS, ANSI_PADDING ON');
-        DB::connection('sqlsrv')->insert('EXEC [dbo].[ARG_WEB_STKHAR_INS] ?, ?, ?', [
+        DB::connection('sqlsrv')->insert('EXEC [dbo].[ARG_WEB_STKHAR_INS] ?, ?, ?, ?', [
             $data['evrak_no'],
             $data['serino'],
             session('username'),
