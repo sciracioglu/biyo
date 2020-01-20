@@ -193,8 +193,11 @@ var vue=new Vue({
                 })
         },
         urunSec(index){
+            console.log(index);
+            console.log(this.urunler[index].DEPOKOD);
             this.form.depokod = this.urunler[index].DEPOKOD;
             this.form.malkod = this.urunler[index].MALKOD;
+            this.form.malad = this.urunler[index].STKKRT_MALAD;
         },
         liste(){
             this.isLoading=true;
