@@ -52,18 +52,20 @@
             <table class="table table-condenced table-bordered table-hover">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Seri No</th>
                         <th>Mal Adı</th>
                         <th>Stok Miktar</th>
-                        <th></th>
+                        <th>Depo Adı</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for='urun in urunler'>
+                        <td></td>
                         <td>@{{ urun.SERINO }}</td>
                         <td>@{{ urun.STKKRT_MALAD }}</td>
                         <td>@{{ urun.KULLANILABILIR }} @{{ urun.BIRIM }}</td>
-                        <td></td>
+                        <td>@{{ urun.DEPOAD }}</td>
                     </tr>
                 </tbody>
             </table>
