@@ -148,7 +148,7 @@ var vue=new Vue({
         skt:null,
         lot_no:null,
         durum:null,
-        urunler:null,
+        urunler:[],
         evrak_no:'{{ $evrak_no }}',
         evrak_baslik:{!! session()->has('evrak_baslik') ? session('evrak_baslik') : "null" !!},
         form : new Form({
