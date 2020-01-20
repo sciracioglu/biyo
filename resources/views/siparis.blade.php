@@ -193,8 +193,8 @@ var vue=new Vue({
                 })
         },
         urunSec(index){
-            this.form.depokod = urunler[index].DEPOKOD;
-            this.form.malkod = urunler[index].MALKOD;
+            this.form.depokod = this.urunler[index].DEPOKOD;
+            this.form.malkod = this.urunler[index].MALKOD;
         },
         liste(){
             this.isLoading=true;
