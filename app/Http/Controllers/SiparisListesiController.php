@@ -9,7 +9,7 @@ class SiparisListesiController extends Controller
 {
     public function index()
     {
-        $siparisler =  DB::select('EXEC [dbo].[spArgWebSiparisListesi] ?', [session('username')]);
+        $siparisler =  collect(DB::select('EXEC [dbo].[spArgWebSiparisListesi] ?', [session('username')]));
         return view('siparisListe', compact('siparisler'));
     }
 
