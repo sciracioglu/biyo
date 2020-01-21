@@ -8,10 +8,7 @@
 @endsection
 
 @section('icerik')
-<style>
-	[v-cloak] > * { display:none; }
-	[v-cloak]::before { content: "loading..."; }
-</style>
+
 <div id='app'>
 	<div class="padding-bottom-10 padding-top-10">
 		<span class="input-icon">
@@ -23,7 +20,7 @@
 	<table class='table table-condenced table-hover'>
 		<thead>
 			<tr>
-				<th>Depo Ad</th>
+				<th>Açıklama</th>
 				<th>Lot No</th>
 				<th>Son Kullanma Tarihi</th>
 				<th>Kullanılabilir</th>
@@ -34,7 +31,7 @@
 		</thead>
 		<tbody>
 			<tr v-for='stok in stoklar'>
-				<td>@{{ stok.DEPOAD }}</td>
+				<td>@{{ stok.SERKRT_ACIKLAMA1 }}</td>
 				<td>@{{ stok.LOTNO }}</td>
 				<td>@{{ stok.SONKULLANMATARIH }}</td>
 				<td>@{{ stok.KULLANILABILIR }}</td>
