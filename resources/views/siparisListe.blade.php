@@ -24,17 +24,47 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for='(siparis,index) in siparisler' @click='detay(siparis.EVRAKSN)'>
-                                    <td>@{{siparis.FATURAUNVAN}}</td>
-                                    <td>@{{siparis.EVRAKNO}}</td>
-                                    <td>@{{siparis.ACIKLAMA6}}</td>
-                                    <td>@{{siparis.EVRAKTARIH}}</td>
-                                    <td>
-                                        <span class="text-danger" style="cursor:pointer;" @click='sil(siparis.EVRAKSN, index)'>
-                                            <i class="fa fa-trash"></i>
-                                        </span>
-                                    </td>
-                                </tr>
+                                <div v-for='(siparis,index) in siparisler'>
+                                    <tr>
+                                        <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.FATURAUNVAN}}</td>
+                                        <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.EVRAKNO}}</td>
+                                        <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.ACIKLAMA6}}</td>
+                                        <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.EVRAKTARIH}}</td>
+                                        <td>
+                                            <span class="text-danger" style="cursor:pointer;" @click='sil(siparis.EVRAKSN, index)'>
+                                                <i class="fa fa-trash"></i>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" v-if='siparis.EVRAKSN === detaysn'>
+                                            <table class='table table-condenced'>
+                                                <thead>
+                                                    <tr>
+                                                        <th>SeriNo</th>
+                                                        <th>Mal Kod</th>
+                                                        <th>Mal Ad</th>
+                                                        <th>Fiyat</th>
+                                                        <th>UBB</th>
+                                                        <th>Lot No</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for='(satis,index) in kalemler'>
+                                                        <td>@{{satis.SERINO}}</td>
+                                                        <td>@{{satis.MALKOD}}</td>
+                                                        <td>@{{satis.MALAD}}</td>
+                                                        <td>@{{satis.FIYAT}}</td>
+                                                        <td>@{{satis.UBB}}</td>
+                                                        <td>@{{satis.LOT}}</td>
+                                                        <td><span class="text-danger" style="cursor:pointer;" @click='kalemSil(index, satis.KALEMSN)'><i class="fa fa-trash"></i></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </div>
                             </tbody>
                         </table>
                     </div>
@@ -51,7 +81,8 @@
         data:{
             isLoading:false,
             siparisler:{!! $siparisler !!},
-            evraklar:null,
+            detaysn:null,
+            kalemler:null,
         },
         methods:{
             sil(hid,index){
@@ -68,11 +99,23 @@
                         });
                 }
             },
+            kalemSil(index,kalemsn){
+                self = this;
+                var sor=confirm('Silmek istediginize emin misiniz?')
+                if(sor){
+                    this.isLoading=true;
+                    axios.delete('/siparis/'+kalem)
+                        .then(function(){
+                           self.detay(self.detaysn)
+                        });
+                }
+            },
             detay(evraksn){
                 self=this;
+                this.detay = evraksn;
                 axios.get('/siparis_liste/'+evraksn)
                         .then(({data})=>{
-                            self.evraklar = data;
+                            self.kalemler = data;
                         });
             },
         }
