@@ -19,19 +19,21 @@
                                     <th>Unvan</th>
                                     <th>Evrak No</th>
                                     <th>Mal Ad</th>
-                                    <th>Seri No</th>
                                     <th>Tarih</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for='(siparis,index) in siparisler'>
-                                    <td>@{{siparis.UNVAN}}</td>
+                                    <td>@{{siparis.FATURAUNVAN}}</td>
                                     <td>@{{siparis.EVRAKNO}}</td>
-                                    <td>@{{siparis.MALAD}}</td>
-                                    <td>@{{siparis.SERINO}}</td>
+                                    <td>@{{siparis.ACIKLAMA6}}</td>
                                     <td>@{{siparis.EVRAKTARIH}}</td>
-                                    <td><span class="text-danger" style="cursor:pointer;" v-if='siparis.AKTARILDI==0' @click='sil(siparis.KALEMSN)'><i class="fa fa-trash"></i></span></td>
+                                    <td>
+                                        <span class="text-danger" style="cursor:pointer;" @click='sil(siparis.EVRAKSN)'>
+                                            <i class="fa fa-trash"></i>
+                                        </span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
