@@ -10,6 +10,7 @@ Route::group(['middleware' => ['login']], function () {
     Route::resource('siparis', 'SiparisController');
 
     Route::get('siparis_liste', 'SiparisListesiController@index');
+    Route::get('siparis_liste/{evraksn}', 'SiparisListesiController@show');
     Route::delete('siparis_liste/{id}', 'SiparisListesiController@destroy');
 
     // Route::get('siparisler', 'SiparisListesiController@show');

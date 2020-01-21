@@ -24,7 +24,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for='(siparis,index) in siparisler'>
+                                <tr v-for='(siparis,index) in siparisler' @click='detay(siparis.EVRAKSN)'>
                                     <td>@{{siparis.FATURAUNVAN}}</td>
                                     <td>@{{siparis.EVRAKNO}}</td>
                                     <td>@{{siparis.ACIKLAMA6}}</td>
@@ -51,23 +51,29 @@
         data:{
             isLoading:false,
             siparisler:{!! $siparisler !!},
+            evraklar:null,
         },
-        
         methods:{
             sil(hid,index){
                 var sor=confirm('Silmek istediginize emin misiniz?');
                 if(sor){
                     this.isLoading=true;
                     axios.delete('/siparis_liste/'+hid)
-                        .then(function(response){
-                            console.log(response.data);
-                            console.log(response);
+                        .then(({data})=>{
                            if(response.data == 0){
                                self.siparisler.splice(index,1);
                            }
+                           self.isLoading:false,
                         });
                 }
             },
+            detay(evraksn){
+                self=this;
+                axios.get('/siparis_liste/'+evraksn)
+                        .then(({data})=>{
+                            self.evraklar = data;
+                        });
+            }
         }
     });
 </script>

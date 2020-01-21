@@ -13,6 +13,11 @@ class SiparisListesiController extends Controller
         return view('siparisListe', compact('siparisler'));
     }
 
+    public function show($evraksn)
+    {
+        return collect(DB::select('EXEC [dbo].[spArgWebSiparisHareket] ?', [$evraksn]));
+    }
+
     public function destroy($kalemsn)
     {
         DB::connection('sqlsrv')->statement('SET ANSI_NULLS, QUOTED_IDENTIFIER, CONCAT_NULL_YIELDS_NULL, ANSI_WARNINGS, ANSI_PADDING ON');
