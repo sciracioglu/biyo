@@ -20,18 +20,22 @@
 <table class="table table-condenced table-hover" id='app'>
     <thead>
         <tr>
+            <th>Lot No</th>
             <th>Mal Kod</th>
             <th>Mal Ad</th>
-	   <th>Depo Ad</th>
+            <th>Depo Ad</th>
             <th class="text-right">Stok Miktar</th>
+            <th>Son Kullanma Tarihi</th>
         </tr>
     </thead>
     <tbody>
         <tr v-for='rapor in filtre' v-cloak>
+            <td>@{{ rapor.SERINO }}</td>
             <td>@{{ rapor.MALKOD }}</td>
             <td>@{{ rapor.STKKRT_MALAD+' '+rapor.STKKRT_MALAD2 }}</td>
-	   <td>@{{ rapor.DEPOAD }}</td>
+	        <td>@{{ rapor.DEPOAD }}</td>
             <td class="text-right">@{{ rapor.STOKMIKTAR }}</td>
+            <td>@{{ rapor.SONKULLANMATARIH }}</td>
         </tr>
     </tbody>
 </table>
