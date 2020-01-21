@@ -15,7 +15,6 @@ Route::group(['middleware' => ['login']], function () {
     // Route::get('siparisler', 'SiparisListesiController@show');
  
     Route::get('stok_durum','StokDurumController@index');
-    Route::get('stok_durum/{mal_kod}','StokDurumController@show');
 
     Route::get('rapor', 'StokRaporController@index');
 
