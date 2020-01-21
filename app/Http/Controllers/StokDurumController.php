@@ -10,7 +10,7 @@ class StokDurumController extends Controller
     {
         $stoklar = collect(DB::select('EXEC [dbo].[spArgWebStokDurumMalkod] ?',[session('username')]));
 
-	    return view('stok_durum', collect($stoklar));
+	    return view('stok_durum', compact('stoklar'));
     }
 
   
