@@ -18,7 +18,7 @@
                                 <tr>
                                     <th>Unvan</th>
                                     <th>Evrak No</th>
-                                    <th>Mal Ad</th>
+                                    <th>Hasta Adı</th>
                                     <th>Tarih</th>
                                     <th></th>
                                 </tr>
