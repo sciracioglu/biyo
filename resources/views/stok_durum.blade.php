@@ -30,7 +30,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr v-for='stok in stoklar'>
+			<tr v-for='stok in filtre'>
 				<td>@{{ stok.SERKRT_ACIKLAMA1 }}</td>
 				<td>@{{ stok.LOTNO }}</td>
 				<td>@{{ stok.SONKULLANMATARIH }}</td>
@@ -54,7 +54,7 @@ var vue=new Vue({
     data:{
         isLoading:false,
         stoklar:@json($stoklar),
-        search:null,
+        search:'',
 	},
 	computed: {
         filtre:function() {
