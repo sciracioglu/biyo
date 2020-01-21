@@ -50,11 +50,8 @@
             isLoading:false,
             siparisler:{!! $siparisler !!},
         },
-        mounted(){
-            this.liste();
-        },
+        
         methods:{
-           
             sil(hid){
                 var sor=confirm('Silmek istediginize emin misiniz?');
                 if(sor){
