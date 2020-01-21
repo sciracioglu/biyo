@@ -60,7 +60,9 @@
                     this.isLoading=true;
                     axios.delete('/siparis_liste/'+hid)
                         .then(function(response){
-                           if(response.data){
+                            console.log(response.data);
+                            console.log(response);
+                           if(response.data == 0){
                                self.siparisler.splice(index,1);
                            }
                         });
