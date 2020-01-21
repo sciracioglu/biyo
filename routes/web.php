@@ -1,7 +1,7 @@
 <?php
 Route::get('login', 'LoginController@create');
 Route::post('login', 'LoginController@store')->middleware('throttle:60,5');
-Route::delete('logout', 'LoginController@destroy');
+
 
 Route::group(['middleware' => ['login']], function () {
     Route::get('/', 'MusteriController@index');
@@ -18,6 +18,8 @@ Route::group(['middleware' => ['login']], function () {
     Route::get('stok_durum/{mal_kod}','StokDurumController@show');
 
     Route::get('rapor', 'StokRaporController@index');
+
+    Route::delete('logout', 'LoginController@destroy');
 /*
     Route::get('cari', 'CariController@index');
     Route::post('cari', 'CariController@store');
