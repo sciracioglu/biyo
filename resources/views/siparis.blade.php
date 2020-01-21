@@ -182,6 +182,7 @@ var vue=new Vue({
                     self.form.serino=null;
                     self.liste();
                     self.isLoading=false;
+                    self.urunler = null;
                 })
         },
         urunSec(index){
