@@ -64,7 +64,7 @@
                            if(response.data == 0){
                                self.siparisler.splice(index,1);
                            }
-                           self.isLoading:false,
+                           self.isLoading=false,
                         });
                 }
             },
