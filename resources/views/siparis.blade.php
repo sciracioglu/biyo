@@ -32,7 +32,11 @@
                             <td>@{{satis.FIYAT}}</td>
                             <td>@{{satis.UBB}}</td>
                             <td>@{{satis.LOT}}</td>
-                            <td><span class="text-danger" style="cursor:pointer;" @click='sil(index, satis.KALEMSN)'><i class="fa fa-trash"></i></span></td>
+                            <td>
+                                <span class="text-danger" style="cursor:pointer;" @click='sil(index, satis.KALEMSN)'>
+                                    <i class="fa fa-trash"></i>
+                                </span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

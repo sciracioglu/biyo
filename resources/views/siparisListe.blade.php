@@ -51,14 +51,18 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr v-for='(satis,index) in kalemler'>
-                                                        <td>@{{satis.SERINO}}</td>
-                                                        <td>@{{satis.MALKOD}}</td>
-                                                        <td>@{{satis.MALAD}}</td>
-                                                        <td>@{{satis.FIYAT}}</td>
-                                                        <td>@{{satis.UBB}}</td>
-                                                        <td>@{{satis.LOT}}</td>
-                                                        <td><span class="text-danger" style="cursor:pointer;" @click='kalemSil(index, satis.KALEMSN)'><i class="fa fa-trash"></i></span></td>
+                                                    <tr v-for='(kalem,ndx) in kalemler'>
+                                                        <td>@{{kalem.SERINO}}</td>
+                                                        <td>@{{kalem.MALKOD}}</td>
+                                                        <td>@{{kalem.MALAD}}</td>
+                                                        <td>@{{kalem.FIYAT}}</td>
+                                                        <td>@{{kalem.UBB}}</td>
+                                                        <td>@{{kalem.LOT}}</td>
+                                                        <td>
+                                                            <span class="text-danger" style="cursor:pointer;" @click='kalemSil(ndx, kalem.KALEMSN)'>
+                                                                <i class="fa fa-trash"></i>
+                                                            </span>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
