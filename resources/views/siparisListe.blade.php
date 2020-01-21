@@ -48,21 +48,13 @@
         el:'#app',
         data:{
             isLoading:false,
-            siparisler:null,
+            siparisler:{!! $siparisler !!},
         },
         mounted(){
             this.liste();
         },
         methods:{
-            liste(){
-                self=this;
-                this.isLoading=true;
-                axios.get('/siparisler')
-                        .then(function(response){
-                            self.siparisler = response.data;
-                            self.isLoading=false;
-                        });
-            },
+           
             sil(hid){
                 var sor=confirm('Silmek istediginize emin misiniz?');
                 if(sor){

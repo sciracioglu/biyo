@@ -10,12 +10,8 @@ class SiparisListesiController extends Controller
 {
     public function index()
     {
-        return view('siparisListe');
-    }
-
-    public function show()
-    {
-        return Siparis::where('GIRENKULLANICI', session('username'))->get();
+        $siparisler =  Siparis::where('GIRENKULLANICI', session('username'))->get();
+        return view('siparisListe', compact('siparisler'));
     }
 
     public function destroy($kalemsn)
