@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col">
             <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
-            <div class="card border-warning"  v-if='siparisler.length>0'>
+            <div class="card border-warning"  v-if='siparisler.length>0' v-cloak>
                     <div class="card-body">
                         <table class='table table-condenced table-hover'>
                             <thead>
@@ -108,7 +108,7 @@
                 var sor=confirm('Silmek istediginize emin misiniz?')
                 if(sor){
                     this.isLoading=true;
-                    axios.delete('/siparis/'+kalem)
+                    axios.delete('/siparis/'+kalemsn)
                         .then(function(){
                            self.detay(self.detaysn)
                         });
@@ -116,7 +116,7 @@
             },
             detay(evraksn){
                 self=this;
-                this.detay = evraksn;
+                this.detaysn = evraksn;
                 axios.get('/siparis_liste/'+evraksn)
                         .then(({data})=>{
                             self.kalemler = data;
