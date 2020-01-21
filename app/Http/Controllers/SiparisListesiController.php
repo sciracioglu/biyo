@@ -16,6 +16,6 @@ class SiparisListesiController extends Controller
     public function destroy($kalemsn)
     {
         DB::connection('sqlsrv')->statement('SET ANSI_NULLS, QUOTED_IDENTIFIER, CONCAT_NULL_YIELDS_NULL, ANSI_WARNINGS, ANSI_PADDING ON');
-        Hareket::where('KALEMSN', $kalemsn)->delete();
+        return DB::delete('EXEC [dbo].[spArgWebSiparisSil] ?',[$kalemsn]);
     }
 }

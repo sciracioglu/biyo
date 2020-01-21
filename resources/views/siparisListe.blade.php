@@ -13,7 +13,7 @@
             <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
             <div class="card border-warning"  v-if='siparisler.length>0'>
                     <div class="card-body">
-                        <table class='table table-condenced'>
+                        <table class='table table-condenced table-hover'>
                             <thead>
                                 <tr>
                                     <th>Unvan</th>
@@ -30,7 +30,7 @@
                                     <td>@{{siparis.ACIKLAMA6}}</td>
                                     <td>@{{siparis.EVRAKTARIH}}</td>
                                     <td>
-                                        <span class="text-danger" style="cursor:pointer;" @click='sil(siparis.EVRAKSN)'>
+                                        <span class="text-danger" style="cursor:pointer;" @click='sil(siparis.EVRAKSN, index)'>
                                             <i class="fa fa-trash"></i>
                                         </span>
                                     </td>
@@ -54,13 +54,15 @@
         },
         
         methods:{
-            sil(hid){
+            sil(hid,index){
                 var sor=confirm('Silmek istediginize emin misiniz?');
                 if(sor){
                     this.isLoading=true;
                     axios.delete('/siparis_liste/'+hid)
-                        .then(function(){
-                            self.liste();
+                        .then(function(response){
+                           if(response.data){
+                               self.siparisler.splice(index,1);
+                           }
                         });
                 }
             },
