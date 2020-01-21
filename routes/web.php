@@ -19,7 +19,7 @@ Route::group(['middleware' => ['login']], function () {
 
     Route::get('rapor', 'StokRaporController@index');
 
-    Route::delete('logout', 'LoginController@destroy');
+    Route::delete('logout/{username}', 'LoginController@destroy');
 /*
     Route::get('cari', 'CariController@index');
     Route::post('cari', 'CariController@store');

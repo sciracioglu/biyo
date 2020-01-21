@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
@@ -48,10 +49,12 @@ class LoginController extends Controller
         return Redirect::to('login')->with('warning', 'Hatalı bilgi girdiniz!');
     }
 
-    public function destroy($id)
+    public function destroy($username)
     {
         session()->flush();
-
+        Cookie::queue(
+			Cookie::forget('Laravel')
+		);
         return Redirect::to('/login');
     }
 }

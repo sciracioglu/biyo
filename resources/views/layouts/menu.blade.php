@@ -13,13 +13,13 @@
 
         <li class="nav-item "><a class="nav-link" href="/stok_durum"><i class="fa fa-search fa-fw"></i><span class="text">Stok Durum Sorgu</span></a></li> 
         <li class="nav-item "><a class="nav-link" href="/rapor"><i class="fa fa-database fa-fw"></i><span class="text">Raporlar</span></a></li>        <hr>
-         <li class="nav-item ">
-           <form method="POST" action="/logout">
-          @csrf
-          @method('DELETE')
-          <button class="nav-link" type="submit"><i class="fa fa-sign-out fa-fw"></i><span class="text">Çıkış</span></button>
+        <li class="nav-item ">
+          <form method="POST" action="/logout/{{ session('username') }}">
+            @csrf
+            @method('DELETE')
+            <button class="nav-link" type="submit"><i class="fa fa-sign-out fa-fw"></i><span class="text">Çıkış</span></button>
+          </form>
         </li>
-        </form>
     </ul>
   </div>
 </nav>
