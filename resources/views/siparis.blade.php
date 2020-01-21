@@ -38,7 +38,7 @@
                 </table>
             </div>
         </div>
-    <div class='row'>
+    <div class='row mt-3'>
         <div class='col-12'>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id='serino' @blur='bilgiAl' v-model='form.serino' placeholder="Seri No" aria-label="Seri No">
@@ -48,8 +48,8 @@
                 <small id="serino" class="form-text text-danger" v-if="form.errors.has('serino')">Bu alan bos birakilamaz</small>
             </div>
         </div>
-        <div v-if='urunler.length>0'>
-            <table class="table table-condenced table-bordered table-hover">
+        <div class="col-md-12" v-if='urunler.length>0'>
+            <table class="table table-condenced table-hover">
                 <thead>
                     <tr>
                         <th></th>
