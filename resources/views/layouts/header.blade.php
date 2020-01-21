@@ -22,6 +22,10 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/biyotem.png">
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/img/biyotem.png">
     <link rel="shortcut icon" href="/img/biyotem.png">
+    <style>
+        [v-cloak] > * { display:none; }
+        [v-cloak]::before { content: "yükleniyor..."; }
+    </style>
     @yield('stil')
 </head>
 <body>
