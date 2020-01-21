@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Siparis;
 use App\Hareket;
 use Illuminate\Support\Facades\DB;
 
@@ -10,7 +9,7 @@ class SiparisListesiController extends Controller
 {
     public function index()
     {
-        $siparisler =  Siparis::where('GIRENKULLANICI', session('username'))->get();
+        $siparisler =  DB::select('EXEC [dbo].[spArgWebSiparisListesi] ?', [session('username')]);
         return view('siparisListe', compact('siparisler'));
     }
 
