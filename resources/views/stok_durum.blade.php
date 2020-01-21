@@ -56,7 +56,7 @@ var vue=new Vue({
     el:'#app',
     data:{
         isLoading:false,
-        stoklar:{{ $stoklar}},
+        stoklar:@json($stoklar),
         search:null,
 	},
 	computed: {
