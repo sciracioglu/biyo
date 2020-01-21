@@ -55,6 +55,6 @@ class LoginController extends Controller
         Cookie::queue(
 			Cookie::forget('Laravel')
 		);
-        return Redirect::to('/login');
+        return redirect('/login');
     }
 }
