@@ -58,6 +58,7 @@
                 var sor=confirm('Silmek istediginize emin misiniz?');
                 if(sor){
                     this.isLoading=true;
+                    self=this;
                     axios.delete('/siparis_liste/'+hid)
                         .then(({data})=>{
                            if(response.data == 0){
@@ -73,7 +74,7 @@
                         .then(({data})=>{
                             self.evraklar = data;
                         });
-            }
+            },
         }
     });
 </script>
