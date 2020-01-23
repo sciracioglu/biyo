@@ -13,6 +13,16 @@
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
         <div class="card border-warning"  v-if='siparisler.length>0' v-cloak>
             <div class="card-body">
+                <div>
+                    <ul>
+                        <li v-for='(sprs,index) in siparisler'>
+                            Unvan : @{{sprs.FATURAUNVAN}} <br>
+                            Evrak No : @{{sprs.EVRAKNO}} <br>
+                            Hasta Adı : @{{sprs.ACIKLAMA6}} <br>
+                            Tarih : @{{sprs.EVRAKTARIH}} <br>
+                        </li>
+                    </ul>
+                </div>
                 <table class='table table-condenced table-hover'>
                     <thead>
                         <tr>
