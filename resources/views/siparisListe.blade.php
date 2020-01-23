@@ -16,15 +16,21 @@
                 <div>
                     <ul class="list-group">
                         <li class="list-group-item" v-for='(sprs,index) in siparisler'>
+                            <span class="pull-right">
+                                <button class="btn btn-sm btn btn-outline-danger" type="button" @click='sil(sprs, index)'>
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </span>
+                            <span >
+                                <button class="btn btn-sm btn btn-outline-info" type="button" @click='detay(sprs)'>
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
                             Unvan : @{{sprs.FATURAUNVAN}} <br>
                             Evrak No : @{{sprs.EVRAKNO}} <br>
                             Hasta Adı : @{{sprs.ACIKLAMA6}} <br>
                             Tarih : @{{sprs.EVRAKTARIH}} <br>
-                            <span class="pull-right">
-                                <button class="btn btn-sm btn-default" type="button" @click='sil(sprs, index)'>
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </span>
+                            
                         </li>
                     </ul>
                 </div>
