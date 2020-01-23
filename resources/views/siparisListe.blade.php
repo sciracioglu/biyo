@@ -16,13 +16,13 @@
                 <div>
                     <ul class="list-group">
                         <li class="list-group-item" v-for='(sprs,index) in siparisler'>
-                            <div class="col">
+                            <div class="col-sm">
                                 <button class="btn btn-sm btn btn-outline-info" type="button" @click='detay(sprs)'>
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
                             <div class="row">
-                                <div class="col text-right">
+                                <div class="col-sm text-right">
                                     <button class="btn btn-sm btn btn-outline-danger" type="button" @click='sil(sprs, index)'>
                                         <i class="fa fa-trash"></i>
                                     </button>
