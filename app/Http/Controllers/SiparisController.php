@@ -31,7 +31,6 @@ class SiparisController extends Controller
             'protokol' => 'required',
             'takip' => 'required',
             'hasta' => 'required',
-            'ihale' => 'required',
             'evrak_no' => 'required',
             'depokod' => 'required',
             'serino' => 'required',
@@ -54,7 +53,6 @@ class SiparisController extends Controller
                 $data['protokol'],
                 $data['takip'],
                 $data['hasta'],
-                $data['ihale'],
                 request('aciklama'),
                 session('username'),
                 $data['evrak_no']

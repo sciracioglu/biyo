@@ -160,7 +160,6 @@ var vue=new Vue({
         evrak_no:'{{ $evrak_no }}',
         evrak_baslik:{!! session()->has('evrak_baslik') ? session('evrak_baslik') : "null" !!},
         form : new Form({
-            ihale:null,
             hasta:null,
             protokol:null,
             aciklama:null,
@@ -176,7 +175,6 @@ var vue=new Vue({
             isLoading=true;
             this.form.post('/siparis')
                 .then(function(){
-                    self.form.ihale=null;
                     self.form.hasta=null;
                     self.form.protokol=null;
                     self.form.aciklama=null;
