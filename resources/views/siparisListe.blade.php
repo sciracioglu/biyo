@@ -24,20 +24,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <div v-for='(siparis,index) in siparisler'>
+                                <div v-for='(sprs,index) in siparisler'>
                                     <tr>
-                                        <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.FATURAUNVAN}}</td>
-                                        <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.EVRAKNO}}</td>
-                                        <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.ACIKLAMA6}}</td>
-                                        <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.EVRAKTARIH}}</td>
+                                        <td style="cursor:pointer;" @click='detay(sprs.EVRAKSN)'>@{{sprs.FATURAUNVAN}}</td>
+                                        <td style="cursor:pointer;" @click='detay(sprs.EVRAKSN)'>@{{sprs.EVRAKNO}}</td>
+                                        <td style="cursor:pointer;" @click='detay(sprs.EVRAKSN)'>@{{sprs.ACIKLAMA6}}</td>
+                                        <td style="cursor:pointer;" @click='detay(sprs.EVRAKSN)'>@{{sprs.EVRAKTARIH}}</td>
                                         <td>
-                                            <span class="text-danger" style="cursor:pointer;" @click='sil(siparis, index)'>
+                                            <span class="text-danger" style="cursor:pointer;" @click='sil(sprs, index)'>
                                                 <i class="fa fa-trash"></i>
                                             </span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" v-if='siparis.EVRAKSN === detaysn'>
+                                        <td colspan="5" v-if='sprs.EVRAKSN === detaysn'>
                                             <table class='table table-condenced'>
                                                 <thead>
                                                     <tr>
