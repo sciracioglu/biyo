@@ -37,7 +37,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" v-if='siparis.EVRAKSN === detaysn'>
+                                        <td colspan="5" v-if='siparis.EVRAKSN == detaysn'>
                                             <table class='table table-condenced'>
                                                 <thead>
                                                     <tr>
@@ -84,7 +84,7 @@
         el:'#app',
         data:{
             isLoading:false,
-            siparisler:{!! $siparisler !!},
+            siparisler:@jsonI($siparisler),
             detaysn:null,
             kalemler:null,
         },
