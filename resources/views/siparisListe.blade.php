@@ -31,13 +31,13 @@
                                         <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.ACIKLAMA6}}</td>
                                         <td style="cursor:pointer;" @click='detay(siparis.EVRAKSN)'>@{{siparis.EVRAKTARIH}}</td>
                                         <td>
-                                            <span class="text-danger" style="cursor:pointer;" @click='sil(siparis.EVRAKSN, index)'>
+                                            <span class="text-danger" style="cursor:pointer;" @click='sil(siparis, index)'>
                                                 <i class="fa fa-trash"></i>
                                             </span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" v-if='siparis.EVRAKSN == detaysn'>
+                                        <td colspan="5" v-if='siparis.EVRAKSN === detaysn'>
                                             <table class='table table-condenced'>
                                                 <thead>
                                                     <tr>
@@ -89,12 +89,12 @@
             kalemler:null,
         },
         methods:{
-            sil(hid,index){
+            sil(siparis,index){
                 var sor=confirm('Silmek istediginize emin misiniz?');
                 if(sor){
                     this.isLoading=true;
                     self=this;
-                    axios.delete('/siparis_liste/'+hid)
+                    axios.delete('/siparis_liste/'+siparis.EVRAKSN)
                         .then(({data})=>{
                            if(response.data == 0){
                                self.siparisler.splice(index,1);
