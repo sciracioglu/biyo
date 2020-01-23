@@ -24,9 +24,6 @@
 				<th>Açıklama</th>
 				<th>Lot No</th>
 				<th>Son Kullanma Tarihi</th>
-				<th>Kullanılabilir</th>
-				<th>Stok Giriş</th>
-				<th>Stok Çıkış</th>
 				<th>Stok Miktar</th>
 			</tr>
 		</thead>
@@ -36,9 +33,6 @@
 				<td>@{{ stok.SERKRT_ACIKLAMA1 }}</td>
 				<td>@{{ stok.LOTNO }}</td>
 				<td>@{{ stok.SONKULLANMATARIH }}</td>
-				<td>@{{ stok.KULLANILABILIR }}</td>
-				<td>@{{ stok.STOKGIRIS }}</td>
-				<td>@{{ stok.STOKCIKIS }}</td>
 				<td>@{{ stok.STOKMIKTAR }}</td>
 			</tr>
 		</tbody>
