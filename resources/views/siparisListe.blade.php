@@ -24,8 +24,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <div v-for='(sprs,index) in siparisler'>
-                            <tr>
+                            <tr v-for='(sprs,index) in siparisler'>
                                 <td style="cursor:pointer;" @click='detay(sprs)'>@{{sprs.FATURAUNVAN}}</td>
                                 <td style="cursor:pointer;" @click='detay(sprs)'>@{{sprs.EVRAKNO}}</td>
                                 <td style="cursor:pointer;" @click='detay(sprs)'>@{{sprs.ACIKLAMA6}}</td>
@@ -36,7 +35,7 @@
                                     </span>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr v-for='(sprs,index) in siparisler'>
                                 <td colspan="5" v-if='sprs.EVRAKSN === detaysn'>
                                     <table class='table table-condenced'>
                                         <thead>
@@ -68,7 +67,6 @@
                                     </table>
                                 </td>
                             </tr>
-                        </div>
                     </tbody>
                 </table>
             </div>
