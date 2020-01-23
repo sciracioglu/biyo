@@ -16,80 +16,58 @@
                 <div>
                     <ul class="list-group">
                         <li class="list-group-item" v-for='(sprs,index) in siparisler'>
-                            <span class="pull-right">
-                                <button class="btn btn-sm btn btn-outline-danger" type="button" @click='sil(sprs, index)'>
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </span>
-                            <span >
-                                <button class="btn btn-sm btn btn-outline-info" type="button" @click='detay(sprs)'>
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <button class="btn btn-sm btn btn-outline-danger" type="button" @click='sil(sprs, index)'>
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-sm btn btn-outline-info" type="button" @click='detay(sprs)'>
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
                             Unvan : @{{sprs.FATURAUNVAN}} <br>
                             Evrak No : @{{sprs.EVRAKNO}} <br>
                             Hasta Adı : @{{sprs.ACIKLAMA6}} <br>
                             Tarih : @{{sprs.EVRAKTARIH}} <br>
-                            
+                            <div v-if='sprs.EVRAKSN === detaysn'>
+                                <hr>
+                                <table class='table table-condenced'>
+                                    <thead>
+                                        <tr>
+                                            <th>SeriNo</th>
+                                            <th>Mal Kod</th>
+                                            <th>Mal Ad</th>
+                                            <th>Fiyat</th>
+                                            <th>UBB</th>
+                                            <th>Lot No</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for='(kalem,ndx) in kalemler'>
+                                            <td>@{{kalem.SERINO}}</td>
+                                            <td>@{{kalem.MALKOD}}</td>
+                                            <td>@{{kalem.MALAD}}</td>
+                                            <td>@{{kalem.FIYAT}}</td>
+                                            <td>@{{kalem.UBB}}</td>
+                                            <td>@{{kalem.LOT}}</td>
+                                            <td>
+                                                <span class="text-danger" style="cursor:pointer;" @click='kalemSil(ndx, kalem.KALEMSN)'>
+                                                    <i class="fa fa-trash"></i>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </li>
                     </ul>
                 </div>
-                <table class='table table-condenced table-hover'>
-                    <thead>
-                        <tr>
-                            <th>Unvan</th>
-                            <th>Evrak No</th>
-                            <th>Hasta Adı</th>
-                            <th>Tarih</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr v-for='(sprs,index) in siparisler'>
-                                <td style="cursor:pointer;" @click='detay(sprs)'>@{{sprs.FATURAUNVAN}}</td>
-                                <td style="cursor:pointer;" @click='detay(sprs)'>@{{sprs.EVRAKNO}}</td>
-                                <td style="cursor:pointer;" @click='detay(sprs)'>@{{sprs.ACIKLAMA6}}</td>
-                                <td style="cursor:pointer;" @click='detay(sprs)'>@{{sprs.EVRAKTARIH}}</td>
-                                <td>
-                                    <span class="text-danger" style="cursor:pointer;" @click='sil(sprs, index)'>
-                                        <i class="fa fa-trash"></i>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr v-for='(sprs,index) in siparisler'>
-                                <td colspan="5" v-if='sprs.EVRAKSN === detaysn'>
-                                    <table class='table table-condenced'>
-                                        <thead>
-                                            <tr>
-                                                <th>SeriNo</th>
-                                                <th>Mal Kod</th>
-                                                <th>Mal Ad</th>
-                                                <th>Fiyat</th>
-                                                <th>UBB</th>
-                                                <th>Lot No</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr v-for='(kalem,ndx) in kalemler'>
-                                                <td>@{{kalem.SERINO}}</td>
-                                                <td>@{{kalem.MALKOD}}</td>
-                                                <td>@{{kalem.MALAD}}</td>
-                                                <td>@{{kalem.FIYAT}}</td>
-                                                <td>@{{kalem.UBB}}</td>
-                                                <td>@{{kalem.LOT}}</td>
-                                                <td>
-                                                    <span class="text-danger" style="cursor:pointer;" @click='kalemSil(ndx, kalem.KALEMSN)'>
-                                                        <i class="fa fa-trash"></i>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                    </tbody>
-                </table>
+               
             </div>
         </div>
     </div>
