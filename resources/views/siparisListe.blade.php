@@ -14,12 +14,17 @@
         <div class="card border-warning"  v-if='siparisler.length>0' v-cloak>
             <div class="card-body">
                 <div>
-                    <ul>
-                        <li class="list-item" v-for='(sprs,index) in siparisler'>
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for='(sprs,index) in siparisler'>
                             Unvan : @{{sprs.FATURAUNVAN}} <br>
                             Evrak No : @{{sprs.EVRAKNO}} <br>
                             Hasta Adı : @{{sprs.ACIKLAMA6}} <br>
                             Tarih : @{{sprs.EVRAKTARIH}} <br>
+                            <span class="pull-right">
+                                <button class="btn btn-sm btn-default" type="button" @click='sil(sprs, index)'>
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </span>
                         </li>
                     </ul>
                 </div>
