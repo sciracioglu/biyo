@@ -9,6 +9,7 @@ use App\Mail\BakiyeDetayGonder;
 class BakiyeDetayController extends Controller
 {
     private $geciken;
+    
     private $evr_tip;
 
     public function __construct()
