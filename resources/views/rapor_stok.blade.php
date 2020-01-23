@@ -8,37 +8,35 @@
 @endsection
 
 @section('icerik')
-<style>
-[v-cloak] > * { display:none; }
-[v-cloak]::before { content: "loading..."; }
-</style>
-<div class="padding-bottom-10 padding-top-10">
-			<span class="input-icon">
-				<input type="text" class="form-control" v-model="search" placeholder="Arayın...">
-			</span>
-		</div>
-<table class="table table-condenced table-hover" id='app'>
-    <thead>
-        <tr>
-            <th>Mal Kod</th>
-            <th>Mal Ad</th>
-            <th>Depo Ad</th>
-            <th>Lot No</th>
-            <th class="text-right">Stok Miktar</th>
-            <th>Son Kullanma Tarihi</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr v-for='rapor in filtre' v-cloak>
-            <td>@{{ rapor.MALKOD }}</td>
-            <td>@{{ rapor.STKKRT_MALAD+' '+rapor.STKKRT_MALAD2 }}</td>
-	        <td>@{{ rapor.DEPOAD }}</td>
-            <td>@{{ rapor.SERINO }}</td>
-            <td class="text-right">@{{ rapor.STOKMIKTAR }}</td>
-            <td>@{{ rapor.SONKULLANMATARIH }}</td>
-        </tr>
-    </tbody>
-</table>
+<div  id='app'>
+    <div class="padding-bottom-10 padding-top-10">
+        <span class="input-icon">
+            <input type="text" class="form-control" v-model="search" placeholder="Arayın...">
+        </span>
+    </div>
+    <table class="table table-condenced table-hover">
+        <thead>
+            <tr>
+                <th>Mal Kod</th>
+                <th>Mal Ad</th>
+                <th>Depo Ad</th>
+                <th>Lot No</th>
+                <th class="text-right">Stok Miktar</th>
+                <th>Son Kullanma Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for='rapor in filtre' v-cloak>
+                <td>@{{ rapor.MALKOD }}</td>
+                <td>@{{ rapor.STKKRT_MALAD+' '+rapor.STKKRT_MALAD2 }}</td>
+                <td>@{{ rapor.DEPOAD }}</td>
+                <td>@{{ rapor.SERINO }}</td>
+                <td class="text-right">@{{ rapor.STOKMIKTAR }}</td>
+                <td>@{{ rapor.SONKULLANMATARIH }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 @endsection
 
 @section('scripts')
