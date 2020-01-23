@@ -48,8 +48,11 @@ var vue = new Vue({
         raporlar: {!! $raporlar !!},
     },
    computed: {
+        siralama(){
+            return _.orderBy(this.raporlar,function(rapor){ return rapor.MALKOD},'asc');
+        },
         filtre:function() {
-                return this.raporlar.filter(liste => {
+                return this.siralama.filter(liste => {
                     var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
                     malkod = liste.MALKOD != null ? liste.MALKOD.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
                     malad = liste.STKKRT_MALAD != null ? liste.STKKRT_MALAD.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
