@@ -15,7 +15,7 @@
             <div class="card-body">
                 <div>
                     <ul>
-                        <li v-for='(sprs,index) in siparisler'>
+                        <li class="list-item" v-for='(sprs,index) in siparisler'>
                             Unvan : @{{sprs.FATURAUNVAN}} <br>
                             Evrak No : @{{sprs.EVRAKNO}} <br>
                             Hasta Adı : @{{sprs.ACIKLAMA6}} <br>
