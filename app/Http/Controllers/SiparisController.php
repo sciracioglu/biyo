@@ -53,6 +53,7 @@ class SiparisController extends Controller
                 $data['protokol'],
                 $data['takip'],
                 $data['hasta'],
+                '',
                 request('aciklama'),
                 session('username'),
                 $data['evrak_no']
