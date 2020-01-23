@@ -84,7 +84,7 @@
         el:'#app',
         data:{
             isLoading:false,
-            siparisler:@jsonI($siparisler),
+            siparisler:@json($siparisler),
             detaysn:null,
             kalemler:null,
         },
