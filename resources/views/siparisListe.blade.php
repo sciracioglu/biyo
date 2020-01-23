@@ -16,6 +16,17 @@
                 <div>
                     <ul class="list-group">
                         <li class="list-group-item" v-for='(sprs,index) in siparisler'>
+                            <h4>@{{sprs.FATURAUNVAN}}</h4>   
+                            <p>                         
+                            Evrak No : @{{sprs.EVRAKNO}} 
+                            </p>
+                            <p>
+                            Hasta Adı : @{{sprs.ACIKLAMA6}}
+                            </p>
+                            <p>
+                            Tarih : @{{sprs.EVRAKTARIH}} 
+                            </p>
+                        
                             <div class="row">
                                 <div class="col">
                                     <button class="btn btn-sm btn btn-outline-info" type="button" @click='detay(sprs)'>
@@ -28,11 +39,6 @@
                                     </button>
                                 </div>
                             </div>
-                            
-                            Unvan : @{{sprs.FATURAUNVAN}} <br>
-                            Evrak No : @{{sprs.EVRAKNO}} <br>
-                            Hasta Adı : @{{sprs.ACIKLAMA6}} <br>
-                            Tarih : @{{sprs.EVRAKTARIH}} <br>
                             <div v-if='sprs.EVRAKSN === detaysn'>
                                 <hr>
                                 <table class='table table-condenced'>
