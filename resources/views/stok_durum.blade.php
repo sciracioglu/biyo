@@ -52,8 +52,11 @@ var vue=new Vue({
         search:'',
 	},
 	computed: {
+		siralama(){
+            return _.orderBy(this.stoklar,function(stok){ return stok.MALKOD},'asc');
+        },
         filtre:function() {
-                return this.stoklar.filter(liste => {
+                return this.siralama.filter(liste => {
                     var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
                     malkod = liste.MALKOD != null ? liste.MALKOD.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
                     malad = liste.SERKRT_ACIKLAMA1 != null ? liste.SERKRT_ACIKLAMA1.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
