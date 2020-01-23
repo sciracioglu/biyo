@@ -8,7 +8,6 @@
 @endsection
 
 @section('icerik')
-
 <div id='app'>
 	<div class="padding-bottom-10 padding-top-10">
 		<span class="input-icon">
