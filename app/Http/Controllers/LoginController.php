@@ -24,7 +24,7 @@ class LoginController extends Controller
         ]);
 
         if (!$kullanicilar) {
-            return Redirect::to('login')->with('warning', 'Hatali bilgi girdiniz!');
+            return redirect('login')->with('warning', 'Hatali bilgi girdiniz!');
         }
 
         $eposta = DB::select('SELECT EMAIL FROM vwwusr WHERE USERNAME	 =?', [
@@ -46,7 +46,7 @@ class LoginController extends Controller
             }
         }
 
-        return Redirect::to('login')->with('warning', 'Hatalı bilgi girdiniz!');
+        return redirect('login')->with('warning', 'Hatalı bilgi girdiniz!');
     }
 
     public function destroy($username)
