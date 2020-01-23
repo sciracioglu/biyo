@@ -26,10 +26,10 @@
                             <tbody>
                                 <div v-for='(sprs,index) in siparisler'>
                                     <tr>
-                                        <td style="cursor:pointer;" @click='detay(sprs.EVRAKSN)'>@{{sprs.FATURAUNVAN}}</td>
-                                        <td style="cursor:pointer;" @click='detay(sprs.EVRAKSN)'>@{{sprs.EVRAKNO}}</td>
-                                        <td style="cursor:pointer;" @click='detay(sprs.EVRAKSN)'>@{{sprs.ACIKLAMA6}}</td>
-                                        <td style="cursor:pointer;" @click='detay(sprs.EVRAKSN)'>@{{sprs.EVRAKTARIH}}</td>
+                                        <td style="cursor:pointer;" @click='detay("sprs.EVRAKSN")'>@{{sprs.FATURAUNVAN}}</td>
+                                        <td style="cursor:pointer;" @click='detay("sprs.EVRAKSN")'>@{{sprs.EVRAKNO}}</td>
+                                        <td style="cursor:pointer;" @click='detay("sprs.EVRAKSN")'>@{{sprs.ACIKLAMA6}}</td>
+                                        <td style="cursor:pointer;" @click='detay("sprs.EVRAKSN")'>@{{sprs.EVRAKTARIH}}</td>
                                         <td>
                                             <span class="text-danger" style="cursor:pointer;" @click='sil(sprs, index)'>
                                                 <i class="fa fa-trash"></i>
