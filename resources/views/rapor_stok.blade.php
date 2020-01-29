@@ -57,9 +57,11 @@ var vue = new Vue({
                     malkod = liste.MALKOD != null ? liste.MALKOD.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
                     malad = liste.STKKRT_MALAD != null ? liste.STKKRT_MALAD.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
                     depoad = liste.DEPOAD != null ? liste.DEPOAD.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
+                    lotno = liste.SERINO != null ? liste.SERINO.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
                     search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; })
                     return malkod.toLowerCase().indexOf(search.toLowerCase()) > -1 ||
-				malad.toLowerCase().indexOf(search.toLowerCase()) > -1 ||
+				            malad.toLowerCase().indexOf(search.toLowerCase()) > -1 ||
+				            lotno.toLowerCase().indexOf(search.toLowerCase()) > -1 ||
                             (depoad.toLowerCase().indexOf(search.toLowerCase()) > -1 && depoad != null)
                 })
         },
