@@ -21,20 +21,25 @@
 			<tr>
 				<th>Mal Kodu<th>
 				<th>Açıklama</th>
-				<th>Depo Adı</th>
-				<th>Lot No</th>
-				<th>Son Kullanma Tarihi</th>
 				<th>Stok Miktar</th>
+				<th>Son Kullanma Tarihi</th>
+				<th>Lot No</th>
+				<th>Depo Adı</th>
+				
+				
 			</tr>
 		</thead>
 		<tbody>
 			<tr v-for='stok in filtre'>
 				<td>@{{ stok.MALKOD }}</td>
 				<td>@{{ stok.SERKRT_ACIKLAMA1 }}</td>
-				<td>@{{ stok.DEPOAD }}</td>
-				<td>@{{ stok.LOTNO }}</td>
-				<td>@{{ stok.SONKULLANMATARIH }}</td>
 				<td>@{{ stok.STOKMIKTAR }}</td>
+				<td>@{{ stok.SONKULLANMATARIH }}</td>
+				<td>@{{ stok.LOTNO }}</td>
+				<td>@{{ stok.DEPOAD }}</td>
+				
+				
+				
 			</tr>
 		</tbody>
 

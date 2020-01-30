@@ -19,20 +19,25 @@
             <tr>
                 <th>Mal Kod</th>
                 <th>Mal Ad</th>
-                <th>Depo Ad</th>
-                <th>Lot No</th>
                 <th class="text-right">Stok Miktar</th>
                 <th>Son Kullanma Tarihi</th>
+                <th>Lot No</th>
+                <th>Depo Ad</th>
+                
+                
+                
             </tr>
         </thead>
         <tbody>
             <tr v-for='rapor in filtre' v-cloak>
                 <td>@{{ rapor.MALKOD }}</td>
                 <td>@{{ rapor.STKKRT_MALAD+' '+rapor.STKKRT_MALAD2 }}</td>
-                <td>@{{ rapor.DEPOAD }}</td>
-                <td>@{{ rapor.SERINO }}</td>
                 <td class="text-right">@{{ rapor.STOKMIKTAR }}</td>
                 <td>@{{ rapor.SONKULLANMATARIH }}</td>
+                <td>@{{ rapor.SERINO }}</td>
+                <td>@{{ rapor.DEPOAD }}</td>            
+                
+                
             </tr>
         </tbody>
     </table>
