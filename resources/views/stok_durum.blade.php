@@ -19,8 +19,9 @@
 	<table class='table table-condenced table-hover'>
 		<thead>
 			<tr>
-				<th>Mal Kodu</th>
+				<th>Mal Kodu<th>
 				<th>Açıklama</th>
+				<th>Depo Adı</th>
 				<th>Lot No</th>
 				<th>Son Kullanma Tarihi</th>
 				<th>Stok Miktar</th>
@@ -30,6 +31,7 @@
 			<tr v-for='stok in filtre'>
 				<td>@{{ stok.MALKOD }}</td>
 				<td>@{{ stok.SERKRT_ACIKLAMA1 }}</td>
+				<td>@{{ stok.DEPOAD }}</td>
 				<td>@{{ stok.LOTNO }}</td>
 				<td>@{{ stok.SONKULLANMATARIH }}</td>
 				<td>@{{ stok.STOKMIKTAR }}</td>
