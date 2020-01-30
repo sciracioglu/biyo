@@ -19,7 +19,7 @@
 	<table class='table table-condenced table-hover'>
 		<thead>
 			<tr>
-				<th>Mal Kodu<th>
+				<th>Mal Kodu</th>
 				<th>Açıklama</th>
 				<th>Stok Miktar</th>
 				<th>Son Kullanma Tarihi</th>
