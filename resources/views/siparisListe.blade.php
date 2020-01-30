@@ -44,12 +44,10 @@
                                 <table class='table table-condenced'>
                                     <thead>
                                         <tr>
-                                            <th>SeriNo</th>
+                                            <th>Lot No</th>
                                             <th>Mal Kod</th>
                                             <th>Mal Ad</th>
-                                            <th>Fiyat</th>
                                             <th>UBB</th>
-                                            <th>Lot No</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -58,9 +56,7 @@
                                             <td>@{{kalem.SERINO}}</td>
                                             <td>@{{kalem.MALKOD}}</td>
                                             <td>@{{kalem.MALAD}}</td>
-                                            <td>@{{kalem.FIYAT}}</td>
                                             <td>@{{kalem.UBB}}</td>
-                                            <td>@{{kalem.LOT}}</td>
                                             <td>
                                                 <span class="text-danger" style="cursor:pointer;" @click='kalemSil(ndx, kalem.KALEMSN)'>
                                                     <i class="fa fa-trash"></i>
