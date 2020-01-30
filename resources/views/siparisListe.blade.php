@@ -44,19 +44,21 @@
                                 <table class='table table-condenced'>
                                     <thead>
                                         <tr>
-                                            <th>Lot No</th>
+                                            <th>UBB</th>                                            
                                             <th>Mal Kod</th>
                                             <th>Mal Ad</th>
-                                            <th>UBB</th>
+                                            <th>Lot No</th>
+                                            
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr v-for='(kalem,ndx) in kalemler'>
-                                            <td>@{{kalem.SERINO}}</td>
+                                            <td>@{{kalem.UBB}}</td>                                            
                                             <td>@{{kalem.MALKOD}}</td>
                                             <td>@{{kalem.MALAD}}</td>
-                                            <td>@{{kalem.UBB}}</td>
+                                            <td>@{{kalem.Lot}}</td>
+                                            
                                             <td>
                                                 <span class="text-danger" style="cursor:pointer;" @click='kalemSil(ndx, kalem.KALEMSN)'>
                                                     <i class="fa fa-trash"></i>
