@@ -175,12 +175,7 @@ var vue=new Vue({
             isLoading=true;
             this.form.post('/siparis')
                 .then(function(){
-                    self.form.hasta=null;
-                    self.form.protokol=null;
-                    self.form.aciklama=null;
-                    self.form.depokod=null;
                     self.form.evrak_no=self.evrak_no;
-                    self.form.takip=null;
                     self.form.serino=null;
                     self.liste();
                     self.isLoading=false;
