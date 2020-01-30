@@ -57,7 +57,7 @@
                                             <td>@{{kalem.UBB}}</td>                                            
                                             <td>@{{kalem.MALKOD}}</td>
                                             <td>@{{kalem.MALAD}}</td>
-                                            <td>@{{kalem.Lot}}</td>
+                                            <td>@{{kalem.SERINO}}</td>
                                             
                                             <td>
                                                 <span class="text-danger" style="cursor:pointer;" @click='kalemSil(ndx, kalem.KALEMSN)'>
