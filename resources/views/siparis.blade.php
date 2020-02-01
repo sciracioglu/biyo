@@ -18,9 +18,7 @@
                             <th>Lot No</th>
                             <th>Mal Kod</th>
                             <th>Mal Ad</th>
-                            <th>Fiyat</th>
                             <th>UBB</th>
-                            <th>Lot No</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -29,9 +27,7 @@
                             <td>@{{satis.SERINO}}</td>
                             <td>@{{satis.MALKOD}}</td>
                             <td>@{{satis.MALAD}}</td>
-                            <td>@{{satis.FIYAT}}</td>
                             <td>@{{satis.UBB}}</td>
-                            <td>@{{satis.LOT}}</td>
                             <td>
                                 <span class="text-danger" style="cursor:pointer;" @click='sil(index, satis.KALEMSN)'>
                                     <i class="fa fa-trash"></i>
@@ -57,7 +53,9 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Seri No</th>
+                        <th>Lot No</th>
+
+                        <th>Mal Kodu</th>
                         <th>Mal Adı</th>
                         <th>Stok Miktar</th>
                         <th>Depo Adı</th>
@@ -69,6 +67,7 @@
                             <input type="radio" name='urun' @click='urunSec(index)' />
                         </td>
                         <td>@{{ urun.SERINO }}</td>
+                        <td>@{{ urun.MALKOD }}</td>
                         <td>@{{ urun.STKKRT_MALAD }}</td>
                         <td>@{{ urun.KULLANILABILIR }} @{{ urun.BIRIM }}</td>
                         <td>@{{ urun.DEPOAD }}</td>
@@ -94,14 +93,6 @@
                 <div class="row">
                     <div class="col-3"><strong><label for="malkod">Mal Ad</label></strong></div>
                     <div class="col-9"><input type='text' class='form-control-plaintext' id='malad' v-model='form.mal_adi' readonly /></div>
-                </div>
-            </div>
-        </div>
-        <div class='col-4'>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-3"><strong><label for="fiyat">Fiyat</label></strong></div>
-                    <div class="col-9"><input type='text' class='form-control-plaintext' id='fiyat' v-model='form.fiyat' readonly /></div>
                 </div>
             </div>
         </div>
