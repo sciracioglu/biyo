@@ -29,11 +29,11 @@ class SiparisController extends Controller
     {
         $data = request()->validate([
             'protokol' => 'required',
-            'takip' => 'required',
-            'hasta' => 'required',
+            'takip'    => 'required',
+            'hasta'    => 'required',
             'evrak_no' => 'required',
-            'depokod' => 'required',
-            'serino' => 'required',
+            'depokod'  => 'required',
+            'serino'   => 'required',
             ]);
 
         $this->evrakBaslikKaydet($data);
@@ -47,11 +47,11 @@ class SiparisController extends Controller
 
     private function evrakBaslikKaydet($data)
     {
-        if(session()->has('musteri.hesapkod') && session('musteri.hesapkod') !== null){
+        if (session()->has('musteri.hesapkod') && session('musteri.hesapkod') !== null) {
             DB::insert('EXEC [dbo].[ARG_WEB_EVRBAS_INS] ?, ?, ?, ?, ?, ?, ?, ? ', [
                 session('musteri.hesapkod'),
                 $data['protokol'],
-                $data['takip'],
+                0,
                 $data['hasta'],
                 '',
                 request('aciklama'),
