@@ -48,6 +48,7 @@
                                             <th>Mal Kod</th>
                                             <th>Mal Ad</th>
                                             <th>Lot No</th>
+                                            <th>Son Kullanma Tarihi</th>
                                             
                                             <th></th>
                                         </tr>
@@ -58,6 +59,7 @@
                                             <td>@{{kalem.MALKOD}}</td>
                                             <td>@{{kalem.MALAD}}</td>
                                             <td>@{{kalem.SERINO}}</td>
+                                            <td>@{{kalem.TARIH2}}</td>
                                             
                                             <td>
                                                 <span class="text-danger" style="cursor:pointer;" @click='kalemSil(ndx, kalem.KALEMSN)'>
