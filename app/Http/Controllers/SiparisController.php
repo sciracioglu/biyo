@@ -18,7 +18,6 @@ class SiparisController extends Controller
     public function create()
     {
         $data['satiscilar'] = collect(DB::select('SELECT TEMSILCINO,ACIKLAMA1 FROM CRMTMK'));
-        $data['takipler']   = collect(DB::select("SELECT KOD, ACIKLAMA FROM REFKRT WHERE TABLOAD='CRMFRK' AND ALANAD = 'BKOD1'"));
         $data['ihaleler']   = collect(DB::select("SELECT KOD, ACIKLAMA FROM REFKRT WHERE TABLOAD = 'CRMFRK' AND ALANAD='SKOD2'"));
         $evrak_no           = DB::select('EXEC [dbo].[spArgSipGetEvrakNo]');
         $data['evrak_no']   = $evrak_no[0]->EVRAKNO;
