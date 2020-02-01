@@ -15,7 +15,7 @@
                 <table class='table table-condenced'>
                     <thead>
                         <tr>
-                            <th>SeriNo</th>
+                            <th>Lot No</th>
                             <th>Mal Kod</th>
                             <th>Mal Ad</th>
                             <th>Fiyat</th>
