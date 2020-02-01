@@ -29,7 +29,6 @@ class SiparisController extends Controller
     {
         $data = request()->validate([
             'protokol' => 'required',
-            'takip'    => 'required',
             'hasta'    => 'required',
             'evrak_no' => 'required',
             'depokod'  => 'required',
