@@ -184,6 +184,7 @@ var vue=new Vue({
         },
         urunSec(index){
             this.form.depokod = this.urunler[index].DEPOKOD;
+            this.form.serıno = this.urunler[index].SERINO;
         },
         liste(){
             this.isLoading=true;
