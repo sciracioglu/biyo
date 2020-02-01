@@ -15,19 +15,21 @@
                 <table class='table table-condenced'>
                     <thead>
                         <tr>
-                            <th>Lot No</th>
+                            <th>UBB</th>
                             <th>Mal Kod</th>
                             <th>Mal Ad</th>
-                            <th>UBB</th>
+                            <th>Lot No</th>
+                            <th>Son Kullanma Tarihi</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for='(satis,index) in satislar'>
-                            <td>@{{satis.SERINO}}</td>
+                            <td>@{{satis.UBB}}</td>
                             <td>@{{satis.MALKOD}}</td>
                             <td>@{{satis.MALAD}}</td>
-                            <td>@{{satis.UBB}}</td>
+                            <td>@{{satis.SERINO}}</td>
+                            <td>@{{satis.SKT}}</td>
                             <td>
                                 <span class="text-danger" style="cursor:pointer;" @click='sil(index, satis.KALEMSN)'>
                                     <i class="fa fa-trash"></i>
@@ -54,7 +56,6 @@
                     <tr>
                         <th></th>
                         <th>Lot No</th>
-
                         <th>Mal Kodu</th>
                         <th>Mal Adı</th>
                         <th>Stok Miktar</th>
@@ -77,50 +78,6 @@
         </div>
     </div>
     <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
-    <div class="row" v-if='form.mal_kodu'>
-        <div class='col-4 '>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-3"><strong><label for="malkod">Mal Kodu</label></strong></div>
-                    <div class="col-9">
-                        <input type='text' class='form-control-plaintext' id='malkod' v-model='form.mal_kodu' readonly />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class='col-4'>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-3"><strong><label for="malkod">Mal Ad</label></strong></div>
-                    <div class="col-9"><input type='text' class='form-control-plaintext' id='malad' v-model='form.mal_adi' readonly /></div>
-                </div>
-            </div>
-        </div>
-        <div class='col-4'>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-3"><strong><label for="ubb">UBB Kodu</label></strong></div>
-                    <div class="col-9"><input type='text' class='form-control-plaintext' id='ubb' v-model='form.ubb' readonly /></div>
-                </div>
-            </div>
-        </div>
-        <div class='col-4'>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-3"><strong><label for="skt">S.K. Tarihi</label></strong></div>
-                    <div class="col-9"><input type='text' class='form-control-plaintext' id='skt' v-model='form.skt' readonly /></div>
-                </div>
-            </div>
-        </div>
-        <div class='col-4'>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-3"><strong><label for="lot">Lot No</label></strong></div>
-                    <div class="col-9"><input type='text' class='form-control-plaintext' v-model='form.lot_no' id='form.lot' readonly /></div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class='row'>
         <div class='col'>
             <button type="submit" class="btn btn-sm btn-block btn-primary">Kaydet</button>
