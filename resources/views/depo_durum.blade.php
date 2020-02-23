@@ -14,26 +14,26 @@
     <div class="col-md-12">
         <div class="list-group">
             <a @click='scroll(index)' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
-                @{{ index }}
-            </a>
-            <div class="list-group" :ref='index'>
-                <a  @click='scroll(index2)' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in lkodlar'>
-                    @{{ index2 }}
-                </a>
-                <div class="list-group" :ref='index2'>
-                    <a @click='scroll(index3)' :class='stil3(index3)' class="list-group-item" v-for='(detaylar, index3) in depolar'>
-                        @{{ index3 }}
+                <h3>@{{ index }}</h3>
+                <div class="list-group" :ref='index'>
+                    <a  @click='scroll(index2)' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in lkodlar'>
+                        <h4>@{{ index2 }}</h4>
+                        <div class="list-group" :ref='index2'>
+                            <a @click='scroll(index3)' :class='stil3(index3)' class="list-group-item" v-for='(detaylar, index3) in depolar'>
+                                <h5>@{{ index3 }}</h5>
+                                <div :ref='index3'>
+                                    <table class="table table-hover">
+                                        <tr v-for='detay in detaylar'>
+                                            <td>@{{ detay.malkod }}</td>
+                                            <td>@{{ detay.malad }}</td>
+                                        </tr>
+                                    </table>
+                                </div>  
+                            </a>
+                        </div>
                     </a>
-                    <div :ref='index3'>
-                        <table class="table table-hover">
-                            <tr v-for='detay in detaylar'>
-                                <td>@{{ detay.malkod }}</td>
-                                <td>@{{ detay.malad }}</td>
-                            </tr>
-                        </table>
-                    </div>  
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
