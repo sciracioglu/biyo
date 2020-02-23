@@ -12,6 +12,9 @@ class DepoDurumController extends Controller
         $sonuclar = [];
 
         foreach ($durumlar as $durum) {
+            if ($durum->ACIKLAMA3 === '') {
+                continue;
+            }
             array_push($sonuclar, [
                     $durum->STKKRT_ACIKLAMA3 => [
                             $durum->STKKRT_LKOD8 => [
