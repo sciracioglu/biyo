@@ -43,7 +43,7 @@
     <div class='row mt-3'>
         <div class='col-12'>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id='serino' @blur='bilgiAl' v-model='form.serino' placeholder="Seri No" aria-label="Seri No">
+                <input type="text" class="form-control" id='serino' @blur='bilgiAl' v-model='form.serino' placeholder="Lot No" aria-label="Lot No">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" @click='bilgiAl'><i class="fa fa-search"></i></button>
                 </div>

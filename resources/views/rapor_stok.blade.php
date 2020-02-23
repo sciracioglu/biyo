@@ -20,8 +20,6 @@
                 <th>Mal Kod</th>
                 <th>Mal Ad</th>
                 <th class="text-right">Stok Miktar</th>
-                <th>Son Kullanma Tarihi</th>
-                <th>Lot No</th>
                 <th>Depo Ad</th>
                 
                 
@@ -33,8 +31,6 @@
                 <td>@{{ rapor.MALKOD }}</td>
                 <td>@{{ rapor.STKKRT_MALAD+' '+rapor.STKKRT_MALAD2 }}</td>
                 <td class="text-right">@{{ rapor.STOKMIKTAR }}</td>
-                <td>@{{ rapor.SONKULLANMATARIH }}</td>
-                <td>@{{ rapor.SERINO }}</td>
                 <td>@{{ rapor.DEPOAD }}</td>            
                 
                 
