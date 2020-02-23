@@ -13,7 +13,7 @@
 <div class="row" id="app">
     <div class="col-md-12">
         <div class="list-group">
-            <a @click='scroll(index); seviye1 = index;' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
+            <a href='#' @click='scroll(index); seviye1 = index;' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
                 <h3>@{{ index }}</h3>
                 <div class="list-group" :ref='index' v-if='seviye1==index'>
                     <a  @click='scroll(index2); seviye2 = index2' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in lkodlar'>
