@@ -13,15 +13,15 @@
 <div class="row" id="app">
     <div class="col-md-12">
         <div class="list-group">
-            <a @click='scroll(index)' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
+            <a @click='scroll(index); seviye1 = index;' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
                 <h3>@{{ index }}</h3>
-                <div class="list-group" :ref='index'>
-                    <a  @click='scroll(index2)' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in lkodlar'>
+                <div class="list-group" :ref='index' v-if='seviye1==index'>
+                    <a  @click='scroll(index2); seviye2 = index2' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in lkodlar'>
                         <h4>@{{ index2 }}</h4>
-                        <div class="list-group" :ref='index2'>
-                            <a @click='scroll(index3)' :class='stil3(index3)' class="list-group-item" v-for='(detaylar, index3) in depolar'>
+                        <div class="list-group" :ref='index2' v-if='seviye2=index2'>
+                            <a @click='scroll(index3); seviye3=index3' :class='stil3(index3)' class="list-group-item" v-for='(detaylar, index3) in depolar'>
                                 <h5>@{{ index3 }}</h5>
-                                <div :ref='index3'>
+                                <div :ref='index3' v-if='seviye3=index3'>
                                     <table class="table table-hover">
                                         <tr v-for='detay in detaylar'>
                                             <td>@{{ detay.malkod }}</td>
