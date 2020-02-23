@@ -53,7 +53,7 @@
         methods:{
             scroll(index){
                 this.seviye1 = index;
-                var element = this.$refs[refName];
+                var element = this.$refs[index];
                 var top = element.offsetTop;
 
                 window.scrollTo(0, top);
