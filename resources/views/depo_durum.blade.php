@@ -13,10 +13,10 @@
 <div class="row" id="app">
     <div class="col-md-12">
         <div class="list-group">
-            <a href='#' @click='scroll(index)' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
+            <a href='#' @click='scroll(index)' :class='stil1(index,lkodlar)' v-for='(lkodlar,index) in sonuclar'>
                 <h3>@{{ index }}</h3>
-                <div class="list-group" :ref='index' v-if='lkodlar.length>0'>
-                    <a  @click='scroll(index2); seviye2 = index2' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in lkodlar'>
+                <div class="list-group" :ref='index' v-if='alt && alt.length>0'>
+                    <a  @click='scroll(index2); seviye2 = index2' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in alt'>
                         <h4>@{{ index2 }}</h4>
                         <div class="list-group" :ref='index2' v-if='seviye2=index2 && depolar.length>0'>
                             <a @click='scroll(index3); seviye3=index3' :class='stil3(index3)' class="list-group-item" v-for='(detaylar, index3) in depolar'>
@@ -51,8 +51,9 @@
             sonuclar:{!! $sonuclar !!},
         },
         methods:{
-            scroll(aaa){
+            scroll(aaa,bbb){
                 this.seviye1 = aaa;
+                this.alt = bbb;
                 var element = this.$refs[aaa];
                 var top = element.offsetTop;
 
