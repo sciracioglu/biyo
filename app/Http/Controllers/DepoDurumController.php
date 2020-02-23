@@ -31,6 +31,7 @@ class DepoDurumController extends Controller
                     ]
                 ]);
         }
+        $sonuclar = collect($sonuclar);
         return view('depo_durum', compact('sonuclar'));
     }
 }
