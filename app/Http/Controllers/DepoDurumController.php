@@ -9,6 +9,25 @@ class DepoDurumController extends Controller
     public function index()
     {
         $durumlar = DB::select('EXEC ARG_WEB_STOKDURUM_GRUP');
-        dd($durumlar);
+        $sonuclar = [];
+
+        foreach ($durumlar as $durum) {
+            array_push($sonuclar, [
+                    $durum->STKKRT_ACIKLAMA3 => [
+                            $durum->STKKRT_LKOD8 => [
+                                $durum->DEPOAD => [
+                                    'malad'   => $durum->STKKRT_MALAD,
+                                    'malkod'  => $durum->MALKOD,
+                                    'ozelkod' => $durum->STKKRT_OZELKOD,
+                                    'devir'   => $durum->STOKDEVIR,
+                                    'cikis'   => $durum->STOKCIKIS,
+                                    'miktar'  => $durum->STOKMIKTAR,
+                                    'seri'    => $durum->SERINO
+                                ]
+                            ]
+                    ]
+                ]);
+        }
+        dd($sonuclar);
     }
 }
