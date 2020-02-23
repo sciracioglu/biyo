@@ -13,7 +13,7 @@
 <div class="row" id="app">
     <div class="col-md-12">
         <div class="list-group">
-            <a href='#' @click='scroll1(index,lkodlar)' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
+            <a href='#' @click='scroll1(index)' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
                 <h3>@{{ index }}</h3>
                 <div class="list-group" :ref='index' v-if='alt1 && alt1.length>0'>
                     <a  @click='scroll2(index2,depolar)' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in alt1'>
@@ -54,7 +54,7 @@
             sonuclar:{!! $sonuclar !!},
         },
         methods:{
-            scroll1(aaa,bbb){
+            scroll1(aaa){
                 this.seviye1 = aaa;
                 this.alt1 = this.sonuclar.aaa;
                 var element = this.$refs[aaa];
