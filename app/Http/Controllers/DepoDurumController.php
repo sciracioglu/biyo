@@ -16,9 +16,12 @@ class DepoDurumController extends Controller
                 continue;
             }
             array_push($sonuclar, [
-                    $durum->STKKRT_ACIKLAMA3 => [
-                            $durum->STKKRT_LKOD8 => [
-                                $durum->DEPOAD => [
+                    'baslik'=> $durum->STKKRT_ACIKLAMA3,
+                    'detay' => [
+                            'baslik'=> $durum->STKKRT_LKOD8,
+                            'detay' => [
+                                'baslik'=> $durum->DEPOAD,
+                                'detay' => [
                                     'malad'   => $durum->STKKRT_MALAD,
                                     'malkod'  => $durum->MALKOD,
                                     'ozelkod' => $durum->STKKRT_OZELKOD,

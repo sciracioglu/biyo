@@ -17,7 +17,7 @@
               <div class="card-header" :id="index">
                 <h2 class="mb-0">
                   <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index1" aria-expanded="true" :aria-controls="index">
-                    @{{ index }}
+                    @{{ sonuc.baslik }}
                   </button>
                 </h2>
               </div>
@@ -26,11 +26,11 @@
                 <div class="card-body">
                     
                     <div class="accordion" id="lkod8_listesi">
-                        <div class="card" v-for='(lkod8,index2) in sonuc'>
+                        <div class="card" v-for='(lkod8,index2) in sonuc.detay'>
                           <div class="card-header" :id="index2">
                             <h2 class="mb-0">
                               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index2" aria-expanded="true" :aria-controls="index2">
-                                @{{ index2 }}
+                                @{{ lkod8.baslik }}
                               </button>
                             </h2>
                           </div>
@@ -39,11 +39,11 @@
                             <div class="card-body">
                                 
                                 <div class="accordion" id="depoad_listesi">
-                                    <div class="card" v-for='(depolar,index3) in lkod8'>
+                                    <div class="card" v-for='(depolar,index3) in lkod8.detay'>
                                       <div class="card-header" :id="index3">
                                         <h2 class="mb-0">
                                           <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index3" aria-expanded="true" :aria-controls="index3">
-                                            @{{ index3 }}
+                                            @{{ depolar.baslik }}
                                           </button>
                                         </h2>
                                       </div>
@@ -51,7 +51,7 @@
                                       <div id="index3" class="collapse" :aria-labelledby="index3" data-parent="#depoad_listesi">
                                         <div class="card-body">
                                             <table class="table table-hover table-condenced">
-                                                <tr v-for='detay in depolar'>
+                                                <tr v-for='detay in depolar.detay'>
                                                     <td>@{{ detay.malkod }}</td>
                                                     <td>@{{ detay.malad }}</td>
                                                     <td>@{{ detay.ozelkod }}</td>
