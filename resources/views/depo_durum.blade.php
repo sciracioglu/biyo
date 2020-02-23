@@ -15,11 +15,11 @@
         <div class="list-group">
             <a href='#' @click='scroll1(index,lkodlar)' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
                 <h3>@{{ index }}</h3>
-                <div class="list-group" :ref='index' v-if='seviye1=index && alt && alt.length>0'>
-                    <a  @click='scroll2(index2,depolar); seviye2 = index2' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in alt1'>
+                <div class="list-group" :ref='index' v-if='alt && alt.length>0'>
+                    <a  @click='scroll2(index2,depolar)' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in alt1'>
                         <h4>@{{ index2 }}</h4>
                         <div class="list-group" :ref='index2' v-if='seviye2=index2 && alt2 && alt2.length>0'>
-                            <a @click='scroll3(index3,detaylar); seviye3=index3' :class='stil3(index3)' class="list-group-item" v-for='(detaylar, index3) in alt2'>
+                            <a @click='scroll3(index3,detaylar)' :class='stil3(index3)' class="list-group-item" v-for='(detaylar, index3) in alt2'>
                                 <h5>@{{ index3 }}</h5>
                                 <div :ref='index3' v-if='seviye3=index3 && alt3 && alt3.length>0'>
                                     <table class="table table-hover">
