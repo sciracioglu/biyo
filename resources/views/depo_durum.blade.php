@@ -44,6 +44,7 @@
     var vue = new Vue({
         el:'#app',
         data:{
+            ndx:null,
             seviye1:null,
             seviye2:null,
             seviye3:null,
@@ -54,7 +55,7 @@
         },
         methods:{
             scroll1(aaa,bbb){
-                this.seviye1 = secim;
+                this.seviye1 = aaa;
                 this.alt1 = bbb;
                 var element = this.$refs[aaa];
                 var top = element.offsetTop;
@@ -63,7 +64,7 @@
                 console.log(aaa,this.seviye1);
             },
             scroll2(aaa,bbb){
-                this.seviye2 = secim;
+                this.seviye2 = aaa;
                 this.alt2 = bbb;
                 var element = this.$refs[aaa];
                 var top = element.offsetTop;
@@ -72,7 +73,7 @@
                 console.log(aaa,this.seviye1);
             },
             scroll3(aaa,bbb){
-                this.seviye3 = secim;
+                this.seviye3 = aaa;
                 this.alt3 = bbb;
                 var element = this.$refs[aaa];
                 var top = element.offsetTop;
