@@ -56,7 +56,7 @@
         methods:{
             scroll1(aaa){
                 this.seviye1 = aaa;
-                this.alt1 = this.sonuclar.aaa;
+                this.alt1 = this.sonuclar[aaa];
             },
             scroll2(aaa,bbb){
                 this.seviye2 = aaa;
