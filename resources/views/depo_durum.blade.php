@@ -15,7 +15,7 @@
         <div class="list-group">
             <a href='#' @click='scroll1(index)' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
                 <h3>@{{ index }}</h3>
-                <div class="list-group" :ref='index' v-if='alt1 && alt1.length>0'>
+                <div class="list-group" v-if='alt1 && alt1.length>0'>
                     <a  @click='scroll2(index2,depolar)' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in alt1'>
                         <h4>@{{ index2 }}</h4>
                         <div class="list-group" :ref='index2' v-if='seviye2=index2 && alt2 && alt2.length>0'>
@@ -57,11 +57,6 @@
             scroll1(aaa){
                 this.seviye1 = aaa;
                 this.alt1 = this.sonuclar.aaa;
-                var element = this.$refs[aaa];
-                var top = element.offsetTop;
-
-                window.scrollTo(0, top);
-                console.log(aaa,this.seviye1);
             },
             scroll2(aaa,bbb){
                 this.seviye2 = aaa;
