@@ -14,44 +14,44 @@
     <div class="col-md-12">
         <div class="accordion" id="sonuc_listesi">
             <div class="card" v-for='(sonuc,index) in sonuclar'>
-              <div class="card-header" :id="sonuc.STKKRT_ACIKLAMA3">
+              <div class="card-header" :id="index">
                 <h2 class="mb-0">
                   <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="#"+index aria-expanded="true" :aria-controls="index">
-                    @{{ sonuc.STKKRT_ACIKLAMA3 }}
+                    @{{ index }}
                   </button>
                 </h2>
               </div>
           
-              <div :id="index" class="collapse" :aria-labelledby="sonuc.STKKRT_ACIKLAMA3" data-parent="#sonuc_listesi">
+              <div :id="index" class="collapse" :aria-labelledby="index" data-parent="#sonuc_listesi">
                 <div class="card-body">
                     
                     <div class="accordion" id="lkod8_listesi">
                         <div class="card" v-for='(lkod8,index2) in sonuc'>
-                          <div class="card-header" :id="lkod8.STKKRT_LKOD8">
+                          <div class="card-header" :id="index2">
                             <h2 class="mb-0">
                               <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="#"+index2 aria-expanded="true" :aria-controls="index2">
-                                @{{ lkod8.STKKRT_LKOD8 }}
+                                @{{ index2 }}
                               </button>
                             </h2>
                           </div>
                       
-                          <div :id="index2" class="collapse" :aria-labelledby="lkod8.STKKRT_LKOD8" data-parent="#lkod8_listesi">
+                          <div :id="index2" class="collapse" :aria-labelledby="index2" data-parent="#lkod8_listesi">
                             <div class="card-body">
                                 
                                 <div class="accordion" id="depoad_listesi">
-                                    <div class="card" v-for='(depoad,index3) in depoad'>
-                                      <div class="card-header" :id="depoad.DEPOAD">
+                                    <div class="card" v-for='(depolar,index3) in depoad'>
+                                      <div class="card-header" :id="index3">
                                         <h2 class="mb-0">
                                           <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="#"+index3 aria-expanded="true" :aria-controls="index3">
-                                            @{{ depoad.DEPOAD }}
+                                            @{{ index3 }}
                                           </button>
                                         </h2>
                                       </div>
                                   
-                                      <div :id="index3" class="collapse" :aria-labelledby="depoad.DEPOAD" data-parent="#depoad_listesi">
+                                      <div :id="index3" class="collapse" :aria-labelledby="index3" data-parent="#depoad_listesi">
                                         <div class="card-body">
                                             <table class="table table-hover table-condenced">
-                                                <tr v-for='detay in depoad'>
+                                                <tr v-for='detay in depolar'>
                                                     <td>@{{ detay.malkod }}</td>
                                                     <td>@{{ detay.malad }}</td>
                                                     <td>@{{ detay.ozelkod }}</td>
