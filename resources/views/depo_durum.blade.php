@@ -86,7 +86,7 @@
     var vue = new Vue({
         el:'#app',
         data:{
-            sonuclar:{!! $sonuclar !!}
+            sonuclar:{!! $sonuclar !!},
         }
     })
 </script>
