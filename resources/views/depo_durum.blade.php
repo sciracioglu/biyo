@@ -15,7 +15,7 @@
         <div class="list-group">
             <a href='#' @click='scroll(index)' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
                 <h3>@{{ index }}</h3>
-                <div class="list-group" :ref='index' v-if='seviye1==index && lkodlar.length>0'>
+                <div class="list-group" :ref='index' v-if='lkodlar.length>0'>
                     <a  @click='scroll(index2); seviye2 = index2' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in lkodlar'>
                         <h4>@{{ index2 }}</h4>
                         <div class="list-group" :ref='index2' v-if='seviye2=index2 && depolar.length>0'>
@@ -51,13 +51,13 @@
             sonuclar:{!! $sonuclar !!},
         },
         methods:{
-            scroll(index){
-                this.seviye1 = index;
-                var element = this.$refs[index];
+            scroll(aaa){
+                this.seviye1 = aaa;
+                var element = this.$refs[aaa];
                 var top = element.offsetTop;
 
                 window.scrollTo(0, top);
-                console.log(index,this.seviye1);
+                console.log(aaa,this.seviye1);
             },
             stil1(secim){
                 if(this.seviye1 === secim){
