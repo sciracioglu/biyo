@@ -15,24 +15,15 @@ class DepoDurumController extends Controller
             if ($durum->STKKRT_ACIKLAMA3 === '') {
                 continue;
             }
-            array_push($sonuclar, [
-                    'baslik'=> $durum->STKKRT_ACIKLAMA3,
-                    'detay' => [
-                            'baslik'=> $durum->STKKRT_LKOD8,
-                            'detay' => [
-                                'baslik'=> $durum->DEPOAD,
-                                'detay' => [
-                                    'malad'   => $durum->STKKRT_MALAD,
-                                    'malkod'  => $durum->MALKOD,
-                                    'ozelkod' => $durum->STKKRT_OZELKOD,
-                                    'devir'   => $durum->STOKDEVIR,
-                                    'cikis'   => $durum->STOKCIKIS,
-                                    'miktar'  => $durum->STOKMIKTAR,
-                                    'seri'    => $durum->SERINO
-                                ]
-                            ]
-                    ]
-                ]);
+            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->DEPOAD][] =[
+                                                                    'malad'   => $durum->STKKRT_MALAD,
+                                                                    'malkod'  => $durum->MALKOD,
+                                                                    'ozelkod' => $durum->STKKRT_OZELKOD,
+                                                                    'devir'   => $durum->STOKDEVIR,
+                                                                    'cikis'   => $durum->STOKCIKIS,
+                                                                    'miktar'  => $durum->STOKMIKTAR,
+                                                                    'seri'    => $durum->SERINO
+                                                                ];
         }
         $sonuclar = collect($sonuclar);
         return view('depo_durum', compact('sonuclar'));
