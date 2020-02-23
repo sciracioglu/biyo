@@ -13,11 +13,11 @@
 <div class="row" id="app">
     <div class="col-md-12">
         <div class="list-group">
-            <a href="#" @click='seviye1=index' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
+            <a :href="#index" @click='seviye1=index' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
                 @{{ index }}
             </a>
-            <div class="list-group" v-if='seviye1==index'>
-                <a href='#' @click='seviye2=index2' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in lkodlar'>
+            <div class="list-group" v-if="kontrol(index)">
+                <a :href='#index2' @click='seviye2=index2' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in lkodlar'>
                     @{{ index2 }}
                 </a>
                 <div class="list-group" v-if='seviye2==index2'>
@@ -47,10 +47,13 @@
             seviye1:null,
             seviye2:null,
             seviye3:null,
-
+            alt:null,
             sonuclar:{!! $sonuclar !!},
         },
         methods:{
+            kontrol(index){
+                console.log(index,this.seviye1);
+            },
             stil1(secim){
                 if(this.seviye1 === secim){
                     return 'list-group-item active';
