@@ -12,7 +12,7 @@ class DepoDurumController extends Controller
         $sonuclar = [];
 
         foreach ($durumlar as $durum) {
-            if ($durum->ACIKLAMA3 === '') {
+            if ($durum->STKKRT_ACIKLAMA3 === '') {
                 continue;
             }
             array_push($sonuclar, [
@@ -31,6 +31,6 @@ class DepoDurumController extends Controller
                     ]
                 ]);
         }
-        dd($sonuclar);
+        dd(collect($sonuclar));
     }
 }
