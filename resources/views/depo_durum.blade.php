@@ -56,7 +56,7 @@
         methods:{
             scroll1(aaa,bbb){
                 this.seviye1 = aaa;
-                this.alt1 = bbb;
+                this.alt1 = this.sonuclar.aaa;
                 var element = this.$refs[aaa];
                 var top = element.offsetTop;
 
