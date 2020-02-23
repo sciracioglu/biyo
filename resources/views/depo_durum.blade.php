@@ -17,11 +17,11 @@
               <div class="card-header" :id="index">
                 <h2 class="mb-0">
                   <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#index1" aria-expanded="true" :aria-controls="index">
-                    @{{ sonuc.baslik }}
+                    @{{ index }}
                   </button>
                 </h2>
               </div>
-          
+{{--           
               <div id="index" class="collapse" :aria-labelledby="index" data-parent="#sonuc_listesi">
                 <div class="card-body">
                     
@@ -74,7 +74,7 @@
                     </div>
 
                 </div>
-              </div>
+              </div> --}}
             </div>
         </div>
     </div>
