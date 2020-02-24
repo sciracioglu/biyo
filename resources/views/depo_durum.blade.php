@@ -14,7 +14,7 @@
     <div class="col-md-12">
         <div class="accordion" id="accordionExample">
             <div class="card" v-for='(kodlar,index) in sonuclar'>
-              <div class="card-header" id="headingOne">
+              <div class="card-header" :id="slugify(index)">
                 <h2 class="mb-0">
                   <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
                     @{{ index }}
@@ -22,12 +22,12 @@
                 </h2>
               </div>
           
-              <div :id="slugify(index)" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div :id="slugify(index)" class="collapse" :aria-labelledby="slugify(index)" data-parent="#accordionExample">
                 <div class="card-body">
                   Anim pariatur cliche reprehenderit, enim eiusmod  vice lomo.
                   
                   <div class="card" v-for='(depolar,index2) in kodlar'>
-                    <div class="card-header" id="headingOne">
+                    <div class="card-header" :id="slugify(index2)">
                       <h2 class="mb-0">
                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
                           @{{ index2 }}
@@ -35,7 +35,7 @@
                       </h2>
                     </div>
                 
-                    <div :id="slugify(index2)" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div :id="slugify(index2)" class="collapse" :aria-labelledby="slugify(index2)" data-parent="#accordionExample">
                       <div class="card-body">
                         222 
                       </div>
