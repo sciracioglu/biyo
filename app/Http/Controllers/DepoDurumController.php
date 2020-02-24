@@ -10,7 +10,7 @@ class DepoDurumController extends Controller
     {
         $durumlar = DB::select('EXEC ARG_WEB_STOKDURUM_GRUP');
         $sonuclar = [];
-
+        dd($durumlar);
         foreach ($durumlar as $durum) {
             if ($durum->STKKRT_ACIKLAMA3 === '') {
                 continue;
@@ -26,6 +26,7 @@ class DepoDurumController extends Controller
                                                                 ];
         }
         $sonuclar = collect($sonuclar);
+
         return view('depo_durum', compact('sonuclar'));
     }
 }
