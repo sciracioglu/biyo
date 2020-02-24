@@ -21,10 +21,8 @@
                   </button>
                 </h2>
               </div>
-          
               <div :id="slugify(index)" class="collapse" :aria-labelledby="head(index)" data-parent="#accordionExample">
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod  vice lomo.
                   <div class="accordion" :id="aci(index,'b')">
                     <div class="card" v-for='(depolar,index2) in kodlar'>
                         <div class="card-header" :id="head(index2)">
@@ -34,10 +32,8 @@
                                 </button>
                             </h2>
                         </div>
-                    
                         <div :id="slugify(index2)" class="collapse" :aria-labelledby="head(index2)" :data-parent="acc(index,'b')">
                             <div class="card-body">
-                                dddd
                                 <div class="accordion" :id="aci(index2,'c')">
                                     <div class="card" v-for='(detaylar,index3) in depolar'>
                                         <div class="card-header" :id="head(index3)">
@@ -47,7 +43,6 @@
                                             </button>
                                         </h2>
                                         </div>
-                                    
                                         <div :id="slugify(index3)" class="collapse" :aria-labelledby="head(index3)" :data-parent="acc(index2,'c')">
                                         <div class="card-body">
                                             <table class="table table-hover">
@@ -65,14 +60,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                ddd
-
                             </div>
                         </div>
                     </div>
                   </div>
-
-                  Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
                 </div>
               </div>
             </div>
