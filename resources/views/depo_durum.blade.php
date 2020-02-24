@@ -50,7 +50,7 @@
         methods:{
             hedef(i){
                 return '#'+i;
-            }
+            },
             scroll1(aaa){
                 this.seviye1 = aaa;
                 this.alt1 = this.sonuclar[aaa];
