@@ -14,7 +14,7 @@ class DepoDurumController extends Controller
             if ($durum->STKKRT_ACIKLAMA3 === '') {
                 continue;
             }
-            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . '-' . $durum->DEPOKOD . '-' . $durum->DEPOAD][] =[
+            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD][] =[
                                                                     'malad'   => $durum->STKKRT_MALAD,
                                                                     'malkod'  => $durum->MALKOD,
                                                                     'ozelkod' => $durum->STKKRT_OZELKOD,
@@ -24,7 +24,7 @@ class DepoDurumController extends Controller
                                                                     'seri'    => $durum->SERINO
                                                                 ];
         }
-        $sonuclar = collect(ksort($sonuclar));
+        $sonuclar = collect($sonuclar);
 
         return view('depo_durum', compact('sonuclar'));
     }
