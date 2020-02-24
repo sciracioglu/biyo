@@ -38,7 +38,7 @@
                         <div :id="slugify(index2)" class="collapse" :aria-labelledby="head(index2)" :data-parent="acc(index,'b')">
                             <div class="card-body">
                                 dddd
-                                <div class="accordion" :id="aci(index,'c')">
+                                <div class="accordion" :id="aci(index2,'c')">
                                     <div class="card" v-for='(detaylar,index3) in depolar'>
                                         <div class="card-header" :id="head(index3)">
                                         <h2 class="mb-0">
@@ -48,9 +48,19 @@
                                         </h2>
                                         </div>
                                     
-                                        <div :id="slugify(index3)" class="collapse" :aria-labelledby="head(index3)" :data-parent="acc(index,'c')">
+                                        <div :id="slugify(index3)" class="collapse" :aria-labelledby="head(index3)" :data-parent="acc(index2,'c')">
                                         <div class="card-body">
-                                            222 
+                                            <table class="table table-hover">
+                                                <tr v-for='detay in detaylar'>
+                                                    <td>@{{ detay.malkod }}</td>
+                                                    <td>@{{ detay.malad }}</td>
+                                                    <td>@{{ detay.ozelkod }}</td>
+                                                    <td>@{{ detay.devir }}</td>
+                                                    <td>@{{ detay.cikis }}</td>
+                                                    <td>@{{ detay.miktar }}</td>
+                                                    <td>@{{ detay.seri }}</td>
+                                                </tr>
+                                            </table>
                                         </div>
                                         </div>
                                     </div>
