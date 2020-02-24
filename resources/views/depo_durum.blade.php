@@ -28,17 +28,36 @@
                   <div class="accordion" :id="aci(index,'b')">
                     <div class="card" v-for='(depolar,index2) in kodlar'>
                         <div class="card-header" :id="head(index2)">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
-                            @{{ index2 }}
-                            </button>
-                        </h2>
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
+                                @{{ index2 }}
+                                </button>
+                            </h2>
                         </div>
                     
                         <div :id="slugify(index2)" class="collapse" :aria-labelledby="head(index2)" :data-parent="acc(index,'b')">
-                        <div class="card-body">
-                            222 
-                        </div>
+                            <div class="card-body">
+                                dddd
+                                <div class="accordion" :id="aci(index,'c')">
+                                    <div class="card" v-for='(detaylar,index3) in depolar'>
+                                        <div class="card-header" :id="head(index3)">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index3)" aria-expanded="true" :aria-controls="slugify(index3)">
+                                            @{{ index3 }}
+                                            </button>
+                                        </h2>
+                                        </div>
+                                    
+                                        <div :id="slugify(index3)" class="collapse" :aria-labelledby="head(index3)" :data-parent="acc(index,'c')">
+                                        <div class="card-body">
+                                            222 
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                ddd
+
+                            </div>
                         </div>
                     </div>
                   </div>
