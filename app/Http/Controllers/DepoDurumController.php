@@ -10,12 +10,11 @@ class DepoDurumController extends Controller
     {
         $durumlar = DB::select('EXEC ARG_WEB_STOKDURUM_GRUP');
         $sonuclar = [];
-        dd($durumlar);
         foreach ($durumlar as $durum) {
             if ($durum->STKKRT_ACIKLAMA3 === '') {
                 continue;
             }
-            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->DEPOAD][] =[
+            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->DEPOKOD . '-' . $durum->DEPOAD][] =[
                                                                     'malad'   => $durum->STKKRT_MALAD,
                                                                     'malkod'  => $durum->MALKOD,
                                                                     'ozelkod' => $durum->STKKRT_OZELKOD,
