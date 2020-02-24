@@ -16,7 +16,7 @@
             <span class="sr-only">Loading...</span>
           </div>
         <div class="accordion" id="accordionExample" v-else>
-            <div class="card" v-for='(kodlar,index) in siralama'>
+            <div class="card" v-for='(kodlar,index) in sonuclar'>
               <div class="card-header" :id="head(index)">
                 <h2 class="mb-0">
                   <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
@@ -88,11 +88,6 @@
             alt2:null,
             alt3:null,
             sonuclar:{!! $sonuclar !!},
-        },
-        computed: {
-            siralama(){
-                return _.orderBy(this.sonuclar,function(sonuc){ return sonuc},'asc');
-            },
         },
         methods:{
             slugify(text) {
