@@ -12,7 +12,10 @@
 @section('icerik')
 <div class="row" id="app">
     <div class="col-md-12">
-        <div class="accordion" id="accordionExample">
+        <div class="spinner-border text-primary" role="status" v-if='!sonuclar'>
+            <span class="sr-only">Loading...</span>
+          </div>
+        <div class="accordion" id="accordionExample" v-else>
             <div class="card" v-for='(kodlar,index) in sonuclar'>
               <div class="card-header" :id="head(index)">
                 <h2 class="mb-0">
