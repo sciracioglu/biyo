@@ -25,20 +25,21 @@
               <div :id="slugify(index)" class="collapse" :aria-labelledby="head(index)" data-parent="#accordionExample">
                 <div class="card-body">
                   Anim pariatur cliche reprehenderit, enim eiusmod  vice lomo.
-                  
-                  <div class="card" v-for='(depolar,index2) in kodlar'>
-                    <div class="card-header" :id="head(index2)">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
-                          @{{ index2 }}
-                        </button>
-                      </h2>
-                    </div>
-                
-                    <div :id="slugify(index2)" class="collapse" :aria-labelledby="head(index2)" data-parent="#accordionExample">
-                      <div class="card-body">
-                        222 
-                      </div>
+                  <div class="accordion" :id="aci(index,'b')">
+                    <div class="card" v-for='(depolar,index2) in kodlar'>
+                        <div class="card-header" :id="head(index2)">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
+                            @{{ index2 }}
+                            </button>
+                        </h2>
+                        </div>
+                    
+                        <div :id="slugify(index2)" class="collapse" :aria-labelledby="head(index2)" :data-parent="acc(index,'b')">
+                        <div class="card-body">
+                            222 
+                        </div>
+                        </div>
                     </div>
                   </div>
 
@@ -85,7 +86,13 @@
 
             },
             head(i){
-                return 'h'+this.slugify(i);
+                return 'h_'+this.slugify(i);
+            },
+            aci(i,harf){
+                return harf+'_'+this.slugify(i);
+            },
+            acc(i,harf){
+                return '#'+harf+'_'+this.slugify(i);
             },
             hedef(i){
                 return '#'+this.slugify(i);
