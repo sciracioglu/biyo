@@ -24,7 +24,7 @@ class DepoDurumController extends Controller
                                                                     'seri'    => $durum->SERINO
                                                                 ];
         }
-        $sonuclar = collect(sort($sonuclar));
+        $sonuclar = collect($sonuclar);
 
         return view('depo_durum', compact('sonuclar'));
     }
