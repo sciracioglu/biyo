@@ -16,15 +16,33 @@
             <div class="card" v-for='(kodlar,index) in sonuclar'>
               <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                  <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" aria-controls="collapseOne">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
                     @{{ index }}
                   </button>
                 </h2>
               </div>
           
-              <div :id="slugify(index)" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div :id="slugify(index)" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod  vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
+                  Anim pariatur cliche reprehenderit, enim eiusmod  vice lomo.
+                  
+                  <div class="card" v-for='(depolar,index2) in kodlar'>
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
+                          @{{ index2 }}
+                        </button>
+                      </h2>
+                    </div>
+                
+                    <div :id="slugify(index2)" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                        222 
+                      </div>
+                    </div>
+                  </div>
+
+                  Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
                 </div>
               </div>
             </div>
