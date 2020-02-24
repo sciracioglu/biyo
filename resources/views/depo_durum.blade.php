@@ -5,36 +5,58 @@
     {{ session('musteri.unvan') }}
 @endsection
 @section('kucuk_baslik')
-    Çek Senet Bilgileri
+    Depo Durum Bilgileri
 @endsection
 
 
 @section('icerik')
 <div class="row" id="app">
     <div class="col-md-12">
-        <div class="list-group">
-            <a href='#' @click='scroll1(index)' :class='stil1(index)' v-for='(lkodlar,index) in sonuclar'>
-                <h3>@{{ index }}</h3>
-                <div class="list-group" v-if='alt1 && alt1.length>0'>
-                    <a  @click='scroll2(index2,depolar)' :class='stil2(index2)' class="list-group-item" v-for='(depolar, index2) in alt1'>
-                        <h4>@{{ index2 }}</h4>
-                        <div class="list-group" :ref='index2' v-if='seviye2=index2 && alt2 && alt2.length>0'>
-                            <a @click='scroll3(index3,detaylar)' :class='stil3(index3)' class="list-group-item" v-for='(detaylar, index3) in alt2'>
-                                <h5>@{{ index3 }}</h5>
-                                <div :ref='index3' v-if='seviye3=index3 && alt3 && alt3.length>0'>
-                                    <table class="table table-hover">
-                                        <tr v-for='detay in alt3'>
-                                            <td>@{{ detay.malkod }}</td>
-                                            <td>@{{ detay.malad }}</td>
-                                        </tr>
-                                    </table>
-                                </div>  
-                            </a>
-                        </div>
-                    </a>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Collapsible Group Item #1
+                  </button>
+                </h2>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                 </div>
-            </a>
-        </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Collapsible Group Item #2
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Collapsible Group Item #3
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 </div>
 @endsection
