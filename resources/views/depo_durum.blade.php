@@ -91,7 +91,7 @@
         },
         computed: {
             siralama(){
-                return _.orderBy(this.sonuclar,function(sonuc){ return sonuc[0]},'asc');
+                return _.orderBy(this.sonuclar,function(sonuc){ return sonuc},'asc');
             },
         },
         methods:{
