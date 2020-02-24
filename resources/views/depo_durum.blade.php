@@ -15,7 +15,7 @@
         <div class="spinner-border text-primary" role="status" v-if='!sonuclar'>
         </div>
         <div class="accordion" id="accordionExample" v-else>
-            <div class="card" v-for='(kodlar,index) in sonuclar'>
+            <div class="card" v-for='(kodlar,index) in siralama'>
                 <div class="card-header" :id="head(index)">
                     <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
@@ -80,6 +80,11 @@
         el:'#app',
         data:{
             sonuclar:{!! $sonuclar !!},
+        },
+        computed:{
+            siralama(){
+                return _.sortBy(this.sonuclar, [function(o) { return o; }]);
+            }
         },
         methods:{
             slugify(text) {
