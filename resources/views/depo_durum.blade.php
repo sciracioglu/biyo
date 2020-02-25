@@ -18,7 +18,7 @@
                 <div class="card-header" :id="head(index)">
                     <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
-                        @{{ index }} <span class="badge" v-text='toplam_1(index)'><span>
+                        @{{ index }} <span class="badge" v-text='toplam_1(index).total'><span>
                     </button>
                     </h2>
                 </div>
