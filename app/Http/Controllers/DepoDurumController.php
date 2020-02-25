@@ -30,7 +30,7 @@ class DepoDurumController extends Controller
                                 ->where('STKKRT_ACIKLAMA3', '<>', '')
                                 ->groupBy('STKKRT_ACIKLAMA3')
                                 ->groupBy('STKKRT_LKOD8')
-                                ->groupBy('DEPOAD')
+                                ->groupBy('DEPOAD', 'DEPOKOD')
                                 ->get(['STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', 'STKKRT_LKOD8' || ' - ' || 'DEPOKOD' || ' - ' || 'DEPOAD', DB::raw('count(*) as total')]);
         $sonuclar = [];
 
