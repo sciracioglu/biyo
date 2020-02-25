@@ -12,8 +12,12 @@
 @section('icerik')
 <div class="row" id="app">
     <div class="col-md-12">
-        <div class="spinner-border text-primary" role="status" v-if='!sonuclar'>
+        <div class="padding-bottom-10 padding-top-10">
+            <span class="input-icon">
+                <input type="text" class="form-control" v-model="search" placeholder="Arayın...">
+            </span>
         </div>
+        <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
         <div class="accordion" id="accordionExample" v-else>
             <div class="card" v-for='(kodlar,index) in sonuclar'>
                 <div class="card-header" :id="head(index)">
@@ -79,7 +83,11 @@
     var vue = new Vue({
         el:'#app',
         data:{
+            isLoading:1,
             sonuclar:{!! $sonuclar !!},
+        },
+        created () {
+            this.isLoading=0;
         },
         computed:{
             siralama(){
