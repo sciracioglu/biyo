@@ -89,7 +89,9 @@
         computed:{
             toplam_1:function(ara) {
                 return this.bir.filter(liste => {
-                    return liste.STKKRT_ACIKLAMA3.indexOf(ara) > -1
+                    if(liste.STKKRT_ACIKLAMA3 == ara){
+                        return liste.total;
+                    }
                 })
             },
         },
