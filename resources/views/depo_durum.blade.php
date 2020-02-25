@@ -18,7 +18,7 @@
                 <div class="card-header" :id="head(index)">
                     <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
-                        @{{ index }}
+                        @{{ index }} <span class="badge" v-text='toplam_1(index)'><span>
                     </button>
                     </h2>
                 </div>
@@ -85,6 +85,13 @@
         },
         created () {
             this.isLoading=0;
+        },
+        computed:{
+            toplam_1:function(ara) {
+                return this.bir.filter(liste => {
+                    return liste.STKKRT_ACIKLAMA3.indexOf(ara) > -1)
+                })
+        },
         },
         methods:{
             slugify(text) {
