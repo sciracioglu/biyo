@@ -18,7 +18,9 @@ class DepoDurumController extends Controller
                                 ->whereNotNull('STKKRT_ACIKLAMA3')
                                 ->where('STKKRT_ACIKLAMA3', '<>', '')
                                 ->groupBy('STKKRT_ACIKLAMA3')
-                                ->get(['STKKRT_ACIKLAMA3', DB::raw('count(*) as total')]);
+                                ->groupBy('STKKRT_LKOD8')
+                                ->groupBy('DEPOAD')
+                                ->get(['STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', 'DEPOAD', DB::raw('count(*) as total')]);
         dd($toplamlar);
         $sonuclar = [];
         // foreach ($durumlar as $durum) {
