@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\StokDurum;
+use Carbon\Carbon;
 
 class DepoDurumController extends Controller
 {
@@ -13,11 +14,11 @@ class DepoDurumController extends Controller
                             ->where('STKKRT_ACIKLAMA3', '<>', '')
                             ->get();
         $sonuclar = [];
-        foreach ($durumlar as $durum) {
-            $sonuclar[$durum->STKKRT_ACIKLAMA3]['toplam']                                                                                                = 0;
-            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8]['toplam']                                                                          = 0;
-            //$sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD]['toplam'] = 0;
-        }
+        // foreach ($durumlar as $durum) {
+        //     $sonuclar[$durum->STKKRT_ACIKLAMA3]['toplam']                                                                                                = 0;
+        //     $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8]['toplam']                                                                          = 0;
+        //     $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD]['toplam'] = 0;
+        // }
         foreach ($durumlar as $durum) {
             $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD][] =
                                                             [
@@ -26,10 +27,10 @@ class DepoDurumController extends Controller
                                                                 'ozelkod' => $durum->STKKRT_OZELKOD,
                                                                 'miktar'  => $durum->STOKMIKTAR,
                                                                 'seri'    => $durum->SERINO,
-                                                                'tarih'   => $durum->SERKRT_SONKULLANMATARIH
+                                                                'tarih'   => Carbon::parse($durum->SERKRT_SONKULLANMATARIH)->format('d/m/Y')
                                                             ];
-            $sonuclar[$durum->STKKRT_ACIKLAMA3]['toplam'] += $durum->STOKMIKTAR;
-            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8]['toplam'] += $durum->STOKMIKTAR;
+            // $sonuclar[$durum->STKKRT_ACIKLAMA3]['toplam'] += $durum->STOKMIKTAR;
+            // $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8]['toplam'] += $durum->STOKMIKTAR;
             // $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD]['toplam'] += $durum->STOKMIKTAR;
         }
         $sonuclar = json_encode($sonuclar, JSON_UNESCAPED_UNICODE);
