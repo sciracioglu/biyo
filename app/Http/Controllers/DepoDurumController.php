@@ -12,6 +12,7 @@ class DepoDurumController extends Controller
     {
         $durumlar = StokDurum::orderBy('STKKRT_ACIKLAMA3')
                             ->orderBy('STKKRT_LKOD8')
+                            ->orderBy('DEPOKOD')
                             ->orderBy('DEPOAD')
                             ->whereNotNull('STKKRT_ACIKLAMA3')
                             ->where('STKKRT_ACIKLAMA3', '<>', '')
