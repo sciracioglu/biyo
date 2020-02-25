@@ -14,7 +14,7 @@ class DepoDurumController extends Controller
                                 ->where('STKKRT_ACIKLAMA3', 'ACCESSORIES')
                                 ->get()
                                 ->map(function ($durum) {
-                                    return [
+                                    return $aciklama[$durum->STKKRT_ACIKLAMA3]=[
                                         'aciklama' => $durum->STKKRT_ACIKLAMA3,
                                         'veri'     => [
                                             'aciklama' => $durum->STKKRT_LKOD8,
