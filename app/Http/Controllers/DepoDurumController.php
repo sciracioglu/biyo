@@ -32,7 +32,7 @@ class DepoDurumController extends Controller
                                         ]
                                     ];
                                 });
-        dd($durumlar);
+        dd($durumlar->first());
         $sonuclar = [];
         foreach ($durumlar as $durum) {
             if ($durum->STKKRT_ACIKLAMA3 === '') {
