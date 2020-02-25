@@ -96,8 +96,6 @@
 				var result = {}
 				var self = this;
 				Object.keys(items).forEach(key => {
-                    console.log(key);
-                    console.log(items);
 					const item = items[key]
                     const letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
 					if(self.search != null){
