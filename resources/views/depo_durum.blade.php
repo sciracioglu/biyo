@@ -89,9 +89,9 @@
         computed:{
             toplam_1:function(ara) {
                 return this.bir.filter(liste => {
-                    return liste.STKKRT_ACIKLAMA3.indexOf(ara) > -1)
+                    return liste.STKKRT_ACIKLAMA3.indexOf(ara) > -1
                 })
-        },
+            },
         },
         methods:{
             slugify(text) {
