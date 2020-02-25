@@ -16,17 +16,21 @@ class DepoDurumController extends Controller
                                     return [
                                         'aciklama' => $durum->STKKRT_ACIKLAMA3,
                                         'veri'     => [
-                                            'lkod' => $durum->STKKRT_LKOD8,
-                                            'veri' => [
-                                                'depo' => $durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD,
-                                                'veri' => [
-                                                    'malad'   => $durum->STKKRT_MALAD,
-                                                    'malkod'  => $durum->MALKOD,
-                                                    'ozelkod' => $durum->STKKRT_OZELKOD,
-                                                    'devir'   => $durum->STOKDEVIR,
-                                                    'cikis'   => $durum->STOKCIKIS,
-                                                    'miktar'  => $durum->STOKMIKTAR,
-                                                    'seri'    => $durum->SERINO
+                                            [
+                                                'aciklama' => $durum->STKKRT_LKOD8,
+                                                'veri'     => [
+                                                    [
+                                                        'aciklama' => $durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD,
+                                                        'veri'     => [
+                                                            'malad'   => $durum->STKKRT_MALAD,
+                                                            'malkod'  => $durum->MALKOD,
+                                                            'ozelkod' => $durum->STKKRT_OZELKOD,
+                                                            'devir'   => $durum->STOKDEVIR,
+                                                            'cikis'   => $durum->STOKCIKIS,
+                                                            'miktar'  => $durum->STOKMIKTAR,
+                                                            'seri'    => $durum->SERINO
+                                                        ]
+                                                    ]
                                                 ]
                                             ]
                                         ]
