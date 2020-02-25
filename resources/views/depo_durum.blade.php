@@ -12,11 +12,6 @@
 @section('icerik')
 <div class="row" id="app">
     <div class="col-md-12">
-        <div sty="pb-3 pt-3">
-            <span class="input-icon">
-                <input type="text" class="form-control" v-model="search" placeholder="Arayın...">
-            </span>
-        </div>
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
         <div class="accordion" id="accordionExample" v-else v-cloak>
             <div class="card" v-for='(kodlar,index) in sonuclar'>
@@ -83,14 +78,10 @@
         el:'#app',
         data:{
             isLoading:1,
-            search:'',
             sonuclar:{!! $sonuclar !!},
         },
         created () {
             this.isLoading=0;
-        },
-        computed:{
-            
         },
         methods:{
             slugify(text) {
