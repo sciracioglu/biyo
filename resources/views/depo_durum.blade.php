@@ -19,7 +19,7 @@
         </div>
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
         <div class="accordion" id="accordionExample" v-else v-cloak>
-            <div class="card" v-for='(kodlar,index) in sonuclar'>
+            <div class="card" v-for='(kodlar,index) in filtre'>
                 <div class="card-header" :id="head(index)">
                     <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
@@ -91,9 +91,16 @@
             this.isLoading=0;
         },
         computed:{
-            siralama(){
-                return _.sortBy(this.sonuclar, [function(o) { return o; }]);
-            }
+            
+            filtre:function() {
+                return this.sonuclar.filter(liste => {
+                    
+                    var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
+                    malkod = liste != null ? liste.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
+                    search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; })
+                    return malkod.toLowerCase().indexOf(search.toLowerCase()) > -1)
+                })
+        },
         },
         methods:{
             slugify(text) {
