@@ -85,23 +85,24 @@
         data:{
             isLoading:1,
             search:'',
-            sonuclar:{!! $sonuclar !!},
+            sonuclar:@json($sonuclar),
         },
         created () {
             this.isLoading=0;
         },
         computed:{
-            
             filtre:function() {
-                return this.sonuclar.filter(function(key,sonuc){
-                    console.log(key);
-                    console.log(sonuc);
-
+                var items = this.sonuclar;
+                var result = {}
+                Object.keys(items).forEach(veri => {
                     var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
-                    malkod = key != null ? key.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
-                    search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; })
-                    return malkod.toLowerCase().indexOf(search.toLowerCase()) > -1)
+                        malkod = items != null ? items.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
+                        search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; })
+                        if( malkod.toLowerCase().indexOf(search.toLowerCase()) > -1) {
+                            result[veri] = self.gorevler[gorev];
+                        }
                 })
+                return result;
             },
         },
         methods:{
