@@ -95,12 +95,13 @@
                 var items = this.sonuclar;
                 var result = {}
                 Object.keys(items).forEach(veri => {
-                    var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
-                        malkod = items != null ? items.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
-                        search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; })
-                        if( malkod.toLowerCase().indexOf(search.toLowerCase()) > -1) {
-                            result[veri] = self.gorevler[gorev];
-                        }
+                    console.log(veri);
+                    // var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
+                    //     malkod = items != null ? items.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
+                    //     search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; })
+                    //     if( malkod.toLowerCase().indexOf(search.toLowerCase()) > -1) {
+                    //         result[veri] = $;
+                    //     }
                 })
                 return result;
             },
