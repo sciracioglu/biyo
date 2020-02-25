@@ -9,7 +9,6 @@ class DepoDurumController extends Controller
     public function index()
     {
         $durumlar = StokDurum::all();
-        dd($durumlar);
 
         $sonuclar = [];
         foreach ($durumlar as $durum) {
