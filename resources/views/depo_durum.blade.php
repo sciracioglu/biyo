@@ -93,17 +93,26 @@
         computed:{
             filtre:function() {
                 var items = this.sonuclar;
-                var result = {}
-                Object.keys(items).forEach(veri => {
-                    console.log(veri);
-                    // var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
-                    //     malkod = items != null ? items.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
-                    //     search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; })
-                    //     if( malkod.toLowerCase().indexOf(search.toLowerCase()) > -1) {
-                    //         result[veri] = $;
-                    //     }
-                })
-                return result;
+				var result = {}
+				var self = this;
+				Object.keys(items).forEach(key => {
+                    console.log(key);
+                    console.log(items);
+					const item = items[key]
+                    const letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
+					if(self.search != null){
+                        veri = key.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; });
+                        search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; });
+						if(veri.indexOf(search)>-1){
+							result[key] = item
+						}
+						
+					} else {
+						result[key] = item
+					}
+				})  
+				return result;
+
             },
         },
         methods:{
