@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use App\StokDurum;
 
 class DepoDurumController extends Controller
 {
     public function index()
     {
-        $durumlar = DB::select('EXEC ARG_WEB_STOKDURUM_GRUP');
+        $durumlar = StokDurum::all();
+        dd($durumlar);
+
         $sonuclar = [];
         foreach ($durumlar as $durum) {
             if ($durum->STKKRT_ACIKLAMA3 === '') {
