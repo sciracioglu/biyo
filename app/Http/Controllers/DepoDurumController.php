@@ -11,7 +11,6 @@ class DepoDurumController extends Controller
         $durumlar = StokDurum::orderBy('STKKRT_ACIKLAMA3')
                             ->whereNotNull('STKKRT_ACIKLAMA3')
                             ->where('STKKRT_ACIKLAMA3', '<>', '')
-                            ->where('STKKRT_ACIKLAMA3', 'ACCESSORIES')
                             ->get();
         $sonuclar = [];
         foreach ($durumlar as $durum) {
@@ -27,7 +26,6 @@ class DepoDurumController extends Controller
                                                             ];
         }
         $sonuclar = json_encode($sonuclar, JSON_UNESCAPED_UNICODE);
-        dd($sonuclar);
         return view('depo_durum', compact('sonuclar'));
     }
 }
