@@ -93,7 +93,7 @@
                     if(liste.STKKRT_ACIKLAMA3 == ara){
                         return liste;
                     }
-                }).total
+                })
             },
             slugify(text) {
                 text = text.toString();
