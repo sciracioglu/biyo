@@ -8,8 +8,31 @@ class DepoDurumController extends Controller
 {
     public function index()
     {
-        $durumlar = StokDurum::all();
-
+        $durumlar = StokDurum::orderBy('STKKRT_ACIKLAMA3')
+                                ->whereNotNull('STKKRT_ACIKLAMA3')
+                                ->where('STKKRT_ACIKLAMA3', '')
+                                ->get()
+                                ->map(function ($durum) {
+                                    return [
+                                        'aciklama' => $durum->STKKRT_ACIKLAMA3,
+                                        'veri'     => [
+                                            'lkod' => $durum->STKKRT_LKOD8,
+                                            'veri' => [
+                                                'depo' => $durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD,
+                                                'veri' => [
+                                                    'malad'   => $durum->STKKRT_MALAD,
+                                                    'malkod'  => $durum->MALKOD,
+                                                    'ozelkod' => $durum->STKKRT_OZELKOD,
+                                                    'devir'   => $durum->STOKDEVIR,
+                                                    'cikis'   => $durum->STOKCIKIS,
+                                                    'miktar'  => $durum->STOKMIKTAR,
+                                                    'seri'    => $durum->SERINO
+                                                ]
+                                            ]
+                                        ]
+                                    ];
+                                });
+        dd($durumlar);
         $sonuclar = [];
         foreach ($durumlar as $durum) {
             if ($durum->STKKRT_ACIKLAMA3 === '') {
