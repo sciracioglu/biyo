@@ -31,7 +31,7 @@ class DepoDurumController extends Controller
                                 ->groupBy('STKKRT_ACIKLAMA3')
                                 ->groupBy('STKKRT_LKOD8')
                                 ->groupBy('DEPOAD', 'DEPOKOD')
-                                ->get(['STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', DB::raw("'STKKRT_LKOD8' || ' - ' || 'DEPOKOD' || ' - ' || 'DEPOAD' as DEPOAD"), DB::raw('count(*) as total')]);
+                                ->get(['STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', DB::raw("CONCAT('STKKRT_LKOD8' , ' - ' , 'DEPOKOD' , ' - ' , 'DEPOAD') as DEPOAD"), DB::raw('count(*) as total')]);
         $sonuclar = [];
 
         foreach ($durumlar as $durum) {
