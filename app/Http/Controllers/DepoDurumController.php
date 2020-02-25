@@ -33,7 +33,7 @@ class DepoDurumController extends Controller
                                 ->groupBy('DEPOAD', 'DEPOKOD')
                                 ->get([
                                         'STKKRT_ACIKLAMA3', 'STKKRT_LKOD8',
-                                        DB::raw("CONCAT(STKKRT_LKOD8, ' - ', DEPOKOD, ' - ', DEPOAD) as ad"),
+                                        DB::raw('CONCAT(STKKRT_LKOD8, " - ", DEPOKOD, " - ", DEPOAD) as ad'),
                                         DB::raw('count(*) as total')
                                     ]);
         $sonuclar = [];
