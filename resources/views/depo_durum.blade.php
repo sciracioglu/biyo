@@ -92,7 +92,7 @@
         },
         computed:{
             filtre:function() {
-                return this.sonuclar.filter(liste) => {
+                return this.sonuclar.filter(liste => {
                     console.log(liste);
                     // var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
                     // malkod = liste != null ? liste.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
