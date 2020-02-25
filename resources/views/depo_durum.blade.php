@@ -15,7 +15,7 @@
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
         <div class="accordion" id="accordionExample" v-else v-cloak>
             <div class="card" v-for='(kodlar,index) in sonuclar'>
-                <div class="card-header" :id="head(index)" v-if='index != "toplam"'>
+                <div class="card-header" :id="head(index)">
                     <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
                         @{{ index }} <span class="badge">@{{ index.toplam }}</span>
@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <div class="accordion" :id="aci(index,'b')">
                             <div class="card" v-for='(depolar,index2) in kodlar'>
-                                <div class="card-header" :id="head(index2)" v-if='index2 != "toplam"'>
+                                <div class="card-header" :id="head(index2)">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
                                         @{{ index2 }}
@@ -37,7 +37,7 @@
                                     <div class="card-body">
                                         <div class="accordion" :id="aci(index2,'c')">
                                             <div class="card" v-for='(detaylar,index3) in depolar'>
-                                                <div class="card-header" :id="head(index3)" v-if='index3 != "toplam"'>
+                                                <div class="card-header" :id="head(index3)">
                                                     <h2 class="mb-0">
                                                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index3)" aria-expanded="true" :aria-controls="slugify(index3)">
                                                         @{{ index3 }}
