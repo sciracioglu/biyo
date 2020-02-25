@@ -79,6 +79,9 @@
         data:{
             isLoading:1,
             sonuclar:{!! $sonuclar !!},
+            bir:{!! $bir !!},
+            iki:{!! $iki !!},
+            uc:{!! $uc !!},
         },
         created () {
             this.isLoading=0;
