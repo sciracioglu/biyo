@@ -86,7 +86,8 @@
         created () {
             this.isLoading=0;
         },
-        computed:{
+        
+        methods:{
             toplam_1:function(ara) {
                 return this.bir.filter(liste => {
                     if(liste.STKKRT_ACIKLAMA3 == ara){
@@ -94,8 +95,6 @@
                     }
                 })
             },
-        },
-        methods:{
             slugify(text) {
                 text = text.toString();
                 var trMap = {
