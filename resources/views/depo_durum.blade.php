@@ -89,11 +89,8 @@
         
         methods:{
             toplam_1:function(ara) {
-                sonuc= this.bir.filter(liste => {
-                    if(liste.STKKRT_ACIKLAMA3 == ara){
-                        return liste;
-                    }
-                });
+               sonuc=  _.find(this.bir, ['STKKRT_ACIKLAMA3', ara]);
+                
                 console.log(sonuc);
                 return sonuc.total;
             },
