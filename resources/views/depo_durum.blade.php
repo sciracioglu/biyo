@@ -84,6 +84,7 @@
         el:'#app',
         data:{
             isLoading:1,
+            search:'',
             sonuclar:{!! $sonuclar !!},
         },
         created () {
