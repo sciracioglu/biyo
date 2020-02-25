@@ -29,7 +29,7 @@
                                 <div class="card-header" :id="head(index2)">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
-                                        @{{ index2 }} <span class="badge badge-primary" v-text='toplam_2(index2)'><span>
+                                        @{{ index2 }} <span class="badge badge-primary" v-text='toplam_2(index,index2)'><span>
                                         </button>
                                     </h2>
                                 </div>
@@ -40,7 +40,7 @@
                                                 <div class="card-header" :id="head(index3)">
                                                     <h2 class="mb-0">
                                                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index3)" aria-expanded="true" :aria-controls="slugify(index3)">
-                                                        @{{ index3 }} <span class="badge badge-primary" v-text='toplam_3(index3)'><span>
+                                                        @{{ index3 }} <span class="badge badge-primary" v-text='toplam_3(index,index2,index3)'><span>
                                                         </button>
                                                     </h2>
                                                 </div>
