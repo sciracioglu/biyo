@@ -12,7 +12,7 @@
 @section('icerik')
 <div class="row" id="app">
     <div class="col-md-12">
-        <div class="padding-bottom-10 padding-top-10">
+        <div sty="pb-3 pt-3">
             <span class="input-icon">
                 <input type="text" class="form-control" v-model="search" placeholder="Arayın...">
             </span>
