@@ -85,6 +85,7 @@
         },
         methods:{
             slugify(text) {
+                console.log(text);
                 var trMap = {
                     'çÇ':'c',
                     'ğĞ':'g',
