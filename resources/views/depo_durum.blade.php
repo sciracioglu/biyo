@@ -34,8 +34,8 @@
                                         <div class="accordion" :id="aci(index2,'c')">
                                             <div class="card" v-for='(detaylar,index3) in depolar'>
                                                 <div class="card-header" :id="head(index3)" style="cursor:pointer" data-toggle="collapse" :data-target="hedef(index3)" aria-expanded="true" :aria-controls="slugify(index3)">
-                                                    <h4 class="mb-0 text-warning">
-                                                        @{{ index3 }} <span class="badge badge-warning" v-text='toplam_3(index,index2,index3)'><span>
+                                                    <h4 class="mb-0 text-danger">
+                                                        @{{ index3 }} <span class="badge badge-danger" v-text='toplam_3(index,index2,index3)'><span>
                                                     </h4>
                                                 </div>
                                                 <div :id="slugify(index3)" class="collapse" :aria-labelledby="head(index3)" :data-parent="acc(index2,'c')">
