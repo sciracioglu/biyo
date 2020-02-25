@@ -10,7 +10,7 @@ class DepoDurumController extends Controller
     {
         $durumlar = StokDurum::orderBy('STKKRT_ACIKLAMA3')
                                 ->whereNotNull('STKKRT_ACIKLAMA3')
-                                ->where('STKKRT_ACIKLAMA3', '')
+                                ->where('STKKRT_ACIKLAMA3', '<>', '')
                                 ->get()
                                 ->map(function ($durum) {
                                     return [
