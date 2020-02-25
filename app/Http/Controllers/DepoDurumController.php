@@ -32,7 +32,11 @@ class DepoDurumController extends Controller
                                         ]
                                     ];
                                 });
-        dd($durumlar->first());
+        dump($durumlar->first());
+        $durumlar = StokDurum::orderBy('STKKRT_ACIKLAMA3')
+                            ->whereNotNull('STKKRT_ACIKLAMA3')
+                            ->where('STKKRT_ACIKLAMA3', '<>', '')
+                            ->get();
         $sonuclar = [];
         foreach ($durumlar as $durum) {
             if ($durum->STKKRT_ACIKLAMA3 === '') {
@@ -48,8 +52,8 @@ class DepoDurumController extends Controller
                                                                     'seri'    => $durum->SERINO
                                                                 ];
         }
+        dd($sonuclar->first());
         $sonuclar = json_encode($sonuclar, JSON_UNESCAPED_UNICODE);
-
         return view('depo_durum', compact('sonuclar'));
     }
 }
