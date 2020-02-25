@@ -89,16 +89,16 @@
         
         methods:{
             toplam_1:function(ara) {
-               sonuc=  _.find(this.bir, ['STKKRT_ACIKLAMA3', ara]);
+               sonuc =  _.find(this.bir, ['STKKRT_ACIKLAMA3', ara]);
                 return sonuc.total;
             },
             toplam_2:function(ara,ara2) {
-               sonuc=  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2});
-                return sonuc.total;
+               sonuc2 =  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2});
+                return sonuc2.total;
             },
             toplam_3:function(ara,ara2,ara3) {
-               sonuc=  _.find(this.uc,{'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2,'DEPOAD':ara3});
-                return sonuc.total;
+               sonuc3 =  _.find(this.uc,{'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2,'DEPOAD':ara3});
+                return sonuc3.total;
             },
             slugify(text) {
                 text = text.toString();
