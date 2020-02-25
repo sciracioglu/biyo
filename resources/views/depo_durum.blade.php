@@ -15,11 +15,9 @@
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
         <div class="accordion" id="accordionExample" v-else v-cloak>
             <div class="card" v-for='(kodlar,index) in sonuclar'>
-                <div class="card-header" :id="head(index)">
+                <div class="card-header" :id="head(index)" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
                     <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
                         @{{ index }} <span class="badge badge-primary" v-text='toplam_1(index)'><span>
-                    </button>
                     </h2>
                 </div>
                 <div :id="slugify(index)" class="collapse" :aria-labelledby="head(index)" data-parent="#accordionExample">
@@ -29,7 +27,7 @@
                                 <div class="card-header" :id="head(index2)">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
-                                        @{{ index2 }} <span class="badge badge-primary" v-text='toplam_2(index,index2)'><span>
+                                        @{{ index2 }} <span class="badge badge-info" v-text='toplam_2(index,index2)'><span>
                                         </button>
                                     </h2>
                                 </div>
@@ -40,7 +38,7 @@
                                                 <div class="card-header" :id="head(index3)">
                                                     <h2 class="mb-0">
                                                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index3)" aria-expanded="true" :aria-controls="slugify(index3)">
-                                                        @{{ index3 }} <span class="badge badge-primary" v-text='toplam_3(index,index2,index3)'><span>
+                                                        @{{ index3 }} <span class="badge badge-warning" v-text='toplam_3(index,index2,index3)'><span>
                                                         </button>
                                                     </h2>
                                                 </div>
