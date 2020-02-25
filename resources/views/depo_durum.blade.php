@@ -18,7 +18,7 @@
                 <div class="card-header" :id="head(index)">
                     <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
-                        @{{ index }} <span class="badge" v-text='toplam_1(index)'><span>
+                        @{{ index }} <span class="badge badge-primary" v-text='toplam_1(index)'><span>
                     </button>
                     </h2>
                 </div>
@@ -29,7 +29,7 @@
                                 <div class="card-header" :id="head(index2)">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
-                                        @{{ index2 }}
+                                        @{{ index2 }} <span class="badge badge-primary" v-text='toplam_2(index2)'><span>
                                         </button>
                                     </h2>
                                 </div>
@@ -40,7 +40,7 @@
                                                 <div class="card-header" :id="head(index3)">
                                                     <h2 class="mb-0">
                                                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index3)" aria-expanded="true" :aria-controls="slugify(index3)">
-                                                        @{{ index3 }}
+                                                        @{{ index3 }} <span class="badge badge-primary" v-text='toplam_3(index3)'><span>
                                                         </button>
                                                     </h2>
                                                 </div>
@@ -90,8 +90,14 @@
         methods:{
             toplam_1:function(ara) {
                sonuc=  _.find(this.bir, ['STKKRT_ACIKLAMA3', ara]);
-                
-                console.log(sonuc);
+                return sonuc.total;
+            },
+            toplam_2:function(ara,ara2) {
+               sonuc=  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2});
+                return sonuc.total;
+            },
+            toplam_3:function(ara,ara2,ara3) {
+               sonuc=  _.find(this.uc,{'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2,'DEPOAD':ara3});
                 return sonuc.total;
             },
             slugify(text) {
