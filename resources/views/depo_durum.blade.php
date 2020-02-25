@@ -18,7 +18,7 @@
                 <div class="card-header" :id="head(index)" v-if='index != "toplam"'>
                     <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
-                        @{{ index }} <span class="badge">@{{ toplam }}</span>
+                        @{{ index }} <span class="badge">@{{ index.toplam }}</span>
                     </button>
                     </h2>
                 </div>
@@ -85,6 +85,7 @@
         },
         methods:{
             slugify(text) {
+                text = text.toString();
                 var trMap = {
                     'çÇ':'c',
                     'ğĞ':'g',
