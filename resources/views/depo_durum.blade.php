@@ -15,32 +15,28 @@
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
         <div class="accordion" id="accordionExample" v-else v-cloak>
             <div class="card" v-for='(kodlar,index) in sonuclar'>
-                <div class="card-header" :id="head(index)" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
-                    <h2 class="mb-0">
+                <div class="card-header" style="cursor:pointer" :id="head(index)" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
+                    <h4 class="mb-0">
                         @{{ index }} <span class="badge badge-primary" v-text='toplam_1(index)'><span>
-                    </h2>
+                    </h4>
                 </div>
                 <div :id="slugify(index)" class="collapse" :aria-labelledby="head(index)" data-parent="#accordionExample">
                     <div class="card-body">
                         <div class="accordion" :id="aci(index,'b')">
                             <div class="card" v-for='(depolar,index2) in kodlar'>
-                                <div class="card-header" :id="head(index2)">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
+                                <div class="card-header" :id="head(index2)" style="cursor:pointer" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
+                                    <h4 class="mb-0 text-info">
                                         @{{ index2 }} <span class="badge badge-info" v-text='toplam_2(index,index2)'><span>
-                                        </button>
-                                    </h2>
+                                    </h4>
                                 </div>
                                 <div :id="slugify(index2)" class="collapse" :aria-labelledby="head(index2)" :data-parent="acc(index,'b')">
                                     <div class="card-body">
                                         <div class="accordion" :id="aci(index2,'c')">
                                             <div class="card" v-for='(detaylar,index3) in depolar'>
-                                                <div class="card-header" :id="head(index3)">
-                                                    <h2 class="mb-0">
-                                                        <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index3)" aria-expanded="true" :aria-controls="slugify(index3)">
+                                                <div class="card-header" :id="head(index3)" style="cursor:pointer" data-toggle="collapse" :data-target="hedef(index3)" aria-expanded="true" :aria-controls="slugify(index3)">
+                                                    <h4 class="mb-0 text-warning">
                                                         @{{ index3 }} <span class="badge badge-warning" v-text='toplam_3(index,index2,index3)'><span>
-                                                        </button>
-                                                    </h2>
+                                                    </h4>
                                                 </div>
                                                 <div :id="slugify(index3)" class="collapse" :aria-labelledby="head(index3)" :data-parent="acc(index2,'c')">
                                                     <div class="card-body">
