@@ -18,7 +18,7 @@
             </span>
         </div>
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
-        <div class="accordion" id="accordionExample" v-else>
+        <div class="accordion" id="accordionExample" v-else v-cloak>
             <div class="card" v-for='(kodlar,index) in sonuclar'>
                 <div class="card-header" :id="head(index)">
                     <h2 class="mb-0">
