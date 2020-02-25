@@ -97,7 +97,8 @@
                 return sonuc2.total;
             },
             toplam_3:function(ara,ara2,ara3) {
-               sonuc3 =  _.find(this.uc,{'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2,'DEPOAD':ara3});
+
+               sonuc3 =  _.find(this.uc,{'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2,'ad':ara3});
                if(sonuc3)
                 return sonuc3.total;
             },
