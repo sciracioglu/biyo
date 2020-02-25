@@ -84,7 +84,7 @@
         data:{
             isLoading:1,
             search:'',
-            sonuclar:@json($sonuclar),
+            sonuclar:{!! $sonuclar !!},
         },
         created () {
             this.isLoading=0;
