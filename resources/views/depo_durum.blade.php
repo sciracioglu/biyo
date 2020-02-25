@@ -91,16 +91,14 @@
             this.isLoading=0;
         },
         computed:{
-            
             filtre:function() {
-                return this.sonuclar.filter(liste => {
-                    
+                return this.sonuclar.filter(key,liste) => {
                     var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
-                    malkod = liste != null ? liste.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
+                    malkod = key != null ? key.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; }) : ''
                     search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; })
                     return malkod.toLowerCase().indexOf(search.toLowerCase()) > -1)
                 })
-        },
+            },
         },
         methods:{
             slugify(text) {
