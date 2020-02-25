@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\StokDurum;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DepoDurumController extends Controller
 {
@@ -13,6 +14,12 @@ class DepoDurumController extends Controller
                             ->whereNotNull('STKKRT_ACIKLAMA3')
                             ->where('STKKRT_ACIKLAMA3', '<>', '')
                             ->get();
+        $toplamlar = StokDurum::orderBy('STKKRT_ACIKLAMA3')
+                                ->whereNotNull('STKKRT_ACIKLAMA3')
+                                ->where('STKKRT_ACIKLAMA3', '<>', '')
+                                ->groupBy('STKKRT_ACIKLAMA3')
+                                ->get(['STKKRT_ACIKLAMA3', DB::raw('count(*) as total')]);
+        dd($toplamlar);
         $sonuclar = [];
         // foreach ($durumlar as $durum) {
         //     $sonuclar[$durum->STKKRT_ACIKLAMA3]['toplam']                                                                                                = 0;
