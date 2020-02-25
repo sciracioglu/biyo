@@ -19,7 +19,7 @@
         </div>
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
         <div class="accordion" id="accordionExample" v-else v-cloak>
-            <div class="card" v-for='(kodlar,index) in filtre'>
+            <div class="card" v-for='(kodlar,index) in sonuclar'>
                 <div class="card-header" :id="head(index)">
                     <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
@@ -56,8 +56,7 @@
                                                                 <td>@{{ detay.malkod }}</td>
                                                                 <td>@{{ detay.malad }}</td>
                                                                 <td>@{{ detay.ozelkod }}</td>
-                                                                <td>@{{ detay.devir }}</td>
-                                                                <td>@{{ detay.cikis }}</td>
+                                                                <td>@{{ detay.tarih }}</td>
                                                                 <td>@{{ detay.miktar }}</td>
                                                                 <td>@{{ detay.seri }}</td>
                                                             </tr>
@@ -91,27 +90,7 @@
             this.isLoading=0;
         },
         computed:{
-            filtre:function() {
-                var items = this.sonuclar;
-				var result = {}
-				var self = this;
-				Object.keys(items).forEach(key => {
-					const item = items[key]
-                    const letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
-					if(self.search != null){
-                        veri = key.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; });
-                        search = this.search.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; });
-						if(veri.indexOf(search)>-1){
-							result[key] = item
-						}
-						
-					} else {
-						result[key] = item
-					}
-				})  
-				return result;
-
-            },
+            
         },
         methods:{
             slugify(text) {

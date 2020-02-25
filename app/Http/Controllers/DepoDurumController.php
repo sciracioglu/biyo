@@ -14,16 +14,23 @@ class DepoDurumController extends Controller
                             ->get();
         $sonuclar = [];
         foreach ($durumlar as $durum) {
+            $sonuclar[$durum->STKKRT_ACIKLAMA3]['toplam']                                                                                                = 0;
+            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8]['toplam']                                                                          = 0;
+            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD]['toplam'] = 0;
+        }
+        foreach ($durumlar as $durum) {
             $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD][] =
                                                             [
                                                                 'malad'   => $durum->STKKRT_MALAD,
                                                                 'malkod'  => $durum->MALKOD,
                                                                 'ozelkod' => $durum->STKKRT_OZELKOD,
-                                                                'devir'   => $durum->STOKDEVIR,
-                                                                'cikis'   => $durum->STOKCIKIS,
                                                                 'miktar'  => $durum->STOKMIKTAR,
-                                                                'seri'    => $durum->SERINO
+                                                                'seri'    => $durum->SERINO,
+                                                                'tarih'   => $durum->SERKRT_SONKULLANMATARIH
                                                             ];
+            $sonuclar[$durum->STKKRT_ACIKLAMA3]['toplam'] += $durum->STOKMIKTAR;
+            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8]['toplam'] += $durum->STOKMIKTAR;
+            $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD]['toplam'] += $durum->STOKMIKTAR;
         }
         $sonuclar = json_encode($sonuclar, JSON_UNESCAPED_UNICODE);
         return view('depo_durum', compact('sonuclar'));
