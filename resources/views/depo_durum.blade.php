@@ -18,7 +18,7 @@
                 <div class="card-header" :id="head(index)">
                     <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="hedef(index)" aria-expanded="true" :aria-controls="slugify(index)">
-                        @{{ index }} <span class="badge" v-text='toplam_1(index)'><span>
+                        @{{ index }} <span class="badge">@{{ toplam_1(index) }}<span>
                     </button>
                     </h2>
                 </div>
@@ -91,7 +91,7 @@
             toplam_1:function(ara) {
                 return this.bir.filter(liste => {
                     if(liste.STKKRT_ACIKLAMA3 == ara){
-                        return liste.total;
+                        return liste.total.toString();
                     }
                 })
             },
