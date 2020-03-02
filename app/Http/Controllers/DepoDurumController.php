@@ -21,13 +21,13 @@ class DepoDurumController extends Controller
                                 ->whereNotNull('STKKRT_ACIKLAMA3')
                                 ->where('STKKRT_ACIKLAMA3', '<>', '')
                                 ->groupBy('STKKRT_ACIKLAMA3')
-                                ->get(['STKKRT_ACIKLAMA3',  DB::raw('count(*) as total')]);
+                                ->get(['STKKRT_ACIKLAMA3',  DB::raw('sum(STOKMIKTAR) as total')]);
         $iki = StokDurum::orderBy('STKKRT_ACIKLAMA3')
                                 ->whereNotNull('STKKRT_ACIKLAMA3')
                                 ->where('STKKRT_ACIKLAMA3', '<>', '')
                                 ->groupBy('STKKRT_ACIKLAMA3')
                                 ->groupBy('STKKRT_LKOD8')
-                                ->get(['STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', DB::raw('count(*) as total')]);
+                                ->get(['STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', DB::raw('sum(STOKMIKTAR) as total')]);
         $uc = StokDurum::orderBy('STKKRT_ACIKLAMA3')
                                 ->whereNotNull('STKKRT_ACIKLAMA3')
                                 ->where('STKKRT_ACIKLAMA3', '<>', '')
@@ -36,7 +36,7 @@ class DepoDurumController extends Controller
                                 ->groupBy('DEPOAD', 'DEPOKOD')
                                 ->get([
                                         'STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', 'DEPOAD', 'DEPOKOD',
-                                        DB::raw('count(*) as total')
+                                        DB::raw('sum(STOKMIKTAR) as total')
                                     ]);
         $sonuclar = [];
 
