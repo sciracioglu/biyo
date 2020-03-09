@@ -24,12 +24,12 @@
                     <div class="card-body">
                         <div class="accordion" :id="aci(index,'b')">
                             <div class="card" v-for='(depolar,index2) in kodlar'>
-                                <div class="card-header" :id="head(index2)" style="cursor:pointer" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
+                                <div class="card-header" :id="head(index2)" style="cursor:pointer" data-toggle="collapse" :data-target="hedef(index+index2)" aria-expanded="true" :aria-controls="slugify(index2)">
                                     <h4 class="mb-0 text-info">
-                                        @{{ index2 }} <span class="badge badge-info" v-text='toplam_2(index,index2)'><span>
+                                        @{{ index }} - @{{ index2 }} <span class="badge badge-info" v-text='toplam_2(index,index2)'><span>
                                     </h4>
                                 </div>
-                                <div :id="slugify(index2)" class="collapse" :aria-labelledby="head(index2)" :data-parent="acc(index,'b')">
+                                <div :id="slugify(index+index2)" class="collapse" :aria-labelledby="head(index2)" :data-parent="acc(index,'b')">
                                     <div class="card-body">
                                         <div class="accordion" :id="aci(index2,'c')">
                                             <div class="card" v-for='(detaylar,index3) in depolar'>
@@ -87,7 +87,7 @@
                 return sonuc.total;
             },
             toplam_2:function(ara,ara2) {
-               sonuc2 =  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_ACIKLAMA3': ara2,'STKKRT_LKOD8':ara2});
+               sonuc2 =  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2});
                 return sonuc2.total;
             },
             toplam_3:function(ara,ara2,ara3) {
