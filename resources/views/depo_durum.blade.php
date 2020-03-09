@@ -87,7 +87,7 @@
                 return sonuc.total;
             },
             toplam_2:function(ara,ara2) {
-               sonuc2 =  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_LKOD8':ara2});
+               sonuc2 =  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_ACIKLAMA3': ara2,'STKKRT_LKOD8':ara2});
                 return sonuc2.total;
             },
             toplam_3:function(ara,ara2,ara3) {
