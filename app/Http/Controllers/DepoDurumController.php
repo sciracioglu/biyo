@@ -40,7 +40,7 @@ class DepoDurumController extends Controller
                                         DB::raw('sum(STOKMIKTAR) as total')
                                     ]);
             $sonuclar = [];
-            dd($durumlar->where('STKKRT_ACIKLAMA3', 'ACCESSORIES')->get());
+            dd($durumlar->where('STKKRT_ACIKLAMA3', 'ACCESSORIES'));
             foreach ($durumlar as $durum) {
                 $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD][] =
                                                             [
