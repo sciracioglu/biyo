@@ -24,21 +24,21 @@
                     <div class="card-body">
                         <div class="accordion" :id="aci(index,'b')">
                             <div class="card" v-for='(depolar,index2) in kodlar'>
-                                <div class="card-header" :id="head(index2)" style="cursor:pointer" data-toggle="collapse" :data-target="hedef(index+index2)" aria-expanded="true" :aria-controls="slugify(index2)">
+                                <div class="card-header" :id="head(index2)" style="cursor:pointer" data-toggle="collapse" :data-target="hedef(index2)" aria-expanded="true" :aria-controls="slugify(index2)">
                                     <h4 class="mb-0 text-info">
-                                        @{{ index }} - @{{ index2 }} <span class="badge badge-info" v-text='toplam_2(index,index2)'><span>
+                                        @{{ index2 }} <span class="badge badge-info" v-text='toplam_2(index,index2)'><span>
                                     </h4>
                                 </div>
-                                <div :id="slugify(index+index2)" class="collapse" :aria-labelledby="head(index2)" :data-parent="acc(index,'b')">
+                                <div :id="slugify(index2)" class="collapse" :aria-labelledby="head(index2)" :data-parent="acc(index,'b')">
                                     <div class="card-body">
                                         <div class="accordion" :id="aci(index2,'c')">
                                             <div class="card" v-for='(detaylar,index3) in depolar'>
-                                                <div class="card-header" :id="head(detaylar[0].malkod)" style="cursor:pointer" data-toggle="collapse" :data-target="hedef(detaylar[0].malkod)" aria-expanded="true" :aria-controls="slugify(index3)">
+                                                <div class="card-header" :id="head(index3)" style="cursor:pointer" data-toggle="collapse" :data-target="hedef(index3)" aria-expanded="true" :aria-controls="slugify(index3)">
                                                     <h4 class="mb-0 text-danger">
                                                         @{{ index3 }} <span class="badge badge-danger" v-text='toplam_3(index,index2,index3)'><span>
                                                     </h4>
                                                 </div>
-                                                <div :id="slugify(detaylar[0].malkod)" class="collapse" :aria-labelledby="head(detaylar[0].malkod)" :data-parent="acc(index2,'c')">
+                                                <div :id="slugify(index3)" class="collapse" :aria-labelledby="head(index3)" :data-parent="acc(index2,'c')">
                                                     <div class="card-body">
                                                         <table class="table table-hover">
                                                             <tr v-for='detay in detaylar'>
