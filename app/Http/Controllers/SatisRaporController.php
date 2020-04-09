@@ -8,7 +8,7 @@ class SatisRaporController extends Controller
 {
     public function index()
     {
-        $satis_durumu = DB::select('SELECT * [dbo].[VW_ARG_WEB_SATIS_RAPOR]');
+        $satis_durumu = DB::select('SELECT * FROM [dbo].[VW_ARG_WEB_SATIS_RAPOR]');
         dd($satis_durumu);
     }
 }
