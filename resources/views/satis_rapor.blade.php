@@ -52,12 +52,12 @@
             cari_satislari:null,
         },
         computed:{
-            format(rakam){
-                return  numeral(rakam);
-            }
+
         },
         methods:{
-
+            format(rakam){
+                return  numeral(rakam) . format('0,0.00');
+            }
         }
     })
 </script>
