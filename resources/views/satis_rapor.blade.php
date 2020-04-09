@@ -43,7 +43,6 @@
 @section('scripts')
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <script>
-    var numeral = require('numeral');
     var vue = new Vue({
         el:'#app',
         data:{
@@ -54,7 +53,6 @@
         },
         computed:{
             format(rakam){
-
                 return  numeral(rakam) . format('0,0.00');
             }
         },
