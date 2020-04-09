@@ -41,7 +41,7 @@ class DepoDurumController extends Controller
             $sonuclar = [];
 
             foreach ($durumlar as $durum) {
-                $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_ACIKLAMA3 . ' - ' . $durum->STKKRT_LKOD8][$durum->DEPOKOD . ' - ' . $durum->DEPOAD . ' - ' . $durum->MALKOD][] = [
+                $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_ACIKLAMA3 . ' | ' . $durum->STKKRT_LKOD8][$durum->DEPOKOD . ' | ' . $durum->DEPOAD . ' | ' . $durum->MALKOD][] = [
                     'malad' => $durum->STKKRT_MALAD,
                     'malkod' => $durum->MALKOD,
                     'ozelkod' => $durum->STKKRT_OZELKOD,
