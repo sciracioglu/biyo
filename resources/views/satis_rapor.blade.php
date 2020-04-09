@@ -25,8 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <div v-for='(yil, index) in yillik_satislar'>
-                    <tr @click='detay=index'>
+                    <tr @click='detay=index' v-for='(yil, index) in yillik_satislar'>
                         <td>@{{ yil.EVRAKYIL}}</td>
                         <td class="text-right" v-text='format(yil.T_MIKTAR)'></td>
                         <td class="text-right" v-text='format(yil.T_TUTAR)'></td>
@@ -38,7 +37,6 @@
                     <tr v-if='detay === index'>
                         <td>Burasi @{{ detay }}</td>
                     </tr>
-                </div>
             </tbody>
         </table>
     </div>
