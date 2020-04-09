@@ -12,7 +12,7 @@
 <div class="row" id='app'>
     <div class="col-md-12">
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
-        <table class="table table-hover table-condenced table-striped">
+        <table class="table table-hover table-condenced table-striped" v-cloak></table>
             <thead>
                 <tr>
                     <th>Evrak Yıl</th>
