@@ -12,7 +12,7 @@
 <div class="row" id='app'>
     <div class="col-md-12">
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
-        <table class="table table-hover table-condenced table-striped" v-cloak></table>
+        <table class="table table-hover table-condenced table-striped" v-cloak>
             <thead>
                 <tr>
                     <th>Evrak Yıl</th>
@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr @click='detay=index' v-for='(yil, index) in yillik_satislar'>
+                <tr v-for='(yil, index) in yillik_satislar'>
                     <td>@{{ yil.EVRAKYIL}}</td>
                     <td class="text-right" v-text='format(yil.T_MIKTAR)'></td>
                     <td class="text-right" v-text='format(yil.T_TUTAR)'></td>
