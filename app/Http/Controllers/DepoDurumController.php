@@ -26,8 +26,8 @@ class DepoDurumController extends Controller
             $iki = StokDurum::orderBy('STKKRT_ACIKLAMA3')
                                 ->whereNotNull('STKKRT_ACIKLAMA3')
                                 ->where('STKKRT_ACIKLAMA3', '<>', '')
-                                ->groupBy('STKKRT_ACIKLAMA3','STKKRT_LKOD8','MALKOD')
-                                ->get(['STKKRT_ACIKLAMA3', 'STKKRT_LKOD8','MALKOD', DB::raw('sum(STOKMIKTAR) as total')]);
+                                ->groupBy('STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', 'MALKOD')
+                                ->get(['STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', 'MALKOD', DB::raw('sum(STOKMIKTAR) as total')]);
             $uc = StokDurum::orderBy('STKKRT_ACIKLAMA3')
                                 ->whereNotNull('STKKRT_ACIKLAMA3')
                                 ->where('STKKRT_ACIKLAMA3', '<>', '')
@@ -41,17 +41,14 @@ class DepoDurumController extends Controller
             $sonuclar = [];
 
             foreach ($durumlar as $durum) {
-                $sonuclar[$durum->STKKRT_ACIKLAMA3]
-                        [$durum->STKKRT_LKOD8.' - '.$durum->MALKOD]
-                        [$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD . '-' . $durum->MALKOD]
-                        [] = [
-                                'malad' => $durum->STKKRT_MALAD,
-                                'malkod' => $durum->MALKOD,
-                                'ozelkod' => $durum->STKKRT_OZELKOD,
-                                'miktar' => $durum->STOKMIKTAR,
-                                'seri' => $durum->SERINO,
-                                'tarih' => Carbon::parse($durum->SERKRT_SONKULLANMATARIH)->format('d/m/Y')
-                            ];
+                $sonuclar[$durum->STKKRT_ACIKLAMA3][$durum->STKKRT_ACIKLAMA3 . ' - ' . $durum->STKKRT_LKOD8][$durum->STKKRT_LKOD8 . ' - ' . $durum->DEPOKOD . ' - ' . $durum->DEPOAD . '-' . $durum->MALKOD][] = [
+                    'malad' => $durum->STKKRT_MALAD,
+                    'malkod' => $durum->MALKOD,
+                    'ozelkod' => $durum->STKKRT_OZELKOD,
+                    'miktar' => $durum->STOKMIKTAR,
+                    'seri' => $durum->SERINO,
+                    'tarih' => Carbon::parse($durum->SERKRT_SONKULLANMATARIH)->format('d/m/Y')
+                ];
             }
             $sonuclar = json_encode($sonuclar, JSON_UNESCAPED_UNICODE);
             return view('depo_durum', compact('sonuclar', 'bir', 'iki', 'uc'));
