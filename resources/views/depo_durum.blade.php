@@ -94,7 +94,7 @@
             toplam_3:function(ara,ara2,ara3) {
                var strArray2 = ara2.split(" - ");
                var strArray = ara3.split(" - ");
-               var sonuc3 =  _.find(this.uc,{'STKKRT_ACIKLAMA3': ara,'STKKRT_ACIKLAMA3':strArray2[0],'STKKRT_LKOD8':strArray2[1],'DEPOKOD':strArray[1],'DEPOAD':strArray[2]});
+               var sonuc3 =  _.find(this.uc,{'STKKRT_ACIKLAMA3': ara,'STKKRT_ACIKLAMA3':strArray2[0],'STKKRT_LKOD8':strArray2[1],'DEPOKOD':strArray[0],'DEPOAD':strArray[1],'MALKOD':strArray[2]});
                 return sonuc3.total;
             },
             slugify(text) {
