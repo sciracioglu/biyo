@@ -89,13 +89,13 @@
             toplam_2:function(ara,ara2) {
                 var strArray = ara2.split(" - ");
                 console . log(strArray);
-                var sonuc2 =  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_ACIKLAMA3':strArray[1],'STKKRT_LKOD8':strArray[2]});
+                var sonuc2 =  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_ACIKLAMA3':strArray[0],'STKKRT_LKOD8':strArray[1]});
                 return sonuc2.total;
             },
             toplam_3:function(ara,ara2,ara3) {
                var strArray2 = ara2.split(" - ");
                var strArray = ara3.split(" - ");
-               var sonuc3 =  _.find(this.uc,{'STKKRT_ACIKLAMA3': ara,'STKKRT_ACIKLAMA3':strArray2[1],'STKKRT_LKOD8':strArray2[2],'DEPOKOD':strArray[1],'DEPOAD':strArray[2]});
+               var sonuc3 =  _.find(this.uc,{'STKKRT_ACIKLAMA3': ara,'STKKRT_ACIKLAMA3':strArray2[0],'STKKRT_LKOD8':strArray2[1],'DEPOKOD':strArray[1],'DEPOAD':strArray[2]});
                if(sonuc3)
                 return sonuc3.total;
             },
