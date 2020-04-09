@@ -53,7 +53,7 @@
         },
         computed:{
             format(rakam){
-                return  numeral(rakam) . format('0,0.00');
+                return  numeral(rakam);
             }
         },
         methods:{
