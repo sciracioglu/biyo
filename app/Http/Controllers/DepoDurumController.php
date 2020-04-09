@@ -33,9 +33,9 @@ class DepoDurumController extends Controller
                                 ->where('STKKRT_ACIKLAMA3', '<>', '')
                                 ->groupBy('STKKRT_ACIKLAMA3')
                                 ->groupBy('STKKRT_LKOD8')
-                                ->groupBy('DEPOAD', 'DEPOKOD')
+                                ->groupBy('DEPOAD', 'DEPOKOD', 'MALKOD')
                                 ->get([
-                                    'STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', 'DEPOAD', 'DEPOKOD',
+                                    'STKKRT_ACIKLAMA3', 'STKKRT_LKOD8', 'DEPOAD', 'DEPOKOD', 'MALKOD',
                                     DB::raw('sum(STOKMIKTAR) as total')
                                 ]);
             $sonuclar = [];
