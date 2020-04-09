@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
+    private $yetkililer = ['Ayla Kurucu',
+        'Onurcan Kurucu',
+        'Nadir Kurucu',
+        'Dogacan Kurucu',
+        'Yıldız Ay',
+        'Mehmet Ay'
+    ];
+
     public function create()
     {
         return view('login');
@@ -15,7 +23,7 @@ class LoginController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'sifre'     => 'required',
+            'sifre' => 'required',
             'kullanici' => 'required'
         ]);
         $kullanicilar = DB::select('select dbo.CheckPassword(?,WEBPASSWORD) AS SAYI FROM  vwwusr WHERE USERNAME =?', [
@@ -42,6 +50,11 @@ class LoginController extends Controller
         foreach ($kullanicilar as $k) {
             if ($k->SAYI == 1) {
                 session()->put('username', request('kullanici'));
+                session()->put('yetkili', 0);
+
+                if (in_array(request('kullanici'), $this->yetkililer)) {
+                    session()->put('yetkili', 1);
+                }
                 return redirect('/');
             }
         }
@@ -53,8 +66,8 @@ class LoginController extends Controller
     {
         session()->flush();
         Cookie::queue(
-			Cookie::forget('Laravel')
-		);
+            Cookie::forget('Laravel')
+        );
         return redirect('/login');
     }
 }
