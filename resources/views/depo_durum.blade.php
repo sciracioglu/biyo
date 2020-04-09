@@ -88,6 +88,7 @@
             },
             toplam_2:function(ara,ara2) {
                 var strArray = ara2.split(" - ");
+                console . log(strArray);
                 var sonuc2 =  _.find(this.iki, {'STKKRT_ACIKLAMA3': ara,'STKKRT_ACIKLAMA3':strArray[1],'STKKRT_LKOD8':strArray[2]});
                 return sonuc2.total;
             },
