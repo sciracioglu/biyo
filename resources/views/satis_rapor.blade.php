@@ -25,15 +25,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for='(yil, index) in yillik_satislar'>
-                    <td>@{{ yil.EVRAKYIL}}</td>
-                    <td class="text-right" v-text='format(yil.T_MIKTAR)'></td>
-                    <td class="text-right" v-text='format(yil.T_TUTAR)'></td>
-                    <td class="text-right" v-text='format(yil.T_ISKONTO)'></td>
-                    <td class="text-right" v-text='format(yil.T_NETTUTAR)'></td>
-                    <td class="text-right" v-text='format(yil.T_KDV)'></td>
-                    <td class="text-right" v-text='format(yil.T_TOPLAM)'></td>
-                </tr>
+                <div v-for='(yil, index) in yillik_satislar'>
+                    <tr @click='detay=index'>
+                        <td>@{{ yil.EVRAKYIL}}</td>
+                        <td class="text-right" v-text='format(yil.T_MIKTAR)'></td>
+                        <td class="text-right" v-text='format(yil.T_TUTAR)'></td>
+                        <td class="text-right" v-text='format(yil.T_ISKONTO)'></td>
+                        <td class="text-right" v-text='format(yil.T_NETTUTAR)'></td>
+                        <td class="text-right" v-text='format(yil.T_KDV)'></td>
+                        <td class="text-right" v-text='format(yil.T_TOPLAM)'></td>
+                    </tr>
+                    <tr v-if='detay === index'>
+                        <td>Burasi @{{ detay }}</td>
+                    </tr>
+                </div>
             </tbody>
         </table>
     </div>
@@ -47,6 +52,7 @@
         el:'#app',
         data:{
             isLoading:0,
+            detay:null,
             yillik_satislar:{!! $yillik_satislar !!},
             aylik_satislar:null,
             cari_satislari:null,
