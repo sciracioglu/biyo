@@ -16,12 +16,12 @@
             <thead>
                 <tr>
                     <th>Evrak Yıl</th>
-                    <th>Miktar</th>
-                    <th>Tutar</th>
-                    <th>İskonto</th>
-                    <th>Net Tutar</th>
-                    <th>KDV</th>
-                    <th>Toplam</th>
+                    <th class="text-center">Miktar</th>
+                    <th class="text-center">Tutar</th>
+                    <th class="text-center">İskonto</th>
+                    <th class="text-center">Net Tutar</th>
+                    <th class="text-center">KDV</th>
+                    <th class="text-center">Toplam</th>
                 </tr>
             </thead>
             <tbody>
