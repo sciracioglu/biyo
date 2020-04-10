@@ -58,7 +58,13 @@
                         </tr>
                         <template v-if='musteriler.length > 0 && yil_index == yil.yil && ay_index == ay.ay' v-for='musteri in musteriler'>
                             <tr>
-                                <td>@{{ musteri.unvan }} </td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-link icon-only" @click='hesapAc(musteri.hesapkod)'>
+                                        <i class="fa fa-plus" v-if='hesapkod != musteri.hesapkod'></i>
+                                        <i class="fa fa-minus" v-else></i>
+                                    </button>
+                                    @{{ musteri.unvan }}
+                                </td>
                                 <td class="text-right" v-text='format(musteri.miktar)'></td>
                                 <td class="text-right" v-text='format(musteri.tutar)'></td>
                                 <td class="text-right" v-text='format(musteri.iskonto)'></td>
@@ -168,6 +174,7 @@
                     this.musteri_detaylar = {};
                     this.hesapkod = null;
                     this.hesap_detay = null;
+                    self = this;
                     axios.get('/satis_rapor_musteri?yil='+this.yil_index+'&ay='+ay)
                         .then(({data}) => {
                             self.musteriler = data;
@@ -183,10 +190,16 @@
             hesapAc(hesapkod){
                 if(this.hesapkod == null){
                     this.hesapkod = hesapkod;
+                     this.musteri_detaylar = {};
+                     self = this;
+                     axios.get('/satis_rapor_detay?yil='+this.yil_index+'&ay='+this.ay_index+'&hesapkod='+hesapkod)
+                        .then(({data}) => {
+                            self.musteri_detaylar = data;
+                        });
+
                 } else {
                     this.musteri_detaylar = {};
                     this.hesapkod = null;
-                    this.hesap_detay = null;
                 }
             },
         }
