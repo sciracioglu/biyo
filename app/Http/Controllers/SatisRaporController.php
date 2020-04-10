@@ -75,7 +75,7 @@ class SatisRaporController extends Controller
          WHERE EVRAKYIL = ?
          AND EVRAKAY = ?
          GROUP BY EVRAKYIL, EVRAKAY, HESAPKOD, CARKRT_UNVAN, CARKRT_UNVAN2
-         ORDER BY EVRAKTARIH DESC',[$yil, $ay]))
+         ORDER BY CARKRT_UNVAN',[$yil, $ay]))
          ->map(function($musteri){
             return [
                 'yil' => $musteri->EVRAKYIL,
