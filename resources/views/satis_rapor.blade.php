@@ -10,7 +10,7 @@
 
 @section('icerik')
 <div class="row" id='app'>
-    <div class="col-md-12">
+    <t class="col-md-12">
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
         <table class="table table-hover table-condenced table-striped" v-cloak>
             <thead>
@@ -39,7 +39,7 @@
                         <td class="text-right" v-text='format(yil.kdv)'></td>
                         <td class="text-right" v-text='format(yil.toplam)'></td>
                     </tr>
-                    <!-- <div  v-if='aylik_satislar.length >0 && yil_index = yil.yil' v-for='ay in aylik_satislar'>
+                    <template  v-if='aylik_satislar.length >0 && yil_index = yil.yil' v-for='ay in aylik_satislar'>
                         <tr>
                             <td>@{{ ay.yil}} - @{{ ay.ay }} </td>
                             <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -49,7 +49,7 @@
                             <td class="text-right" v-text='format(ay.kdv)'></td>
                             <td class="text-right" v-text='format(ay.toplam)'></td>
                         </tr>
-                        <div v-if='musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
+                        <template v-if='musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
                             <tr>
                                 <td>@{{ musteri.unvan }} </td>
                                 <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -59,7 +59,7 @@
                                 <td class="text-right" v-text='format(ay.kdv)'></td>
                                 <td class="text-right" v-text='format(ay.toplam)'></td>
                             </tr>
-                            <div  v-if='musteri_detaylar.length >0 && yil_index = yil.yil && ay_index = ay.ay && hesapkod = musteri_detaylar'>
+                            <template  v-if='musteri_detaylar.length >0 && yil_index = yil.yil && ay_index = ay.ay && hesapkod = musteri_detaylar'>
                                 <tr>
                                     <td colspan="7">
                                         <table class="table table-hover table-condenced table-striped text-sm">
@@ -98,9 +98,9 @@
                                         </table>
                                     </td>
                                 </tr>
-                            </div>
-                        </div>
-                    </div> -->
+                            </template>
+                        </template>
+                    </template>
                 </template>
             </tbody>
         </table>
@@ -131,6 +131,11 @@
             yilAc(yil){
                 if(this.yil_index == null){
                     this.yil_index = yil;
+                    self = this;
+                    axios.get('/satis_rapor_ay?yil='+yil)
+                        .then({(data)} =>{
+                            self.aylik_satislar = data;
+                        });
                 } else {
                     this.aylik_satislar = {};
                     this.musteriler = {};
