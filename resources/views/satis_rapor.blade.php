@@ -72,7 +72,7 @@
                                 <td class="text-right" v-text='format(musteri.kdv)'></td>
                                 <td class="text-right" v-text='format(musteri.toplam)'></td>
                             </tr>
-                            <template  v-if='musteri_detaylar.length >0 && yil_index == yil.yil && ay_index == ay.ay && hesapkod == musteri_detaylar'>
+                            <template  v-if='musteri_detaylar.length >0 && yil_index == yil.yil && ay_index == ay.ay && hesapkod == musteri_detaylar[0].hesapkod'>
                                 <tr>
                                     <td colspan="7">
                                         <table class="table table-hover table-condenced table-striped text-sm">
@@ -93,7 +93,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr  v-for='hesap in ay.hesaplar'>
+                                                <tr  v-for='hesap in musteri_detaylar'>
                                                     <td>@{{ hesap.malkod }}</td>
                                                     <td>@{{ hesap.malad }}</td>
                                                     <td>@{{ hesap.hesapkod }}</td>
