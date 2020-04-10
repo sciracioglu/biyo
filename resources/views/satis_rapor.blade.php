@@ -133,7 +133,7 @@
                     this.yil_index = yil;
                     self = this;
                     axios.get('/satis_rapor_ay?yil='+yil)
-                        .then({(data)} =>{
+                        .then(({data}) => {
                             self.aylik_satislar = data;
                         });
                 } else {
