@@ -12,7 +12,7 @@
 <div class="row" id='app'>
     <div class="col-md-12">
         <div v-if='isLoading'><i class="fa fa-gear faa-spin animated fa-3x"></i></div>
-        <table class="table table-hover table-condenced table-striped" v-cloak>
+        <table class="table table-hover table-condensed" v-cloak>
             <thead>
                 <tr>
                     <th>Evrak Yıl</th>
@@ -26,9 +26,9 @@
             </thead>
             <tbody>
                 <template  v-for='yil in yillik_satislar'>
-                    <tr>
+                    <tr :class='yilStil(yil.yil)'>
                         <td>
-                            <button type="button" class="btn btn-sm btn-link icon-only" @click='yilAc(yil.yil)'>
+                            <button type="button" class="btn btn-sm btn-link icon-only" style="margin-left: 10px;" @click='yilAc(yil.yil)'>
                                 <i class="fa fa-plus" v-if='yil_index != yil.yil'></i>
                                 <i class="fa fa-minus" v-else></i>
                             </button>
@@ -41,9 +41,9 @@
                         <td class="text-right" v-text='format(yil.toplam)'></td>
                     </tr>
                     <template  v-if='aylik_satislar.length > 0 && yil_index == yil.yil' v-for='ay in aylik_satislar'>
-                        <tr>
+                        <tr :class='ayStil(ay.ay)'>
                             <td>
-                                <button type="button" class="btn btn-sm btn-link icon-only" @click='ayAc(ay.ay)'>
+                                <button type="button" class="btn btn-sm btn-link icon-only"  style="margin-left: 20px;" @click='ayAc(ay.ay)'>
                                     <i class="fa fa-plus" v-if='ay_index != ay.ay'></i>
                                     <i class="fa fa-minus" v-else></i>
                                 </button>
@@ -57,7 +57,7 @@
                             <td class="text-right" v-text='format(ay.toplam)'></td>
                         </tr>
                         <template v-if='musteriler.length > 0 && yil_index == yil.yil && ay_index == ay.ay' v-for='musteri in musteriler'>
-                            <tr>
+                            <tr :class='musteriStil(musteri.hesapkod)'>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-link icon-only" @click='hesapAc(musteri.hesapkod)'>
                                         <i class="fa fa-plus" v-if='hesapkod != musteri.hesapkod'></i>
@@ -140,6 +140,24 @@
         methods:{
             format(rakam){
                 return  numeral(rakam) . format('0,0.00');
+            },
+            yilStil(yil){
+                if(yil == this.yil_index){
+                    return 'success';
+                }
+                return '';
+            },
+            ayStil(ay){
+                if(ay == this.ay_index){
+                    return 'success';
+                }
+                return '';
+            },
+            musteriStil(hesapkod){
+                if(hesapkod == this.hesapkod){
+                    return 'success';
+                }
+                return '';
             },
             yilAc(yil){
                 if(this.yil_index == null || this.yil_index != yil){
