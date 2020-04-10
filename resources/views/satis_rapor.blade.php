@@ -39,7 +39,7 @@
                         <td class="text-right" v-text='format(yil.kdv)'></td>
                         <td class="text-right" v-text='format(yil.toplam)'></td>
                     </tr>
-                    <template  v-if='aylik_satislar.length >0 && yil_index == yil.yil' v-for='ay in aylik_satislar'>
+                    <template  v-if='aylik_satislar.length > 0 && yil_index == yil.yil' v-for='ay in aylik_satislar'>
                         <tr>
                             <td>@{{ ay.yil}} - @{{ ay.ay }} </td>
                             <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -49,7 +49,7 @@
                             <td class="text-right" v-text='format(ay.kdv)'></td>
                             <td class="text-right" v-text='format(ay.toplam)'></td>
                         </tr>
-                        <!-- <template v-if='musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
+                        <!-- <template v-if='musteriler.length > 0 && yil_index == yil.yil && ay_index == ay.ay' v-for='musteri in musteriler'>
                             <tr>
                                 <td>@{{ musteri.unvan }} </td>
                                 <td class="text-right" v-text='format(ay.miktar)'></td>

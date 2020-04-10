@@ -33,8 +33,9 @@ class SatisRaporController extends Controller
         return view('satis_rapor', compact('yillik_satislar'));
     }
 
-    private function aylar($yil)
+    public function aylar()
     {
+        $yil = request('yil');
         return collect(DB::select('SELECT EVRAKYIL, EVRAKAY,
         SUM(MIKTAR) AS T_MIKTAR,
         SUM(EVRAKTUTAR) AS T_TUTAR,
@@ -60,8 +61,10 @@ class SatisRaporController extends Controller
          });
     }
 
-    private function musteriler($yil, $ay)
+    public function musteriler()
     {
+        $yil = request('yil');
+        $ay = request($ay);
         return collect(DB::select('SELECT EVRAKYIL, EVRAKAY, CARKRT_UNVAN, CARKRT_UNVAN2, HESAPKOD,
         SUM(MIKTAR) AS T_MIKTAR,
         SUM(EVRAKTUTAR) AS T_TUTAR,
@@ -89,8 +92,11 @@ class SatisRaporController extends Controller
          });
     }
 
-    private function hesaplar($yil, $ay, $hesapkod)
+    public function hesaplar()
     {
+        $yil = request('yil');
+        $ay = request('ay');
+        $hesapkod = request('hesapkod');
         return collect(DB::select('SELECT *
          FROM [dbo].[VW_ARG_WEB_SATIS_RAPOR]
          WHERE EVRAKYIL = ?
