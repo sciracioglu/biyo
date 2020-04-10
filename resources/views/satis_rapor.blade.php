@@ -42,7 +42,13 @@
                     </tr>
                     <template  v-if='aylik_satislar.length > 0 && yil_index == yil.yil' v-for='ay in aylik_satislar'>
                         <tr>
-                            <td>@{{ ay.yil}} - @{{ ay.ay }} </td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-link icon-only" @click='ayAc(yil.yil)'>
+                                    <i class="fa fa-plus" v-if='yil_index != yil.yil && ay_index != ay.ay'></i>
+                                    <i class="fa fa-minus" v-else></i>
+                                </button>
+                                @{{ ay.yil}} - @{{ ay.ay }}
+                            </td>
                             <td class="text-right" v-text='format(ay.miktar)'></td>
                             <td class="text-right" v-text='format(ay.tutar)'></td>
                             <td class="text-right" v-text='format(ay.iskonto)'></td>
@@ -50,7 +56,7 @@
                             <td class="text-right" v-text='format(ay.kdv)'></td>
                             <td class="text-right" v-text='format(ay.toplam)'></td>
                         </tr>
-                        <!-- <template v-if='musteriler.length > 0 && yil_index == yil.yil && ay_index == ay.ay' v-for='musteri in musteriler'>
+                        <template v-if='musteriler.length > 0 && yil_index == yil.yil && ay_index == ay.ay' v-for='musteri in musteriler'>
                             <tr>
                                 <td>@{{ musteri.unvan }} </td>
                                 <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -60,7 +66,7 @@
                                 <td class="text-right" v-text='format(ay.kdv)'></td>
                                 <td class="text-right" v-text='format(ay.toplam)'></td>
                             </tr>
-                            <template  v-if='musteri_detaylar.length >0 && yil_index = yil.yil && ay_index = ay.ay && hesapkod = musteri_detaylar'>
+                            <template  v-if='musteri_detaylar.length >0 && yil_index == yil.yil && ay_index == ay.ay && hesapkod == musteri_detaylar'>
                                 <tr>
                                     <td colspan="7">
                                         <table class="table table-hover table-condenced table-striped text-sm">
@@ -100,7 +106,7 @@
                                     </td>
                                 </tr>
                             </template>
-                        </template> -->
+                        </template>
                     </template>
                 </template>
             </tbody>
@@ -155,8 +161,17 @@
                 }
             },
              ayAc(ay){
-                if(this.ay_index == null){
+                if(this.ay_index == null || this.ay_index != ay){
                     this.ay_index = ay;
+                    this.musteriler = {};
+                    this.musteri_detaylar = {};
+                    this.ay_index = null;
+                    this.hesapkod = null;
+                    this.hesap_detay = null;
+                    axios.get('/satis_rapor_musteri?yil='+this.yil_index+'&ay='+ay)
+                        .then(({data}) => {
+                            self.musteriler = data;
+                        });
                 } else {
                     this.musteriler = {};
                     this.musteri_detaylar = {};
