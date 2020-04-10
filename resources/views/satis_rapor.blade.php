@@ -161,11 +161,11 @@
                 }
             },
              ayAc(ay){
+
                 if(this.ay_index == null || this.ay_index != ay){
                     this.ay_index = ay;
                     this.musteriler = {};
                     this.musteri_detaylar = {};
-                    this.ay_index = null;
                     this.hesapkod = null;
                     this.hesap_detay = null;
                     axios.get('/satis_rapor_musteri?yil='+this.yil_index+'&ay='+ay)
