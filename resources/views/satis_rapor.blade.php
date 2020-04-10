@@ -49,7 +49,7 @@
                             <td class="text-right" v-text='format(ay.kdv)'></td>
                             <td class="text-right" v-text='format(ay.toplam)'></td>
                         </tr>
-                        <template v-if='musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
+                        <!-- <template v-if='musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
                             <tr>
                                 <td>@{{ musteri.unvan }} </td>
                                 <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -99,7 +99,7 @@
                                     </td>
                                 </tr>
                             </template>
-                        </template>
+                        </template> -->
                     </template>
                 </template>
             </tbody>
