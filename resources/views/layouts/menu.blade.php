@@ -12,7 +12,7 @@
         <li class="nav-item "><a class="nav-link" href="/siparis_liste"><i class="fa fa-list fa-fw"></i><span class="text">Sipariş Listesi</span></a></li>
         <li class="nav-item "><a class="nav-link" href="/stok_durum"><i class="fa fa-search fa-fw"></i><span class="text">Depo Stok Durumunuz</span></a></li>
         <li class="nav-item "><a class="nav-link" href="/rapor"><i class="fa fa-database fa-fw"></i><span class="text">Depo Ürün Stok Durumu</span></a></li>        <hr>
-        <li class="nav-item "><a class="nav-link" href="/depo_durum"><i class="fa fa-search fa-fw"></i><span class="text">Depo Durum Raporu</span></a></li>
+        <li class="nav-item "><a class="nav-link" href="/depo_durum"><i class="fa fa-search fa-fw"></i><span class="text">Genel Stok Durumu</span></a></li>
         @if(session('yetkili') == 1)
           <li class="nav-item ">
             <a class="nav-link" href="/satis_rapor">
