@@ -59,12 +59,12 @@
                         <template v-if='musteriler.length > 0 && yil_index == yil.yil && ay_index == ay.ay' v-for='musteri in musteriler'>
                             <tr>
                                 <td>@{{ musteri.unvan }} </td>
-                                <td class="text-right" v-text='format(ay.miktar)'></td>
-                                <td class="text-right" v-text='format(ay.tutar)'></td>
-                                <td class="text-right" v-text='format(ay.iskonto)'></td>
-                                <td class="text-right" v-text='format(ay.nettutar)'></td>
-                                <td class="text-right" v-text='format(ay.kdv)'></td>
-                                <td class="text-right" v-text='format(ay.toplam)'></td>
+                                <td class="text-right" v-text='format(musteri.miktar)'></td>
+                                <td class="text-right" v-text='format(musteri.tutar)'></td>
+                                <td class="text-right" v-text='format(musteri.iskonto)'></td>
+                                <td class="text-right" v-text='format(musteri.nettutar)'></td>
+                                <td class="text-right" v-text='format(musteri.kdv)'></td>
+                                <td class="text-right" v-text='format(musteri.toplam)'></td>
                             </tr>
                             <template  v-if='musteri_detaylar.length >0 && yil_index == yil.yil && ay_index == ay.ay && hesapkod == musteri_detaylar'>
                                 <tr>

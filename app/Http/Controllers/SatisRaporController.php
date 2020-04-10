@@ -63,8 +63,6 @@ class SatisRaporController extends Controller
 
     public function musteriler()
     {
-        $yil = request('yil');
-        $ay = request('ay');
         return collect(DB::select('SELECT EVRAKYIL, EVRAKAY, CARKRT_UNVAN, CARKRT_UNVAN2, HESAPKOD,
         SUM(MIKTAR) AS T_MIKTAR,
         SUM(EVRAKTUTAR) AS T_TUTAR,
@@ -76,7 +74,7 @@ class SatisRaporController extends Controller
          WHERE EVRAKYIL = ?
          AND EVRAKAY = ?
          GROUP BY EVRAKYIL, EVRAKAY, HESAPKOD, CARKRT_UNVAN, CARKRT_UNVAN2
-         ORDER BY CARKRT_UNVAN',[$yil, $ay]))
+         ORDER BY CARKRT_UNVAN',[request('yil'), request('ay')]))
          ->map(function($musteri){
             return [
                 'yil' => $musteri->EVRAKYIL,
