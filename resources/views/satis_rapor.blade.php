@@ -39,7 +39,7 @@
                         <td class="text-right" v-text='format(yil.kdv)'></td>
                         <td class="text-right" v-text='format(yil.toplam)'></td>
                     </tr>
-                    <div  v-if='aylik_satislar.length >0 && yil_index = yil.yil' v-for='ay in aylik_satislar'>
+                    <!-- <div  v-if='aylik_satislar.length >0 && yil_index = yil.yil' v-for='ay in aylik_satislar'>
                         <tr>
                             <td>@{{ ay.yil}} - @{{ ay.ay }} </td>
                             <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -100,7 +100,7 @@
                                 </tr>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </tbody>
         </table>
