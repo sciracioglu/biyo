@@ -64,7 +64,7 @@ class SatisRaporController extends Controller
     public function musteriler()
     {
         $yil = request('yil');
-        $ay = request($ay);
+        $ay = request('ay');
         return collect(DB::select('SELECT EVRAKYIL, EVRAKAY, CARKRT_UNVAN, CARKRT_UNVAN2, HESAPKOD,
         SUM(MIKTAR) AS T_MIKTAR,
         SUM(EVRAKTUTAR) AS T_TUTAR,
