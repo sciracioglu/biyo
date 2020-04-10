@@ -43,7 +43,7 @@
                     <template  v-if='aylik_satislar.length > 0 && yil_index == yil.yil' v-for='ay in aylik_satislar'>
                         <tr :class='ayStil(ay.ay)'>
                             <td>
-                                <button type="button" class="btn btn-sm btn-link icon-only"  style="margin-left: 10px;" @click='ayAc(ay.ay)'>
+                                <button type="button" class="btn btn-sm btn-link icon-only ml-1"  @click='ayAc(ay.ay)'>
                                     <i class="fa fa-plus" v-if='ay_index != ay.ay'></i>
                                     <i class="fa fa-minus" v-else></i>
                                 </button>
@@ -59,7 +59,7 @@
                         <template v-if='musteriler.length > 0 && yil_index == yil.yil && ay_index == ay.ay' v-for='musteri in musteriler'>
                             <tr :class='musteriStil(musteri.hesapkod)'>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-link icon-only"  style="margin-left: 20px;" @click='hesapAc(musteri.hesapkod)'>
+                                    <button type="button" class="btn btn-sm btn-link icon-only ml-2" @click='hesapAc(musteri.hesapkod)'>
                                         <i class="fa fa-plus" v-if='hesapkod != musteri.hesapkod'></i>
                                         <i class="fa fa-minus" v-else></i>
                                     </button>
@@ -143,19 +143,19 @@
             },
             yilStil(yil){
                 if(yil == this.yil_index){
-                    return 'success';
+                    return 'table-success';
                 }
                 return '';
             },
             ayStil(ay){
                 if(ay == this.ay_index){
-                    return 'success';
+                    return 'table-success';
                 }
                 return '';
             },
             musteriStil(hesapkod){
                 if(hesapkod == this.hesapkod){
-                    return 'success';
+                    return 'table-success';
                 }
                 return '';
             },

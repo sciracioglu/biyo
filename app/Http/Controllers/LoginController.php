@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
-    private $yetkililer = ['Ayla Kurucu',
+    private $yetkililer = [
+        'Ayla Kurucu',
         'Onurcan Kurucu',
         'Nadir Kurucu',
         'Dogacan Kurucu',
@@ -51,7 +52,6 @@ class LoginController extends Controller
             if ($k->SAYI == 1) {
                 session()->put('username', request('kullanici'));
                 session()->put('yetkili', 0);
-
                 if (in_array(request('kullanici'), $this->yetkililer)) {
                     session()->put('yetkili', 1);
                 }
