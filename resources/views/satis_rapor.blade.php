@@ -149,13 +149,13 @@
             },
             ayStil(ay){
                 if(ay == this.ay_index){
-                    return 'table-success';
+                    return 'table-info';
                 }
                 return '';
             },
             musteriStil(hesapkod){
                 if(hesapkod == this.hesapkod){
-                    return 'table-success';
+                    return 'table-warning';
                 }
                 return '';
             },
