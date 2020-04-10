@@ -82,7 +82,7 @@ class SatisRaporController extends Controller
                 'ay' => $musteri->EVRAKAY,
                 'unvan' => $musteri->CARKRT_UNVAN.' '.$musteri->CARKRT_UNVAN2,
                 'miktar' => $musteri->T_MIKTAR,
-                'tutar' => $musteri->T_TUTUAR,
+                'tutar' => $musteri->T_TUTAR,
                 'iskonto' => $musteri->T_ISKONTO,
                 'nettutar' => $musteri->T_NETTUTAR,
                 'kdv' => $musteri->T_KDV,
