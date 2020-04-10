@@ -188,7 +188,7 @@
                 }
             },
             hesapAc(hesapkod){
-                if(this.hesapkod == null){
+                if(this.hesapkod == null || this.hesapkod != hesapkod){
                     this.hesapkod = hesapkod;
                      this.musteri_detaylar = {};
                      self = this;
