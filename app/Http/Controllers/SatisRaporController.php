@@ -79,6 +79,7 @@ class SatisRaporController extends Controller
             return [
                 'yil' => $musteri->EVRAKYIL,
                 'ay' => $musteri->EVRAKAY,
+                'hesapkod' => $musteri->HESAPKOD,
                 'unvan' => $musteri->CARKRT_UNVAN.' '.$musteri->CARKRT_UNVAN2,
                 'miktar' => $musteri->T_MIKTAR,
                 'tutar' => $musteri->T_TUTAR,
