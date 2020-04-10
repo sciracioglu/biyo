@@ -129,14 +129,7 @@
                 return  numeral(rakam) . format('0,0.00');
             },
             yilAc(yil){
-                if(this.yil_index == null){
-                    this.yil_index = yil;
-                    self = this;
-                    axios.get('/satis_rapor_ay?yil='+yil)
-                        .then(({data}) => {
-                            self.aylik_satislar = data;
-                        });
-                } else {
+                if(this.yil_index == null || this.yil_index != yil){
                     this.aylik_satislar = {};
                     this.musteriler = {};
                     this.musteri_detaylar = {};
@@ -144,6 +137,12 @@
                     this.ay_index = null;
                     this.hesapkod = null;
                     this.hesap_detay = null;
+                    this.yil_index = yil;
+                    self = this;
+                    axios.get('/satis_rapor_ay?yil='+yil)
+                        .then(({data}) => {
+                            self.aylik_satislar = data;
+                        });
                 }
             },
              ayAc(ay){
