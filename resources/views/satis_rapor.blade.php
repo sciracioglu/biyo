@@ -28,8 +28,9 @@
                 <template  v-for='yil in yillik_satislar'>
                     <tr>
                         <td>
-                            <button type="button" class="btn btn-xs btn-primary icon-only" @click='yilAc(yil.yil)'>
-                                <i class="fa fa-plus"></i>
+                            <button type="button" class="btn btn-sm btn-link icon-only" @click='yilAc(yil.yil)'>
+                                <i class="fa fa-plus" v-if='yil_index != yil.yil'></i>
+                                <i class="fa fa-minus" v-else></i>
                             </button>
                             @{{ yil.yil}}</td>
                         <td class="text-right" v-text='format(yil.miktar)'></td>
