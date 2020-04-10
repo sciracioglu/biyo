@@ -22,7 +22,7 @@ class SatisRaporController extends Controller
              return [
                  'yil' => $yil->EVRAKYIL,
                  'miktar' => $yil->T_MIKTAR,
-                 'tutar' => $yil->T_TUTUAR,
+                 'tutar' => $yil->T_TUTAR,
                  'iskonto' => $yil->T_ISKONTO,
                  'nettutar' => $yil->T_NETTUTAR,
                  'kdv' => $yil->T_KDV,
