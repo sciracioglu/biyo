@@ -39,7 +39,7 @@
                         <td class="text-right" v-text='format(yil.kdv)'></td>
                         <td class="text-right" v-text='format(yil.toplam)'></td>
                     </tr>
-                    <div  v-if='aylik_satislar !=null && aylik_satislar.length >0 && yil_index = yil.yil' v-for='ay in aylik_satislar'>
+                    <div  v-if='aylik_satislar.length >0 && yil_index = yil.yil' v-for='ay in aylik_satislar'>
                         <tr>
                             <td>@{{ ay.yil}} - @{{ ay.ay }} </td>
                             <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -49,7 +49,7 @@
                             <td class="text-right" v-text='format(ay.kdv)'></td>
                             <td class="text-right" v-text='format(ay.toplam)'></td>
                         </tr>
-                        <div v-if='musteriler !=null && musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
+                        <div v-if='musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
                             <tr>
                                 <td>@{{ musteri.unvan }} </td>
                                 <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -59,7 +59,7 @@
                                 <td class="text-right" v-text='format(ay.kdv)'></td>
                                 <td class="text-right" v-text='format(ay.toplam)'></td>
                             </tr>
-                            <div  v-if='musteri_detaylar !=null && musteri_detaylar.length >0 && yil_index = yil.yil && ay_index = ay.ay && hesapkod = musteri_detaylar'>
+                            <div  v-if='musteri_detaylar.length >0 && yil_index = yil.yil && ay_index = ay.ay && hesapkod = musteri_detaylar'>
                                 <tr>
                                     <td colspan="7">
                                         <table class="table table-hover table-condenced table-striped text-sm">
@@ -120,9 +120,9 @@
             hesapkod:null,
             detay:null,
             yillik_satislar:{!! $yillik_satislar !!},
-            aylik_satislar:null,
-            musteriler:null,
-            musteri_detaylar:null,
+            aylik_satislar:{},
+            musteriler:{},
+            musteri_detaylar:{},
         },
         methods:{
             format(rakam){
@@ -132,9 +132,9 @@
                 if(this.yil_index == null){
                     this.yil_index = yil;
                 } else {
-                    this.aylik_satislar = null;
-                    this.musteriler = null;
-                    this.musteri_detaylar = null;
+                    this.aylik_satislar = {};
+                    this.musteriler = {};
+                    this.musteri_detaylar = {};
                     this.yil_index = null;
                     this.ay_index = null;
                     this.hesapkod = null;
@@ -145,8 +145,8 @@
                 if(this.ay_index == null){
                     this.ay_index = ay;
                 } else {
-                    this.musteriler = null;
-                    this.musteri_detaylar = null;
+                    this.musteriler = {};
+                    this.musteri_detaylar = {};
                     this.ay_index = null;
                     this.hesapkod = null;
                     this.hesap_detay = null;
@@ -156,7 +156,7 @@
                 if(this.hesapkod == null){
                     this.hesapkod = hesapkod;
                 } else {
-                    this.musteri_detaylar = null;
+                    this.musteri_detaylar = {};
                     this.hesapkod = null;
                     this.hesap_detay = null;
                 }
