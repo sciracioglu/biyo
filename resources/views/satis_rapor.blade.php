@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <div  v-for='(yil, index) in yillik_satislar'>
+                <div  v-for='yil in yillik_satislar'>
                     <tr>
                         <td>
                             <button type="button" class="btn btn-xs btn-default icon-only" @click='yilAc(yil.yil)'>
@@ -39,7 +39,7 @@
                         <td class="text-right" v-text='format(yil.kdv)'></td>
                         <td class="text-right" v-text='format(yil.toplam)'></td>
                     </tr>
-                    <div  v-if='aylik_satislar && aylik_satislar.length >0 && yil_index = yil.yil' v-for='ay in aylik_satislar'>
+                    <div  v-if='aylik_satislar !=null && aylik_satislar.length >0 && yil_index = yil.yil' v-for='ay in aylik_satislar'>
                         <tr>
                             <td>@{{ ay.yil}} - @{{ ay.ay }} </td>
                             <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -49,7 +49,7 @@
                             <td class="text-right" v-text='format(ay.kdv)'></td>
                             <td class="text-right" v-text='format(ay.toplam)'></td>
                         </tr>
-                        <div v-if='musteriler && musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
+                        <div v-if='musteriler !=null && musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
                             <tr>
                                 <td>@{{ musteri.unvan }} </td>
                                 <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -59,7 +59,7 @@
                                 <td class="text-right" v-text='format(ay.kdv)'></td>
                                 <td class="text-right" v-text='format(ay.toplam)'></td>
                             </tr>
-                            <div  v-if='musteri_detaylar && musteri_detaylar.length >0 && yil_index = yil.yil && ay_index = ay.ay && hesapkod = musteri_detaylar'>
+                            <div  v-if='musteri_detaylar !=null && musteri_detaylar.length >0 && yil_index = yil.yil && ay_index = ay.ay && hesapkod = musteri_detaylar'>
                                 <tr>
                                     <td colspan="7">
                                         <table class="table table-hover table-condenced table-striped text-sm">
@@ -124,9 +124,6 @@
             musteriler:null,
             musteri_detaylar:null,
         },
-        computed:{
-
-        },
         methods:{
             format(rakam){
                 return  numeral(rakam) . format('0,0.00');
@@ -135,6 +132,9 @@
                 if(this.yil_index == null){
                     this.yil_index = yil;
                 } else {
+                    this.aylik_satislar = null;
+                    this.musteriler = null;
+                    this.musteri_detaylar = null;
                     this.yil_index = null;
                     this.ay_index = null;
                     this.hesapkod = null;
@@ -145,6 +145,8 @@
                 if(this.ay_index == null){
                     this.ay_index = ay;
                 } else {
+                    this.musteriler = null;
+                    this.musteri_detaylar = null;
                     this.ay_index = null;
                     this.hesapkod = null;
                     this.hesap_detay = null;
@@ -154,6 +156,7 @@
                 if(this.hesapkod == null){
                     this.hesapkod = hesapkod;
                 } else {
+                    this.musteri_detaylar = null;
                     this.hesapkod = null;
                     this.hesap_detay = null;
                 }
