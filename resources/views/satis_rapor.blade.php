@@ -43,8 +43,8 @@
                     <template  v-if='aylik_satislar.length > 0 && yil_index == yil.yil' v-for='ay in aylik_satislar'>
                         <tr>
                             <td>
-                                <button type="button" class="btn btn-sm btn-link icon-only" @click='ayAc(yil.yil)'>
-                                    <i class="fa fa-plus" v-if='yil_index != yil.yil && ay_index != ay.ay'></i>
+                                <button type="button" class="btn btn-sm btn-link icon-only" @click='ayAc(yil.yil, ay.ay)'>
+                                    <i class="fa fa-plus" v-if='yil_index != yil.yil && ay_index != ay.ay && ay_index !=null'></i>
                                     <i class="fa fa-minus" v-else></i>
                                 </button>
                                 @{{ ay.yil}} - @{{ ay.ay }}
