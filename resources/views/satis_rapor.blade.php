@@ -28,7 +28,7 @@
                 <template  v-for='yil in yillik_satislar'>
                     <tr>
                         <td>
-                            <button type="button" class="btn btn-xs btn-default icon-only" @click='yilAc(yil.yil)'>
+                            <button type="button" class="btn btn-xs btn-primary icon-only" @click='yilAc(yil.yil)'>
                                 <i class="fa fa-plus"></i>
                             </button>
                             @{{ yil.yil}}</td>
@@ -143,6 +143,14 @@
                         .then(({data}) => {
                             self.aylik_satislar = data;
                         });
+                } else {
+                    this.aylik_satislar = {};
+                    this.musteriler = {};
+                    this.musteri_detaylar = {};
+                    this.yil_index = null;
+                    this.ay_index = null;
+                    this.hesapkod = null;
+                    this.hesap_detay = null;
                 }
             },
              ayAc(ay){
