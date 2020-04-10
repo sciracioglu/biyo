@@ -28,7 +28,7 @@
                 <template  v-for='yil in yillik_satislar'>
                     <tr :class='yilStil(yil.yil)'>
                         <td>
-                            <button type="button" class="btn btn-sm btn-link icon-only" style="margin-left: 10px;" @click='yilAc(yil.yil)'>
+                            <button type="button" class="btn btn-sm btn-link icon-only"@click='yilAc(yil.yil)'>
                                 <i class="fa fa-plus" v-if='yil_index != yil.yil'></i>
                                 <i class="fa fa-minus" v-else></i>
                             </button>
@@ -43,7 +43,7 @@
                     <template  v-if='aylik_satislar.length > 0 && yil_index == yil.yil' v-for='ay in aylik_satislar'>
                         <tr :class='ayStil(ay.ay)'>
                             <td>
-                                <button type="button" class="btn btn-sm btn-link icon-only"  style="margin-left: 20px;" @click='ayAc(ay.ay)'>
+                                <button type="button" class="btn btn-sm btn-link icon-only"  style="margin-left: 10px;" @click='ayAc(ay.ay)'>
                                     <i class="fa fa-plus" v-if='ay_index != ay.ay'></i>
                                     <i class="fa fa-minus" v-else></i>
                                 </button>
@@ -59,7 +59,7 @@
                         <template v-if='musteriler.length > 0 && yil_index == yil.yil && ay_index == ay.ay' v-for='musteri in musteriler'>
                             <tr :class='musteriStil(musteri.hesapkod)'>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-link icon-only" @click='hesapAc(musteri.hesapkod)'>
+                                    <button type="button" class="btn btn-sm btn-link icon-only"  style="margin-left: 20px;" @click='hesapAc(musteri.hesapkod)'>
                                         <i class="fa fa-plus" v-if='hesapkod != musteri.hesapkod'></i>
                                         <i class="fa fa-minus" v-else></i>
                                     </button>
