@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <div  v-for='yil in yillik_satislar'>
+                <template  v-for='yil in yillik_satislar'>
                     <tr>
                         <td>
                             <button type="button" class="btn btn-xs btn-default icon-only" @click='yilAc(yil.yil)'>
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                     </div> -->
-                </div>
+                </template>
             </tbody>
         </table>
     </div>
