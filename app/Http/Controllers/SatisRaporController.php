@@ -27,7 +27,6 @@ class SatisRaporController extends Controller
                  'nettutar' => $yil->T_NETTUTAR,
                  'kdv' => $yil->T_KDV,
                  'toplam' => $yil->T_TOPLAM,
-                 'aylar' => $this->aylar($yil->EVRAKYIL),
              ];
          });
 
@@ -57,7 +56,6 @@ class SatisRaporController extends Controller
                 'nettutar' => $ay->T_NETTUTAR,
                 'kdv' => $ay->T_KDV,
                 'toplam' => $ay->T_TOPLAM,
-                'musteriler' => $this->musteriler($ay->EVRAKYIL, $ay->EVRAKAY),
             ];
          });
     }
@@ -87,7 +85,6 @@ class SatisRaporController extends Controller
                 'nettutar' => $musteri->T_NETTUTAR,
                 'kdv' => $musteri->T_KDV,
                 'toplam' => $musteri->T_TOPLAM,
-                'hesaplar' => $this->hesaplar($musteri->EVRAKYIL, $musteri->EVRAKAY, $musteri->HESAPKOD),
             ];
          });
     }
