@@ -64,7 +64,7 @@ class SatisRaporController extends Controller
 
     private function musteriler($yil, $ay)
     {
-        return collect(DB::select('SELECT EVRAKYIL, EVRAKAY, CARKRT_UNVAN, CARKRT_UNVAN2, HESAPKOD
+        return collect(DB::select('SELECT EVRAKYIL, EVRAKAY, CARKRT_UNVAN, CARKRT_UNVAN2, HESAPKOD,
         SUM(MIKTAR) AS T_MIKTAR,
         SUM(EVRAKTUTAR) AS T_TUTAR,
         SUM(ISKONTO) AS T_ISKONTO,
