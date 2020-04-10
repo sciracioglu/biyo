@@ -52,7 +52,7 @@ class SatisRaporController extends Controller
                 'yil' => $ay->EVRAKYIL,
                 'ay' => $ay->EVRAKAY,
                 'miktar' => $ay->T_MIKTAR,
-                'tutar' => $ay->T_TUTUAR,
+                'tutar' => $ay->T_TUTAR,
                 'iskonto' => $ay->T_ISKONTO,
                 'nettutar' => $ay->T_NETTUTAR,
                 'kdv' => $ay->T_KDV,
