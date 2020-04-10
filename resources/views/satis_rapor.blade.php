@@ -39,7 +39,7 @@
                         <td class="text-right" v-text='format(yil.kdv)'></td>
                         <td class="text-right" v-text='format(yil.toplam)'></td>
                     </tr>
-                    <div  v-if='yil.aylar.length >0 && yil_index = yil.yil' v-for='ay in yil.aylar'>
+                    <div  v-if='aylik_satislar.length >0 && yil_index = yil.yil' v-for='ay in aylik_satislar'>
                         <tr>
                             <td>@{{ ay.yil}} - @{{ ay.ay }} </td>
                             <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -49,7 +49,7 @@
                             <td class="text-right" v-text='format(ay.kdv)'></td>
                             <td class="text-right" v-text='format(ay.toplam)'></td>
                         </tr>
-                        <div v-if='ay.musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in ay.musteriler'>
+                        <div v-if='musteriler.length >0 && yil_index = yil.yil && ay_index = ay.ay' v-for='musteri in musteriler'>
                             <tr>
                                 <td>@{{ musteri.unvan }} </td>
                                 <td class="text-right" v-text='format(ay.miktar)'></td>
@@ -59,7 +59,7 @@
                                 <td class="text-right" v-text='format(ay.kdv)'></td>
                                 <td class="text-right" v-text='format(ay.toplam)'></td>
                             </tr>
-                            <div  v-if='musteri.hesaplar.length >0 && yil_index = yil.yil && ay_index = ay.ay && hesapkod = musteri.hesapkod'>
+                            <div  v-if='musteri_detaylar.length >0 && yil_index = yil.yil && ay_index = ay.ay && hesapkod = musteri_detaylar'>
                                 <tr>
                                     <td colspan="7">
                                         <table class="table table-hover table-condenced table-striped text-sm">
@@ -121,7 +121,8 @@
             detay:null,
             yillik_satislar:{!! $yillik_satislar !!},
             aylik_satislar:null,
-            cari_satislari:null,
+            musteriler:null,
+            musteri_detaylar:null,
         },
         computed:{
 
