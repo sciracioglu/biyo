@@ -30,6 +30,6 @@
         data:{
             alacaklar:{!! $alacaklar !!},
         },
-    })
+    });
 </script>
 @endscript
