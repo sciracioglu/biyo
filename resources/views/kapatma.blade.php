@@ -11,16 +11,16 @@
 @section('icerik')
 <div class="row" id="app">
     <div class="col-md-8">
-        <div class="well mb-4">
-            <h4>Kapatma Dışı Borç Hareketleri</h4>
+        <div class="card mb-4">
+            <h5>Kapatma Dışı Borç Hareketleri</h5>
         </div>
-        <div class="well">
-            <h4>Kapatma Dışı Alacak Hareketleri</h4>
+        <div class="card">
+            <h5>Kapatma Dışı Alacak Hareketleri</h5>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="well mb-4">
-            <h4>Kapatma Dışı Borç Toplam</h4>
+        <div class="card mb-4">
+            <h5>Kapatma Dışı Borç Toplam</h5>
             <div class="list-group">
                 <div class="list-group-item">
                     <div class="row">
@@ -48,8 +48,8 @@
                 </div>
             </div>
         </div>
-        <div class="well mb-4">
-            <h4>Kapatma Dışı Alacak Toplam</h4>
+        <div class="card mb-4">
+            <h5>Kapatma Dışı Alacak Toplam</h5>
             <div class="list-group">
                 <div class="list-group-item">
                     <div class="row">
