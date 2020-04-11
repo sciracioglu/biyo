@@ -46,7 +46,7 @@
                             <td class='text-right' v-text='format(borc.DOVIZTUTAR)'></td>
                             <td>@{{ borc.EVRAKDOVIZCINSI }}</td>
                         </tr>
-                        <tr>
+                        <tr class="table-warning">
                             <td></td>
                             <td></td>
                             <td>@{{ borc_ortalama[0].ORTALAMAVADE }}</td>
@@ -69,7 +69,7 @@
                 <h5  class="card-title">Kapatma Dışı Alacak Hareketleri</h5>
                 <table class="table table-hover table-condenced">
                     <thead>
-                        <tr class="table-success">
+                        <tr>
                             <th>Evrak Tarihi</th>
                             <th>Evrak No</th>
                             <th>Vade Tarihi</th>
@@ -99,7 +99,7 @@
                             <td class='text-right' v-text='format(alacak.DOVIZTUTAR)'></td>
                             <td>@{{ alacak.EVRAKDOVIZCINS }}</td>
                         </tr>
-                        <tr class="table-success">
+                        <tr class="table-warning">
                             <td></td>
                             <td></td>
                             <td>@{{ alacak_ortalama[0].ORTALAMAVADE }}</td>
