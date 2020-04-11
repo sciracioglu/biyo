@@ -48,10 +48,10 @@
                         </tr>
                         <tr class="table-warning">
                             <td></td>
-                            <td></td>
+                            <td class='text-right'>Ortalama Vade</td>
                             <td>@{{ borc_ortalama[0].ORTALAMAVADE }}</td>
                             <td></td>
-                            <td></td>
+                            <td class='text-right'>Toplam Tutar</td>
                             <td class='text-right' v-text='format(borc_ortalama[0].TUTARTOPLAM)'></td>
                             <td></td>
                             <td></td>
