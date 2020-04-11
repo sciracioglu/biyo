@@ -14,6 +14,7 @@ Route::group(['middleware' => ['login']], function () {
     Route::get('satis_rapor_ay', 'SatisRaporController@aylar');
     Route::get('satis_rapor_musteri', 'SatisRaporController@musteriler');
     Route::get('satis_rapor_detay', 'SatisRaporController@hesaplar');
+    Route::get('kapatma', 'KapatmaController@index');
     // Route::get('siparisler', 'SiparisListesiController@show');
     Route::get('stok_durum', 'StokDurumController@index');
     Route::get('rapor', 'StokRaporController@index');
