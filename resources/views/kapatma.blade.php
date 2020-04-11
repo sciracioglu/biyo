@@ -75,7 +75,7 @@
                             <td>@{{ alacak.EVRAKNO }}</td>
                             <td>@{{ alacak.VADETARIH }}</td>
                             <td>@{{ alacak.EVRAKTIP }}</td>
-                            <td>@{{ alacak.ACIKLAMA }}</td>
+                            <td>@{{ alacak.ACIKLAMA1 }}</td>
                             <td class='text-right' v-text='format(alacak.KAPAMATUTAR)'></td>
                             <td class='text-right' v-text='format(alacak.KULLANILANTUTAR)'></td>
                             <td>@{{ alacak.DOVIZCINSI }}</td>
