@@ -79,7 +79,7 @@
                             <td>@{{ alacak.ACIKLAMA1 }}</td>
                             <td class='text-right' v-text='format(alacak.KAPAMATUTAR)'></td>
                             <td class='text-right' v-text='format(alacak.KULLANILANTUTAR)'></td>
-                            <td class='text-right' v-text='format(alacak.KAPAMATUTAR)'></td>
+                            <td class='text-right' v-text='format(alacak.KALANTUTAR)'></td>
                             <td>@{{ alacak.DOVIZCINS }}</td>
                             <td class='text-right' v-text='format(alacak.DOVIZKUR)'></td>
                             <td class='text-right' v-text='format(alacak.DOVIZTUTAR)'></td>
