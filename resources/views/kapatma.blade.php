@@ -11,19 +11,19 @@
 @section('icerik')
 <div class="row" id="app">
     <div class="col-md-8">
-        <div class="card mb-4">
+        <div class="card border-primary mb-4">
             <div class="card-body">
             <h5  class="card-title">Kapatma Dışı Borç Hareketleri</h5>
             </div>
         </div>
-        <div class="card">
+        <div class="card border-secondary">
             <div class="card-body">
                 <h5  class="card-title">Kapatma Dışı Alacak Hareketleri</h5>
             </div>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card mb-4">
+        <div class="card mb-4 border-primary">
             <div class="card-body">
                 <h5  class="card-title">Kapatma Dışı Borç Toplam</h5>
                 <div class="list-group">
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div class="card mb-4">
+        <div class="card mb-4 border-secondary">
             <div class="card-body">
                 <h5  class="card-title">Kapatma Dışı Alacak Toplam</h5>
                 <div class="list-group">
