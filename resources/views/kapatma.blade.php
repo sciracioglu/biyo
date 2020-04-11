@@ -98,13 +98,13 @@
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-md-4">Tutar</div>
-                            <div class="col-md-8 text-right" v-text='format(borc_ortalama.TUTARTOPLAM)'></div>
+                            <div class="col-md-8 text-right" v-text='format(borc_ortalama[0].TUTARTOPLAM)'></div>
                         </div>
                     </div>
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-md-4">Ort. Vade</div>
-                            <div class="col-md-8 text-right">@{{ borc_ortalama.ORTALAMAVADE }}</div>
+                            <div class="col-md-8 text-right">@{{ borc_ortalama[0].ORTALAMAVADE }}</div>
                         </div>
                     </div>
                 </div>
@@ -117,13 +117,13 @@
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-md-4">Tutar</div>
-                            <div class="col-md-8 text-right" v-text='format(borc_ortalama.TUTARTOPLAM)'></div>
+                            <div class="col-md-8 text-right" v-text='format(alacak_ortalama[0].TUTARTOPLAM)'></div>
                         </div>
                     </div>
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-md-4">Ort. Vade</div>
-                            <div class="col-md-8 text-right">@{{ borc_ortalama.ORTALAMAVADE }}</div>
+                            <div class="col-md-8 text-right">@{{ alacak_ortalama.ORTALAMAVADE }}</div>
                         </div>
                     </div>
                 </div>
