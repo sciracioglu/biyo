@@ -40,6 +40,7 @@
                             <td>@{{ borc.ACIKLAMA }}</td>
                             <td class='text-right' v-text='format(borc.KAPAMATUTAR)'></td>
                             <td class='text-right' v-text='format(borc.KULLANILANTUTAR)'></td>
+                            <td class='text-right' v-text='format(borc.KALANTUTAR)'></td>
                             <td>@{{ borc.DOVIZCINSI }}</td>
                             <td class='text-right' v-text='format(borc.DOVIZKURU)'></td>
                             <td class='text-right' v-text='format(borc.DOVIZTUTAR)'></td>
@@ -78,6 +79,7 @@
                             <td>@{{ alacak.ACIKLAMA1 }}</td>
                             <td class='text-right' v-text='format(alacak.KAPAMATUTAR)'></td>
                             <td class='text-right' v-text='format(alacak.KULLANILANTUTAR)'></td>
+                            <td class='text-right' v-text='format(alacak.KALANTUTAR)'></td>
                             <td>@{{ alacak.DOVIZCINSI }}</td>
                             <td class='text-right' v-text='format(alacak.DOVIZKURU)'></td>
                             <td class='text-right' v-text='format(alacak.DOVIZTUTAR)'></td>
