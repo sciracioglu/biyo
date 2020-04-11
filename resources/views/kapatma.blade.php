@@ -10,7 +10,7 @@
 
 @section('icerik')
 <div class="row" id="app">
-    <div class="col-md-9">
+    <div class="col-md-12">
         <div class="card border-primary mb-4">
             <div class="card-body">
                 <h5  class="card-title">Kapatma Dışı Borç Hareketleri</h5>
@@ -45,6 +45,20 @@
                             <td class='text-right' v-text='format(borc.DOVIZKURU)'></td>
                             <td class='text-right' v-text='format(borc.DOVIZTUTAR)'></td>
                             <td>@{{ borc.EVRAKDOVIZCINSI }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>@{{ borc_ortalama.ORTALAMAVADE }}</td>
+                            <td></td>
+                            <td></td>
+                            <td class='text-right' v-text='format(borc_ortalama[0].TUTARTOPLAM)'></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
@@ -85,48 +99,22 @@
                             <td class='text-right' v-text='format(alacak.DOVIZTUTAR)'></td>
                             <td>@{{ alacak.EVRAKDOVIZCINS }}</td>
                         </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>@{{ alacak_ortalama.ORTALAMAVADE }}</td>
+                            <td></td>
+                            <td></td>
+                            <td class='text-right' v-text='format(alacak_ortalama[0].TUTARTOPLAM)'></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card mb-4 border-primary">
-            <div class="card-body">
-                <h5  class="card-title">Kapatma Dışı Borç Toplam</h5>
-                <div class="list-group">
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4">Tutar</div>
-                            <div class="col-md-8 text-right" v-text='format(borc_ortalama[0].TUTARTOPLAM)'></div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4">Ort. Vade</div>
-                            <div class="col-md-8 text-right">@{{ borc_ortalama[0].ORTALAMAVADE }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-4 border-secondary">
-            <div class="card-body">
-                <h5  class="card-title">Kapatma Dışı Alacak Toplam</h5>
-                <div class="list-group">
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4">Tutar</div>
-                            <div class="col-md-8 text-right" v-text='format(alacak_ortalama[0].TUTARTOPLAM)'></div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4">Ort. Vade</div>
-                            <div class="col-md-8 text-right">@{{ alacak_ortalama.ORTALAMAVADE }}</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
