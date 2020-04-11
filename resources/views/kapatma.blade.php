@@ -4,7 +4,7 @@
     {{ session('musteri.unvan') }}
 @endsection
 @section('kucuk_baslik')
-  Kapatma Bilgileri
+  Cari Hesap Kapatma
 @stop
 
 
@@ -13,12 +13,78 @@
     <div class="col-md-9">
         <div class="card border-primary mb-4">
             <div class="card-body">
-            <h5  class="card-title">Kapatma Dışı Borç Hareketleri</h5>
+                <h5  class="card-title">Kapatma Dışı Borç Hareketleri</h5>
+                <table class="table table-hover table-condenced">
+                    <thead>
+                        <tr>
+                            <th>Evrak Tarihi</th>
+                            <th>Evrak No</th>
+                            <th>Vade Tarihi</th>
+                            <th>İşlem Tipi</th>
+                            <th>Açıklama</th>
+                            <th>Kapama Tutar</th>
+                            <th>Kulanılan Tutar</th>
+                            <th>Kalan Tutar</th>
+                            <th>Döviz Cinsi</th>
+                            <th>Döviz Kuru</th>
+                            <th>Döviz Tutar</th>
+                            <th>Evrak Döviz Cinsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for='borc in borclar'>
+                            <td>@{{ borc.EVRAKTARIH }}</td>
+                            <td>@{{ borc.EVRAKNO }}</td>
+                            <td>@{{ borc.VADETARIH }}</td>
+                            <td>@{{ borc.EVRAKTIP }}</td>
+                            <td>@{{ borc.ACIKLAMA }}</td>
+                            <td class='text-right' v-text='format(borc.KAPAMATUTAR)'></td>
+                            <td class='text-right' v-text='format(borc.KULLANILANTUTAR)'></td>
+                            <td>@{{ borc.DOVIZCINSI }}</td>
+                            <td class='text-right' v-text='format(borc.DOVIZKURU)'></td>
+                            <td class='text-right' v-text='format(borc.DOVIZTUTAR)'></td>
+                            <td>@{{ borc.EVRAKDOVIZCINSI }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="card border-secondary">
             <div class="card-body">
                 <h5  class="card-title">Kapatma Dışı Alacak Hareketleri</h5>
+                <table class="table table-hover table-condenced">
+                    <thead>
+                        <tr>
+                            <th>Evrak Tarihi</th>
+                            <th>Evrak No</th>
+                            <th>Vade Tarihi</th>
+                            <th>İşlem Tipi</th>
+                            <th>Açıklama</th>
+                            <th>Kapama Tutar</th>
+                            <th>Kulanılan Tutar</th>
+                            <th>Kalan Tutar</th>
+                            <th>Döviz Cinsi</th>
+                            <th>Döviz Kuru</th>
+                            <th>Döviz Tutar</th>
+                            <th>Evrak Döviz Cinsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for='alacak in alacaklar'>
+                            <td>@{{ alacak.EVRAKTARIH }}</td>
+                            <td>@{{ alacak.EVRAKNO }}</td>
+                            <td>@{{ alacak.VADETARIH }}</td>
+                            <td>@{{ alacak.EVRAKTIP }}</td>
+                            <td>@{{ alacak.ACIKLAMA }}</td>
+                            <td class='text-right' v-text='format(alacak.KAPAMATUTAR)'></td>
+                            <td class='text-right' v-text='format(alacak.KULLANILANTUTAR)'></td>
+                            <td>@{{ alacak.DOVIZCINSI }}</td>
+                            <td class='text-right' v-text='format(alacak.DOVIZKURU)'></td>
+                            <td class='text-right' v-text='format(alacak.DOVIZTUTAR)'></td>
+                            <td>@{{ alacak.EVRAKDOVIZCINSI }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -90,6 +156,7 @@
 @endsection
 
 @section('scripts')
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <script>
     var vue = new Vue({
         el:'#app',
@@ -97,6 +164,11 @@
             borclar:{!! $borclar !!},
             alacaklar:{!! $alacaklar !!},
         },
+        methods:{
+            format(rakam){
+                return  numeral(rakam) . format('0,0.00');
+            },
+        }
     });
 </script>
 @endsection
