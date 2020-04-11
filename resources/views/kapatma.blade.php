@@ -163,6 +163,8 @@
         data:{
             borclar:{!! $borclar !!},
             alacaklar:{!! $alacaklar !!},
+            borc_ortalama:{!! $borc_ortalama !!},
+            alacak_ortalama:{!! $alacak_ortalama !!},
         },
         methods:{
             format(rakam){

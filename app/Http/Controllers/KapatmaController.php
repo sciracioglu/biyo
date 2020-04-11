@@ -8,9 +8,12 @@ class KapatmaController extends Controller
 {
     public function index()
     {
-        $borclar = collect(DB::select('exec ArgWebKapamaProc ?', [session('musteri.hesapkod')]));
-        $alacaklar = collect(DB::select('exec [dbo].[ArgWebKapamaProcAlacak] ?', [session('musteri.hesapkod')]));
+        $borclar = collect(DB::select('exec [dbo].[ArgWebKapamaProc] ?', [session('musteri.hesapkod')]));
+        $borc_ortalama = collect(DB::select('exec [dbo].[ArgWebKapamaProcOrt] ?', [session('musteri.hesapkod')]));
 
-        return view('kapatma', compact('borclar', 'alacaklar'));
+        $alacaklar = collect(DB::select('exec [dbo].[ArgWebKapamaProcAlacak] ?', [session('musteri.hesapkod')]));
+        $alacak_ortalama = collect(DB::select('exec [dbo].[ArgWebKapamaProcAlacakOrt] ?', [session('musteri.hesapkod')]));
+
+        return view('kapatma', compact('borclar', 'alacaklar', 'borc_ortalama', 'alacak_ortalama'));
     }
 }
