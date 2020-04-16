@@ -9,6 +9,9 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card" style="width: 28rem;">
+            @if(isset($info))
+                <h3 class='text-info'>{{ $info }}</h3>
+            @endif
             <div class="card-body">
                 <h5 class="card-title">{{ session('username') }}</h5>
                 <form method="POST" action="/profil">
