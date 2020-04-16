@@ -53,8 +53,8 @@
                             <td></td>
                             <td class='text-right'>Toplam Tutar :</td>
                             <td class='text-right' v-text='format(borc_ortalama[0].TUTARTOPLAM)'></td>
-                            <td></td>
-                            <td></td>
+                            <td class="text-right" v-text='format(borc_ortalama[0].KULLANILANTUTAR)'></td>
+                            <td class="text-right" v-text='format(borc_ortalama[0].KALANTUTAR)'></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -106,8 +106,8 @@
                             <td></td>
                             <td class='text-right'>Toplam Tutar :</td>
                             <td class='text-right' v-text='format(alacak_ortalama[0].TUTARTOPLAM)'></td>
-                            <td></td>
-                            <td></td>
+                            <td class="text-right" v-text='format(alacak_ortalama[0].KULLANILANTUTAR)'></td>
+                            <td class="text-right" v-text='format(alacak_ortalama[0].KALANTUTAR)'></td>
                             <td></td>
                             <td></td>
                             <td></td>

@@ -20,6 +20,7 @@
               <i class="fa fa-money fa-fw"></i><span class="text">Satış Raporu</span></a>
           </li>
         @endif
+        <li class="nav-item "><a class="nav-link" href="/profil"><i class="fa fa-user fa-fw"></i><span class="text">Profil</span></a></li>
         <li class="nav-item ">
           <form method="POST" action="/logout/{{ session('username') }}">
             @csrf
