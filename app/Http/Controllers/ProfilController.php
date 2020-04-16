@@ -19,6 +19,6 @@ class ProfilController extends Controller
         ]);
         DB::select('EXEC ArgWebPaswdChangeProc ?, ?', [session('username'), $sifre['password']]);
 
-        return back()->with('info', 'sifreniz degisti');
+        return back()->with('info', 'Şifreniz değiştirildi.');
     }
 }

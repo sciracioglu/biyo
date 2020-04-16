@@ -9,10 +9,11 @@
 <div class="row justify-content-center">
     <div class="col-4">
         <div class="card">
-            @if(session()->has('info'))
-                <h3 class='text-info'>{{ session('info') }}</h3>
-            @endif
+
             <div class="card-body">
+                @if(session()->has('info'))
+                    <h3 class='text-info'>{{ session('info') }}</h3>
+                @endif
                 <h5 class="card-title">{{ session('username') }}</h5>
                 <form method="POST" action="/profil">
                     {{ csrf_field() }}
