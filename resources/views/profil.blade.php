@@ -6,9 +6,9 @@
 
 
 @section('icerik')
-<div class="row justify-content-md-center">
-    <div class="col-md-12">
-        <div class="card" style="width: 28rem;">
+<div class="row justify-content-center">
+    <div class="col-4">
+        <div class="card">
             @if(isset($info))
                 <h3 class='text-info'>{{ $info }}</h3>
             @endif
