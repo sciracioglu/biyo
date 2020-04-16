@@ -17,8 +17,6 @@ class ProfilController extends Controller
         $sifre = request()->validate([
             'password' => 'required|confirmed'
         ]);
-
-        dd($sifre);
         DB::select('EXEC ArgWebPaswdChangeProc(?,?)', [session('username'), $sifre['password']]);
 
         return back()->with('info', 'sifreniz degisti');
