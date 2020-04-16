@@ -6,7 +6,7 @@
 
 
 @section('icerik')
-<div class="row">
+<div class="row justify-content-md-center">
     <div class="col-md-12">
         <div class="card" style="width: 28rem;">
             @if(isset($info))
@@ -24,7 +24,7 @@
                         <label for="password_confirmation">Yeni Şifreniz Tekrar</label>
                         <input type="password" name="password_confirmation" class="form-control" id='password_confirmation'>
                     </div>
-                    <button type="submit" class="btn btn-default"> Şifre Değiştir</button>
+                    <button type="submit" class="btn btn-primary btn-block"> Şifre Değiştir</button>
                 </form>
             </div>
         </div>
