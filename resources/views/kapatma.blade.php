@@ -42,7 +42,7 @@
                             <td class='text-right' v-text='format(borc.KULLANILANTUTAR)'></td>
                             <td class='text-right' v-text='format(borc.KALANTUTAR)'></td>
                             <td>@{{ borc.DOVIZCINSI }}</td>
-                            <td class='text-right' v-text='format(borc.DOVIZKURU)'></td>
+                            <td class='text-right' v-text='format(borc.DOVIZKUR)'></td>
                             <td class='text-right' v-text='format(borc.DOVIZTUTAR)'></td>
                             <td>@{{ borc.EVRAKDOVIZCINSI }}</td>
                         </tr>
