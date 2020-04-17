@@ -28,17 +28,13 @@ class LoginController extends Controller
             'kullanici' => 'required'
         ]);
         $kullanicilar = DB::select('select dbo.CheckPassword(?,WEBPASSWORD) AS SAYI FROM  vwwusr WHERE USERNAME =?', [
-            request('sifre'),
-            request('kullanici')
+            $data['sifre'],
+            $data['kullanici']
         ]);
 
         if (!$kullanicilar) {
             return redirect('login')->with('warning', 'Hatali bilgi girdiniz!');
         }
-
-        $eposta = DB::select('SELECT EMAIL FROM vwwusr WHERE USERNAME	 =?', [
-            request('kullanici')
-        ]);
 
         $tip = DB::select("SELECT KOD, SUBSTRING( dbo.refkrt.ACIKLAMA,5,100) ACIKLAMA FROM refkrt
 							WHERE dbo.refkrt.ALANAD	='EVRAKTIP' AND dbo.refkrt.TABLOAD	='EVRBAS'");
@@ -47,12 +43,11 @@ class LoginController extends Controller
             $evraktip[$t->KOD] = $t->ACIKLAMA;
         }
         session()->put('evraktip', $evraktip);
-
         foreach ($kullanicilar as $k) {
             if ($k->SAYI == 1) {
-                session()->put('username', request('kullanici'));
+                session()->put('username', $data['kullanici']);
                 session()->put('yetkili', 0);
-                if (in_array(request('kullanici'), $this->yetkililer)) {
+                if (in_array($data['kullanici'], $this->yetkililer)) {
                     session()->put('yetkili', 1);
                 }
                 return redirect('/');
