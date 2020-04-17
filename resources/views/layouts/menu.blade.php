@@ -25,7 +25,7 @@
           <form method="POST" action="/logout/{{ session('username') }}">
             @csrf
             @method('DELETE')
-            <button class="nav-link" type="submit"><i class="fa fa-sign-out fa-fw"></i><span class="text">Çıkış</span></button>
+            <button class="btn btn-link" type="submit"><i class="fa fa-sign-out fa-fw"></i><span class="text">Çıkış</span></button>
           </form>
         </li>
     </ul>
