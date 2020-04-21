@@ -10,9 +10,9 @@ class SatisRaporController extends Controller
     {
         $yillik_satislar = collect(DB::select('SELECT EVRAKYIL,
         SUM(MIKTAR) AS T_MIKTAR,
-        SUM(EVRAKTUTAR) AS T_TUTAR,
+        SUM(TUTAR) AS T_TUTAR,
         SUM(ISKONTO) AS T_ISKONTO,
-        SUM(EVRAKNETTUTAR) AS T_NETTUTAR,
+        SUM(NETTUTAR) AS T_NETTUTAR,
         SUM(KDV) AS T_KDV,
         SUM(TOPLAM) AS T_TOPLAM
          FROM [dbo].[VW_ARG_WEB_SATIS_RAPOR]
@@ -38,9 +38,9 @@ class SatisRaporController extends Controller
         $yil = request('yil');
         return collect(DB::select('SELECT EVRAKYIL, EVRAKAY,
         SUM(MIKTAR) AS T_MIKTAR,
-        SUM(EVRAKTUTAR) AS T_TUTAR,
+        SUM(TUTAR) AS T_TUTAR,
         SUM(ISKONTO) AS T_ISKONTO,
-        SUM(EVRAKNETTUTAR) AS T_NETTUTAR,
+        SUM(NETTUTAR) AS T_NETTUTAR,
         SUM(KDV) AS T_KDV,
         SUM(TOPLAM) AS T_TOPLAM
          FROM [dbo].[VW_ARG_WEB_SATIS_RAPOR]
@@ -65,9 +65,9 @@ class SatisRaporController extends Controller
     {
         return collect(DB::select('SELECT EVRAKYIL, EVRAKAY, CARKRT_UNVAN, CARKRT_UNVAN2, HESAPKOD,
         SUM(MIKTAR) AS T_MIKTAR,
-        SUM(EVRAKTUTAR) AS T_TUTAR,
+        SUM(TUTAR) AS T_TUTAR,
         SUM(ISKONTO) AS T_ISKONTO,
-        SUM(EVRAKNETTUTAR) AS T_NETTUTAR,
+        SUM(NETTUTAR) AS T_NETTUTAR,
         SUM(KDV) AS T_KDV,
         SUM(TOPLAM) AS T_TOPLAM
          FROM [dbo].[VW_ARG_WEB_SATIS_RAPOR]
